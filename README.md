@@ -72,6 +72,11 @@ openglossa build-exports
 
 # Terminologie TERMDAT en live (backbone) — index dérivé uniquement (règle #6)
 openglossa ingest-termdat Motion Bundesrat --src de
+
+# Term mining : couples candidats DE→FR depuis le parallèle (co-occurrence Dice)
+openglossa mine-terms --in data/processed/tus.jsonl --src de --tgt fr
+# ... + ne garder que les couples ABSENTS de TERMDAT (vérif live)
+openglossa mine-terms --src de --tgt fr --check-termdat --novel-only
 ```
 
 Le serveur MCP interroge **TERMDAT en live** pour `lookup_term` (équivalents
@@ -81,6 +86,13 @@ seul un index dérivé (`concept_id` + URI + identifiant + langues + base légal
 
 Le serveur MCP lit `data/processed/*.jsonl` ; `search_parallel` renvoie des
 segments officiels **cités** (n° RS + URI ELI Fedlex).
+
+`mine-terms` extrait des **couples de termes candidats** du parallèle par
+co-occurrence (coefficient de Dice), avec `score`, `support` et **preuve de
+source** (segments officiels). C'est une file de revue *human-in-the-loop*
+(`review_status: candidate`) — aucun couple n'est présenté comme vérifié sans
+relecture. `--check-termdat` signale (ou, avec `--novel-only`, filtre) les
+couples déjà connus de TERMDAT.
 
 Sur **Windows PowerShell** (sans `make`) :
 
@@ -116,7 +128,7 @@ openglossa/
 | P1 | Ingest Fedlex (SPARQL + Akoma Ntoso, alignement par eId article/alinéa) | ✅ |
 | P2 | Ingest SLDS (TU regeste trilingues, groupées par décision) | ✅ |
 | P3 | Backbone terminologique TERMDAT (live LINDAS, schema.org) | ✅ (JURIVOC en backlog) |
-| P4 | Term mining + verify (human-in-the-loop) | ⬜ |
+| P4 | Term mining + verify (human-in-the-loop) | ✅ (baseline co-occurrence ; LaBSE/eflomal en backlog) |
 | P5 | Packaging / exports (TBX/TMX/...) | ⬜ |
 | P6 | Serveur MCP | ⬜ |
 | P7 | Évaluation (term hit-rate) | ⬜ |

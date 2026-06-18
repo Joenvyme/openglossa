@@ -1,25 +1,22 @@
 """Term mining from parallel data (P4).
 
-Pipeline: statistical extraction (log-likelihood, c-value) + phrase tables
-(fast_align/eflomal) + embedding alignment (LaBSE/simalign) → candidate term
-pairs absent from TERMDAT → LLM ``verify`` against source → human review queue.
-
-Stubs for now.
+Baseline pipeline (deterministic, dependency-free): statistical n-gram
+extraction → cross-lingual pairing by co-occurrence (Dice) → ``verify`` against
+official source segments → human review queue. Heavy aligners (eflomal,
+fast_align) and embedding aligners (LaBSE/simalign) remain optional backends.
 """
 
 from __future__ import annotations
 
-__all__ = ["extract_candidates", "verify"]
+from .extract import STOPWORDS, candidate_terms, mine_pairs, verify
 
+# Backwards-compatible alias used elsewhere in the brief.
+extract_candidates = candidate_terms
 
-def extract_candidates(*args, **kwargs):  # noqa: ANN002, ANN003
-    raise NotImplementedError("Term candidate extraction (P4) is not implemented yet.")
-
-
-def verify(*args, **kwargs):  # noqa: ANN002, ANN003
-    """Verify a candidate term pair against official source evidence.
-
-    Must never fabricate (hard rule #4): return supported=False when no source
-    supports the pair.
-    """
-    raise NotImplementedError("LLM source verification (P4) is not implemented yet.")
+__all__ = [
+    "STOPWORDS",
+    "candidate_terms",
+    "extract_candidates",
+    "mine_pairs",
+    "verify",
+]

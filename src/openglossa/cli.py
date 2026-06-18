@@ -4,6 +4,8 @@ Commands
 --------
 ingest-fedlex   Fetch consolidated acts from Fedlex (live SPARQL) and write
                 title-level parallel TranslationUnits to data/processed/tus.jsonl.
+mine-terms      Mine source→target term candidates from parallel TUs by
+                co-occurrence (Dice) and write a human-review queue (JSONL).
 build-exports   Read data/processed/*.jsonl and write all export formats
                 (TBX, TMX, DeepL CSV per language pair, JSONL copies).
 poc             ingest-fedlex on a default set of core acts, then build-exports.
@@ -26,7 +28,7 @@ from openglossa.export import (
     write_tbx,
     write_tmx,
 )
-from openglossa.schemas import TermRecord, TranslationUnit
+from openglossa.schemas import Lang, TermRecord, TranslationUnit
 
 # A handful of core federal acts for the PoC slice (RS numbers).
 DEFAULT_POC_ACTS = [
@@ -137,6 +139,63 @@ def cmd_ingest_termdat(args: argparse.Namespace) -> int:
     return 0
 
 
+def _termdat_has_pair(src: str, tgt: str, src_lang: str, tgt_lang: str, limit: int) -> bool:
+    """Best-effort live check: is the (src, tgt) pair already known in TERMDAT?"""
+    from openglossa.sources import termdat
+
+    records = termdat.lookup_live(src, src_lang, langs=(src_lang, tgt_lang), limit=limit)
+    tgt_cf = tgt.casefold()
+    for rec in records:
+        tgt_terms = rec.terms.get(tgt_lang) or rec.terms.get(Lang(tgt_lang)) or []
+        for term in tgt_terms:
+            text_cf = term.text.casefold()
+            if tgt_cf in text_cf or text_cf in tgt_cf:
+                return True
+    return False
+
+
+def cmd_mine_terms(args: argparse.Namespace) -> int:
+    """Mine source→target term candidates from parallel TUs (P4 review queue)."""
+    from openglossa.mining import mine_pairs
+
+    src = Lang(args.src)
+    tgt = Lang(args.tgt)
+    tus = read_jsonl(TranslationUnit, Path(args.input))
+    if not tus:
+        print(f"no translation units in {args.input} — run 'ingest-fedlex' first", file=sys.stderr)
+        return 1
+
+    candidates = mine_pairs(
+        tus,
+        src,
+        tgt,
+        min_count=args.min_count,
+        min_support=args.min_support,
+        min_score=args.min_score,
+    )
+    print(f"mined {len(candidates)} candidate pair(s) {src}->{tgt} from {len(tus)} TUs")
+
+    if args.check_termdat:
+        kept: list = []
+        for c in candidates:
+            try:
+                known = _termdat_has_pair(c.src, c.tgt, args.src, args.tgt, args.limit)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ! termdat check '{c.src}': {exc}", file=sys.stderr)
+                known = None
+            c.in_termdat = known
+            if args.novel_only and known:
+                continue
+            kept.append(c)
+        if args.novel_only:
+            print(f"  kept {len(kept)} candidate(s) absent from TERMDAT")
+        candidates = kept
+
+    write_jsonl(candidates, Path(args.out))
+    print(f"wrote {len(candidates)} candidates -> {args.out}")
+    return 0
+
+
 def cmd_build_exports(args: argparse.Namespace) -> int:
     processed = Path(args.processed)
     exports = Path(args.out)
@@ -223,6 +282,34 @@ def build_parser() -> argparse.ArgumentParser:
     p_merge.add_argument("inputs", nargs="+", help="Input JSONL files.")
     p_merge.add_argument("--out", default=str(PROCESSED / "tus.jsonl"), help="Output JSONL.")
     p_merge.set_defaults(func=cmd_merge_tus)
+
+    p_mine = sub.add_parser(
+        "mine-terms",
+        help="Mine term candidates from parallel TUs (co-occurrence Dice) -> review queue.",
+    )
+    p_mine.add_argument(
+        "--in", dest="input", default=str(PROCESSED / "tus.jsonl"), help="Input TUs."
+    )
+    p_mine.add_argument("--src", default="de", help="Source language (default: de).")
+    p_mine.add_argument("--tgt", default="fr", help="Target language (default: fr).")
+    p_mine.add_argument("--min-count", type=int, default=3, help="Min term doc-frequency.")
+    p_mine.add_argument("--min-support", type=int, default=3, help="Min pair co-occurrence.")
+    p_mine.add_argument("--min-score", type=float, default=0.34, help="Min Dice score.")
+    p_mine.add_argument(
+        "--check-termdat",
+        action="store_true",
+        help="Flag pairs already known in TERMDAT (live SPARQL, network).",
+    )
+    p_mine.add_argument(
+        "--novel-only",
+        action="store_true",
+        help="With --check-termdat: keep only pairs absent from TERMDAT.",
+    )
+    p_mine.add_argument("--limit", type=int, default=10, help="TERMDAT lookup limit per term.")
+    p_mine.add_argument(
+        "--out", default=str(PROCESSED / "term_candidates.jsonl"), help="Output JSONL."
+    )
+    p_mine.set_defaults(func=cmd_mine_terms)
 
     p_exp = sub.add_parser("build-exports", help="Write all export formats from data/processed.")
     p_exp.add_argument("--processed", default=str(PROCESSED), help="Processed JSONL dir.")

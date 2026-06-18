@@ -211,12 +211,56 @@ class TranslationUnit(BaseModel):
 
 
 # --------------------------------------------------------------------------- #
+# Term candidate (mined term pair, pre-review — P4)
+# --------------------------------------------------------------------------- #
+
+
+class Evidence(BaseModel):
+    """A piece of official-source proof backing a mined candidate (no fabrication)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    source: str
+    uri: HttpUrl
+    ref: str | None = None
+
+
+class TermCandidate(BaseModel):
+    """A mined term pair awaiting human review (P4).
+
+    Carries the association ``score``, the corpus ``support`` (number of official
+    segments where both terms co-occur), and the ``evidence`` segments. Never
+    presented as verified until ``review_status`` is promoted by a human.
+    """
+
+    model_config = ConfigDict(extra="forbid", use_enum_values=True)
+
+    src_lang: Lang
+    tgt_lang: Lang
+    src: str = Field(..., min_length=1)
+    tgt: str = Field(..., min_length=1)
+    score: Confidence
+    support: int = Field(..., ge=1)
+    method: str = "cooccurrence-dice"
+    evidence: list[Evidence] = Field(default_factory=list)
+    in_termdat: bool | None = None
+    review_status: ReviewStatus = ReviewStatus.candidate
+
+    @model_validator(mode="after")
+    def _distinct_langs(self) -> TermCandidate:
+        if self.src_lang == self.tgt_lang:
+            raise ValueError("src_lang and tgt_lang must differ")
+        return self
+
+
+# --------------------------------------------------------------------------- #
 # JSON Schema export
 # --------------------------------------------------------------------------- #
 
 SCHEMA_MODELS: dict[str, type[BaseModel]] = {
     "term_record": TermRecord,
     "translation_unit": TranslationUnit,
+    "term_candidate": TermCandidate,
 }
 
 

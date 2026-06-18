@@ -109,6 +109,10 @@ def test_json_schema_export(tmp_path):
     from openglossa.schemas import export_json_schemas
 
     paths = export_json_schemas(tmp_path)
-    assert {p.name for p in paths} == {"term_record.schema.json", "translation_unit.schema.json"}
+    assert {p.name for p in paths} == {
+        "term_record.schema.json",
+        "translation_unit.schema.json",
+        "term_candidate.schema.json",
+    }
     for p in paths:
         assert p.read_text(encoding="utf-8").strip().startswith("{")

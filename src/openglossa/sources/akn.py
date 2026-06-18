@@ -53,6 +53,14 @@ def parse_segments(xml: str | bytes) -> dict[str, str]:
     # recover=True tolerates the stray migration namespaces Fedlex emits on <p>.
     root = etree.fromstring(data, parser=etree.XMLParser(recover=True, huge_tree=True))
 
+    # Drop non-normative editorial apparatus (amendment footnotes carry AS/BBl
+    # citations and "In Kraft seit ..." notes that pollute both the TM and term
+    # mining). They are not part of the statutory text.
+    for note in root.findall(f".//{_Q}authorialNote"):
+        parent = note.getparent()
+        if parent is not None:
+            parent.remove(note)
+
     segments: dict[str, str] = {}
     for article in root.iter(f"{_Q}article"):
         art_eid = article.get("eId")
