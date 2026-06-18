@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenGlossa — traduction juridique suisse ancrée dans les sources officielles</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        max-width: 52rem; margin: 0 auto; padding: 2rem 1.25rem; line-height: 1.6;
+      }
+      header { border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent); margin-bottom: 2rem; }
+      h1 { margin-bottom: .25rem; }
+      .tag { display: inline-block; font-size: .8rem; padding: .15rem .5rem; border-radius: 999px;
+             background: color-mix(in srgb, currentColor 10%, transparent); }
+      .disclaimer { background: color-mix(in srgb, #b45309 18%, transparent);
+                    border-left: 4px solid #b45309; padding: .75rem 1rem; border-radius: .35rem; }
+      code { background: color-mix(in srgb, currentColor 10%, transparent); padding: .1rem .35rem; border-radius: .25rem; }
+      footer { margin-top: 3rem; font-size: .85rem; opacity: .8; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>OpenGlossa</h1>
+      <p><span class="tag">open source</span> termbase + translation memory pour la traduction juridique suisse, ancrés dans des sources officielles citables.</p>
+    </header>
+
+    <p class="disclaimer">
+      ⚠️ Les sorties d'OpenGlossa ne constituent <strong>pas</strong> le texte légal
+      officiel faisant foi. Toujours vérifier contre la source officielle
+      (n° RS + article Fedlex, ou référence ATF/BGE).
+    </p>
+
+    <h2>Bientôt</h2>
+    <ul>
+      <li>Téléchargements : <code>TBX</code>, <code>TMX</code>, <code>CSV</code>, <code>JSONL</code>, <code>Parquet</code>, glossaire DeepL.</li>
+      <li>Démo de recherche (appelle l'API/MCP, résultats sourcés).</li>
+      <li>Registre de licences &amp; documentation du schéma.</li>
+    </ul>
+
+    <footer>
+      Code : Apache-2.0 · Dataset : CC-BY-4.0 · Voir <code>LICENSING.md</code> et <code>ATTRIBUTIONS.md</code>.
+    </footer>
+  </body>
+</html>

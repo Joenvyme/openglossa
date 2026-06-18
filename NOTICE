@@ -1,0 +1,14 @@
+OpenGlossa
+Copyright 2026 OpenGlossa contributors
+
+This product includes software developed for the OpenGlossa project,
+licensed under the Apache License, Version 2.0.
+
+The aggregated OpenGlossa dataset is licensed under CC-BY-4.0 (see LICENSE-DATA)
+and is derived from official Swiss legal sources and openly licensed datasets.
+See ATTRIBUTIONS.md for the full list of upstream sources and their citations,
+and LICENSING.md for per-source license status.
+
+DISCLAIMER: OpenGlossa outputs are NOT the authoritative, binding legal text.
+Always verify against the official source (Fedlex RS number + article, or the
+cited ATF/BGE reference).

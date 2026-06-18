@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+.venv311/
+venv/
+env/
+.python-version
+
+# uv-managed toolchain (local)
+.uv-python/
+.uv-cache/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Data (raw upstream is never committed — provenance only)
+data/raw/
+data/cache/
+*.duckdb
+*.duckdb.wal
+*.lance/
+
+# Vector indexes
+*.sqlite-vec
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets / env
+.env
+.env.*
+!.env.example
+
+# Web
+web/node_modules/
+web/dist/
+web/.astro/

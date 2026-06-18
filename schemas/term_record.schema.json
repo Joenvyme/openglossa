@@ -1,0 +1,213 @@
+{
+  "$defs": {
+    "Authority": {
+      "enum": [
+        "statutory",
+        "jurisprudential",
+        "administrative"
+      ],
+      "title": "Authority",
+      "type": "string"
+    },
+    "Lang": {
+      "description": "Supported language codes (ISO 639-1).",
+      "enum": [
+        "de",
+        "fr",
+        "it",
+        "rm",
+        "en"
+      ],
+      "title": "Lang",
+      "type": "string"
+    },
+    "PartOfSpeech": {
+      "enum": [
+        "noun",
+        "verb",
+        "adjective",
+        "adverb",
+        "phrase",
+        "abbreviation",
+        "other"
+      ],
+      "title": "PartOfSpeech",
+      "type": "string"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "verified",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "SourceRef": {
+      "additionalProperties": false,
+      "description": "Provenance for a record (hard rule #3).\n\nA record without provenance must never be ingested, so ``uri`` and\n``license`` are required.",
+      "properties": {
+        "name": {
+          "description": "Upstream source name, e.g. 'Fedlex', 'SLDS', 'TERMDAT'.",
+          "title": "Name",
+          "type": "string"
+        },
+        "uri": {
+          "description": "Citable URI of the upstream record.",
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Uri",
+          "type": "string"
+        },
+        "license": {
+          "description": "SPDX id or short tag, e.g. 'CC-BY-4.0', 'OGD-open-use'.",
+          "title": "License",
+          "type": "string"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Human citation, e.g. 'SR 220 Art. 102' or 'BGE 146 IV 226'.",
+          "title": "Ref"
+        },
+        "retrieved_at": {
+          "description": "UTC timestamp of retrieval.",
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uri",
+        "license"
+      ],
+      "title": "SourceRef",
+      "type": "object"
+    },
+    "Term": {
+      "additionalProperties": false,
+      "description": "A single surface form in one language.",
+      "properties": {
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "pos": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartOfSpeech"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "status": {
+          "$ref": "#/$defs/TermStatus",
+          "default": "admitted"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "Term",
+      "type": "object"
+    },
+    "TermStatus": {
+      "enum": [
+        "preferred",
+        "admitted",
+        "deprecated"
+      ],
+      "title": "TermStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Concept-centred terminology entry (≈ TBX ``termEntry``).",
+  "properties": {
+    "concept_id": {
+      "pattern": "^og:term:[A-Za-z0-9_-]+$",
+      "title": "Concept Id",
+      "type": "string"
+    },
+    "domain": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Domain",
+      "type": "array"
+    },
+    "legal_basis": {
+      "description": "Statutory anchors, e.g. ['SR 220 Art. 102'].",
+      "items": {
+        "type": "string"
+      },
+      "title": "Legal Basis",
+      "type": "array"
+    },
+    "definition": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/Lang"
+      },
+      "title": "Definition",
+      "type": "object"
+    },
+    "terms": {
+      "additionalProperties": {
+        "items": {
+          "$ref": "#/$defs/Term"
+        },
+        "type": "array"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/Lang"
+      },
+      "title": "Terms",
+      "type": "object"
+    },
+    "authority": {
+      "$ref": "#/$defs/Authority"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceRef"
+      },
+      "minItems": 1,
+      "title": "Sources",
+      "type": "array"
+    },
+    "confidence": {
+      "default": 1.0,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "review_status": {
+      "$ref": "#/$defs/ReviewStatus",
+      "default": "candidate"
+    }
+  },
+  "required": [
+    "concept_id",
+    "authority",
+    "sources"
+  ],
+  "title": "TermRecord",
+  "type": "object"
+}

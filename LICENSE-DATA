@@ -1,0 +1,32 @@
+OpenGlossa aggregated dataset — Creative Commons Attribution 4.0 International
+(CC BY 4.0)
+
+This license (LICENSE-DATA) applies ONLY to the aggregated OpenGlossa dataset
+artifacts (termbase, translation memory, and derived exports such as TBX, TMX,
+CSV, JSONL, Parquet, and the DeepL glossary CSV).
+
+It does NOT apply to:
+  - the source code of this repository (pipeline, MCP server, website), which is
+    licensed under the Apache License 2.0 (see LICENSE); nor
+  - upstream sources whose redistribution license is not confirmed. Such sources
+    are NEVER bundled in the downloadable dumps (see LICENSING.md, hard rule #6).
+
+You are free to:
+  - Share — copy and redistribute the material in any medium or format.
+  - Adapt — remix, transform, and build upon the material for any purpose,
+    even commercially.
+
+Under the following terms:
+  - Attribution — You must give appropriate credit (see ATTRIBUTIONS.md and
+    NOTICE), provide a link to the license, and indicate if changes were made.
+    You may do so in any reasonable manner, but not in any way that suggests the
+    licensor endorses you or your use.
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+IMPORTANT DISCLAIMER
+This dataset is derived from official Swiss legal sources but is NOT the
+authoritative legal text. It must never be presented as the binding, official
+version of any statute or court decision. Always verify against the official
+source (Fedlex RS number + article, or the cited ATF/BGE reference).

@@ -1,0 +1,144 @@
+{
+  "$defs": {
+    "Alignment": {
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "$ref": "#/$defs/AlignmentMethod"
+        },
+        "score": {
+          "default": 1.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "method"
+      ],
+      "title": "Alignment",
+      "type": "object"
+    },
+    "AlignmentMethod": {
+      "enum": [
+        "eli-structural",
+        "labse",
+        "manual"
+      ],
+      "title": "AlignmentMethod",
+      "type": "string"
+    },
+    "Lang": {
+      "description": "Supported language codes (ISO 639-1).",
+      "enum": [
+        "de",
+        "fr",
+        "it",
+        "rm",
+        "en"
+      ],
+      "title": "Lang",
+      "type": "string"
+    },
+    "SourceRef": {
+      "additionalProperties": false,
+      "description": "Provenance for a record (hard rule #3).\n\nA record without provenance must never be ingested, so ``uri`` and\n``license`` are required.",
+      "properties": {
+        "name": {
+          "description": "Upstream source name, e.g. 'Fedlex', 'SLDS', 'TERMDAT'.",
+          "title": "Name",
+          "type": "string"
+        },
+        "uri": {
+          "description": "Citable URI of the upstream record.",
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Uri",
+          "type": "string"
+        },
+        "license": {
+          "description": "SPDX id or short tag, e.g. 'CC-BY-4.0', 'OGD-open-use'.",
+          "title": "License",
+          "type": "string"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Human citation, e.g. 'SR 220 Art. 102' or 'BGE 146 IV 226'.",
+          "title": "Ref"
+        },
+        "retrieved_at": {
+          "description": "UTC timestamp of retrieval.",
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uri",
+        "license"
+      ],
+      "title": "SourceRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A parallel segment pair (a TM unit).",
+  "properties": {
+    "tu_id": {
+      "pattern": "^og:tu:[A-Za-z0-9_-]+$",
+      "title": "Tu Id",
+      "type": "string"
+    },
+    "src_lang": {
+      "$ref": "#/$defs/Lang"
+    },
+    "tgt_lang": {
+      "$ref": "#/$defs/Lang"
+    },
+    "src": {
+      "minLength": 1,
+      "title": "Src",
+      "type": "string"
+    },
+    "tgt": {
+      "minLength": 1,
+      "title": "Tgt",
+      "type": "string"
+    },
+    "domain": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Domain",
+      "type": "array"
+    },
+    "source": {
+      "$ref": "#/$defs/SourceRef"
+    },
+    "alignment": {
+      "$ref": "#/$defs/Alignment"
+    }
+  },
+  "required": [
+    "tu_id",
+    "src_lang",
+    "tgt_lang",
+    "src",
+    "tgt",
+    "source",
+    "alignment"
+  ],
+  "title": "TranslationUnit",
+  "type": "object"
+}

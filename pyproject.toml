@@ -1,0 +1,86 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "openglossa"
+version = "0.1.0"
+description = "Open source Swiss legal termbase & translation memory, grounded in official sources, exposed via MCP."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "OpenGlossa contributors" }]
+keywords = ["legal", "translation", "terminology", "swiss", "mcp", "fedlex", "tbx", "tmx"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+# Core deps kept lean. Heavy/optional capabilities live in extras below so that
+# `pip install openglossa` (or `make setup`) stays fast and CI-friendly.
+dependencies = [
+    "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+# Source connectors (Fedlex SPARQL, Hugging Face datasets, RDF/LINDAS).
+sources = [
+    "SPARQLWrapper>=2.0",
+    "rdflib>=7.0",
+    "lxml>=5.0",
+    "httpx>=0.27",
+    "datasets>=2.18",
+]
+# Term mining + alignment + evaluation.
+ml = [
+    "sentence-transformers>=2.6",
+    "simalign>=0.4",
+    "sacrebleu>=2.4",
+]
+# Analytical storage + exports.
+data = [
+    "polars>=0.20",
+    "duckdb>=0.10",
+]
+# MCP server (Streamable HTTP).
+mcp = [
+    "mcp>=1.2",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+    "mypy>=1.9",
+]
+# Convenience meta-extra: everything except dev.
+all = [
+    "openglossa[sources,ml,data,mcp]",
+]
+
+[project.scripts]
+openglossa-mcp = "openglossa.mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/openglossa/openglossa"
+Documentation = "https://github.com/openglossa/openglossa#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/openglossa"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.mypy]
+python_version = "3.11"
+plugins = ["pydantic.mypy"]
+ignore_missing_imports = true
