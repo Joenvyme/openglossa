@@ -157,7 +157,7 @@ openglossa/
 | P4 | Term mining + verify (human-in-the-loop) | ✅ (baseline co-occurrence ; LaBSE/eflomal en backlog) |
 | P5 | Packaging / exports (TBX/TMX/CSV/JSONL/Parquet) + validation DTD + round-trip | ✅ |
 | P6 | Serveur MCP (lookup/search/verify/get_official_text + suggest_glossary) | ✅ |
-| P7 | Évaluation (term hit-rate) | ⬜ |
+| P7 | Évaluation reproductible (term hit-rate avec/sans ancrage ; baseline committée) | ✅ |
 | P8 | Site statique | ⬜ |
 
 Voir [`PROJECT.md`](PROJECT.md) pour la fiche complète.

@@ -1,0 +1,57 @@
+{
+  "k": 3,
+  "n": 15,
+  "conditions": {
+    "no-grounding": {
+      "term_hit_rate": 0.0,
+      "hits": 0,
+      "misses": [
+        "erreur",
+        "dol",
+        "crainte",
+        "lésion",
+        "nullité",
+        "dommage",
+        "solidair",
+        "restitution",
+        "prescri",
+        "juge",
+        "forme",
+        "tacite",
+        "délai",
+        "chose",
+        "intention"
+      ]
+    },
+    "lexical": {
+      "term_hit_rate": 0.6,
+      "hits": 9,
+      "misses": [
+        "dol",
+        "crainte",
+        "restitution",
+        "juge",
+        "tacite",
+        "chose"
+      ]
+    },
+    "vector:hashing": {
+      "term_hit_rate": 0.7333,
+      "hits": 11,
+      "misses": [
+        "dol",
+        "crainte",
+        "restitution",
+        "tacite"
+      ]
+    },
+    "vector:labse": {
+      "term_hit_rate": 0.9333,
+      "hits": 14,
+      "misses": [
+        "prescri"
+      ]
+    }
+  },
+  "corpus_size": 200
+}

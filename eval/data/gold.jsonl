@@ -1,0 +1,15 @@
+{"src_lang": "de", "tgt_lang": "fr", "query": "Eine Partei hat sich beim Vertragsschluss in einem wesentlichen Punkt grundlegend geirrt.", "expected": "erreur", "ref": "SR 220 Art. 23"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Eine Vertragspartei wurde durch arglistige Irreführung der Gegenseite zum Abschluss bewogen.", "expected": "dol", "ref": "SR 220 Art. 28 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Jemand schliesst einen Vertrag unter dem Druck einer begründeten Drohung ab.", "expected": "crainte", "ref": "SR 220 Art. 29 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Erhebliches Missverhältnis zwischen Leistung und Gegenleistung durch Ausnutzung einer Notlage.", "expected": "lésion", "ref": "SR 220 Art. 21 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Sind nur einzelne Klauseln eines Vertrags mangelhaft, bleibt der übrige Teil bestehen.", "expected": "nullité", "ref": "SR 220 Art. 20 al. 2"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Wer einem anderen widerrechtlich einen Nachteil zufügt, muss dafür einstehen.", "expected": "dommage", "ref": "SR 220 Art. 41 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Mehrere Personen haben gemeinsam einen Schaden verursacht und müssen gemeinsam haften.", "expected": "solidair", "ref": "SR 220 Art. 50 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Wer ohne rechtlichen Grund auf Kosten eines anderen einen Vermögensvorteil erlangt.", "expected": "restitution", "ref": "SR 220 Art. 62 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Innert welcher Frist verjährt ein Anspruch aus ungerechtfertigter Bereicherung?", "expected": "prescri", "ref": "SR 220 Art. 67 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Wer entscheidet über offen gebliebene Nebenpunkte eines Geschäfts?", "expected": "juge", "ref": "SR 220 Art. 2 al. 2"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Vorschriften über die äussere Gestalt und Formvorschriften der Verträge.", "expected": "forme", "ref": "SR 220 Art. 2 al. 3"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Eine Willenserklärung kann auch stillschweigend abgegeben werden.", "expected": "tacite", "ref": "SR 220 Art. 1 al. 2"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Bindung an ein Angebot, für dessen Annahme eine Frist gesetzt wurde.", "expected": "délai", "ref": "SR 220 Art. 3 al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Zusendung einer Ware, die gar nicht bestellt wurde.", "expected": "chose", "ref": "SR 220 Art. 6a al. 1"}
+{"src_lang": "de", "tgt_lang": "fr", "query": "Massgeblich ist der wirkliche gemeinsame Wille, nicht die falsche Bezeichnung.", "expected": "intention", "ref": "SR 220 Art. 18 al. 1"}
