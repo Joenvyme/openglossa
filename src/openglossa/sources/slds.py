@@ -1,8 +1,17 @@
 """SLDS connector — Swiss Leading Decision Summarization (``ipst/slds``).
 
-Trilingual regeste (headnotes) of Federal Supreme Court decisions, 1954–2024.
-License: ✅ VERT (CC-BY-4.0). This builds :class:`TranslationUnit` records by
-pairing the language fields of each decision (DE↔FR, DE↔IT, FR↔IT).
+Trilingual *regeste* (headnotes) of Federal Supreme Court leading decisions,
+1954–2024. License: ✅ VERT (CC-BY-4.0).
+
+Real schema (per row): ``decision_id`` (ATF/BGE citation, e.g. ``"80 I 1"``),
+``decision``/``decision_language`` (the judgment text + its original language),
+``headnote``/``headnote_language`` (the official summary, published in DE/FR/IT),
+``law_area``, ``year``, ``volume``, ``url`` (citable bger.ch link).
+
+The official regeste is published in all three languages, so the parallel pairs
+are obtained by **grouping rows by ``decision_id``** and pairing the ``headnote``
+text across ``headnote_language``. This produces concept-aligned TM units
+(method ``manual`` — professionally translated official text).
 
 The ``datasets`` dependency is optional (``pip install 'openglossa[sources]'``).
 """
@@ -16,33 +25,22 @@ from itertools import combinations
 from openglossa.schemas import Alignment, AlignmentMethod, Lang, SourceRef, TranslationUnit
 
 DATASET_ID = "ipst/slds"
+DEFAULT_CONFIG = "default"
 SOURCE_NAME = "SLDS"
 LICENSE_TAG = "CC-BY-4.0"
 BASE_URI = "https://huggingface.co/datasets/ipst/slds"
 
 CORE_LANGS = ("de", "fr", "it")
 
-# Candidate field names per language in the upstream dataset. The exact schema may
-# evolve; we probe several conventional names and use the first present.
-_LANG_FIELDS: dict[str, tuple[str, ...]] = {
-    "de": ("regeste_de", "headnote_de", "de", "text_de"),
-    "fr": ("regeste_fr", "headnote_fr", "fr", "text_fr"),
-    "it": ("regeste_it", "headnote_it", "it", "text_it"),
-}
-# Candidate field names for the decision reference (e.g. BGE/ATF citation).
-_REF_FIELDS = ("bge", "atf", "citation", "reference", "decision_id", "id")
 
-
-def _tu_id(src: str, tgt: str, src_lang: str, tgt_lang: str) -> str:
-    digest = hashlib.sha1(f"{src_lang}|{tgt_lang}|{src}|{tgt}".encode()).hexdigest()[:16]
+def _tu_id(decision_id: str, src_lang: str, tgt_lang: str) -> str:
+    digest = hashlib.sha1(f"{decision_id}|{src_lang}|{tgt_lang}".encode()).hexdigest()[:16]
     return f"og:tu:{digest}"
 
 
-def _first_present(row: dict, candidates: Iterable[str]) -> str | None:
-    for key in candidates:
-        val = row.get(key)
-        if isinstance(val, str) and val.strip():
-            return val.strip()
+def _clean(value: object) -> str | None:
+    if isinstance(value, str) and value.strip():
+        return value.strip()
     return None
 
 
@@ -51,50 +49,70 @@ def rows_to_translation_units(
     *,
     langs: tuple[str, ...] = CORE_LANGS,
 ) -> Iterator[TranslationUnit]:
-    """Convert raw dataset rows into deduplicated parallel :class:`TranslationUnit`.
+    """Group rows by ``decision_id`` and emit parallel regeste TUs per language pair.
 
-    For each row, every available language pair produces one TU (both directions
-    are represented by emitting the ordered pair as-is from ``combinations``).
-    Deduplication is by content hash.
+    Deduplication is implicit: one headnote per (decision_id, language) is kept,
+    and each (decision_id, src, tgt) yields a single TU.
     """
-    seen: set[str] = set()
+    groups: dict[str, dict] = {}
+    order: list[str] = []
     for row in rows:
-        ref = _first_present(row, _REF_FIELDS)
-        texts = {lang: _first_present(row, _LANG_FIELDS.get(lang, ())) for lang in langs}
+        decision_id = _clean(row.get("decision_id"))
+        hn_lang = _clean(row.get("headnote_language"))
+        headnote = _clean(row.get("headnote"))
+        if not decision_id or hn_lang not in langs or not headnote:
+            continue
+        group = groups.get(decision_id)
+        if group is None:
+            group = {
+                "texts": {},
+                "url": _clean(row.get("url")) or BASE_URI,
+                "law_area": _clean(row.get("law_area")),
+            }
+            groups[decision_id] = group
+            order.append(decision_id)
+        group["texts"].setdefault(hn_lang, headnote)
 
+    for decision_id in order:
+        group = groups[decision_id]
+        texts: dict[str, str] = group["texts"]
+        domain = [group["law_area"]] if group["law_area"] else []
         for src_lang, tgt_lang in combinations(langs, 2):
             src = texts.get(src_lang)
             tgt = texts.get(tgt_lang)
             if not src or not tgt:
                 continue
-            tu_id = _tu_id(src, tgt, src_lang, tgt_lang)
-            if tu_id in seen:
-                continue
-            seen.add(tu_id)
-
             yield TranslationUnit(
-                tu_id=tu_id,
+                tu_id=_tu_id(decision_id, src_lang, tgt_lang),
                 src_lang=Lang(src_lang),
                 tgt_lang=Lang(tgt_lang),
                 src=src,
                 tgt=tgt,
+                domain=domain,
                 source=SourceRef(
                     name=SOURCE_NAME,
-                    uri=BASE_URI,  # type: ignore[arg-type]
+                    uri=group["url"],  # type: ignore[arg-type]
                     license=LICENSE_TAG,
-                    ref=ref,
+                    ref=f"ATF {decision_id}",
                 ),
-                alignment=Alignment(method=AlignmentMethod.eli_structural, score=1.0),
+                alignment=Alignment(method=AlignmentMethod.manual, score=1.0),
             )
 
 
 def load_translation_units(
     *,
     split: str = "train",
+    config: str = DEFAULT_CONFIG,
     langs: tuple[str, ...] = CORE_LANGS,
     limit: int | None = None,
 ) -> Iterator[TranslationUnit]:
-    """Load ``ipst/slds`` from the Hugging Face Hub and yield TUs.
+    """Load ``ipst/slds`` from the Hugging Face Hub and yield regeste TUs.
+
+    Parameters
+    ----------
+    limit:
+        Max number of distinct decisions to ingest (``None`` = all). Rows are
+        streamed and grouped by ``decision_id``.
 
     Raises
     ------
@@ -109,17 +127,21 @@ def load_translation_units(
             "pip install 'openglossa[sources]'"
         ) from exc
 
-    ds = load_dataset(DATASET_ID, split=split, streaming=limit is not None)
+    ds = load_dataset(DATASET_ID, config, split=split, streaming=True)
 
-    def _rows() -> Iterator[dict]:
-        for i, row in enumerate(ds):
-            if limit is not None and i >= limit:
-                break
-            yield dict(row)
+    rows: list[dict] = []
+    seen_ids: set[str] = set()
+    for row in ds:
+        decision_id = row.get("decision_id")
+        if limit is not None and decision_id not in seen_ids and len(seen_ids) >= limit:
+            break
+        if decision_id is not None:
+            seen_ids.add(decision_id)
+        rows.append(dict(row))
 
-    yield from rows_to_translation_units(_rows(), langs=langs)
+    yield from rows_to_translation_units(rows, langs=langs)
 
 
 if __name__ == "__main__":  # pragma: no cover - manual smoke test
-    for tu in load_translation_units(limit=5):
-        print(f"[{tu.src_lang}->{tu.tgt_lang}] {tu.src[:60]} || {tu.tgt[:60]}")
+    for tu in load_translation_units(limit=3):
+        print(f"[{tu.src_lang}->{tu.tgt_lang}] {tu.source.ref}: {tu.src[:50]} || {tu.tgt[:50]}")

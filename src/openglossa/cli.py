@@ -69,6 +69,45 @@ def cmd_ingest_fedlex(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_ingest_slds(args: argparse.Namespace) -> int:
+    from openglossa.sources import slds
+
+    out_path = Path(args.out)
+    langs = tuple(args.langs)
+    limit = args.limit if args.limit and args.limit > 0 else None
+
+    units = list(slds.load_translation_units(split=args.split, langs=langs, limit=limit))
+    write_jsonl(units, out_path)
+    print(f"wrote {len(units)} regeste translation units -> {out_path}")
+    return 0
+
+
+def _merge_jsonl(paths: list[Path], out_path: Path) -> int:
+    """Concatenate JSONL files into one, de-duplicating TUs by tu_id."""
+    seen: set[str] = set()
+    lines: list[str] = []
+    for p in paths:
+        if not p.exists():
+            continue
+        for line in p.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            tu = TranslationUnit.model_validate_json(line)
+            if tu.tu_id in seen:
+                continue
+            seen.add(tu.tu_id)
+            lines.append(line)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    return len(lines)
+
+
+def cmd_merge_tus(args: argparse.Namespace) -> int:
+    n = _merge_jsonl([Path(p) for p in args.inputs], Path(args.out))
+    print(f"merged {len(args.inputs)} file(s) -> {n} unique TUs -> {args.out}")
+    return 0
+
+
 def cmd_build_exports(args: argparse.Namespace) -> int:
     processed = Path(args.processed)
     exports = Path(args.out)
@@ -129,6 +168,20 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_ing.add_argument("--out", default=str(PROCESSED / "tus.jsonl"), help="Output JSONL path.")
     p_ing.set_defaults(func=cmd_ingest_fedlex)
+
+    p_slds = sub.add_parser("ingest-slds", help="Fetch SLDS regeste -> trilingual TUs (JSONL).")
+    p_slds.add_argument("--langs", nargs="*", default=list(CORE_LANGUAGES), help="Languages.")
+    p_slds.add_argument("--split", default="train", help="Dataset split (default: train).")
+    p_slds.add_argument(
+        "--limit", type=int, default=0, help="Max distinct decisions (0 = all)."
+    )
+    p_slds.add_argument("--out", default=str(PROCESSED / "tus_slds.jsonl"), help="Output JSONL.")
+    p_slds.set_defaults(func=cmd_ingest_slds)
+
+    p_merge = sub.add_parser("merge-tus", help="Merge JSONL TU files, dedup by tu_id.")
+    p_merge.add_argument("inputs", nargs="+", help="Input JSONL files.")
+    p_merge.add_argument("--out", default=str(PROCESSED / "tus.jsonl"), help="Output JSONL.")
+    p_merge.set_defaults(func=cmd_merge_tus)
 
     p_exp = sub.add_parser("build-exports", help="Write all export formats from data/processed.")
     p_exp.add_argument("--processed", default=str(PROCESSED), help="Processed JSONL dir.")

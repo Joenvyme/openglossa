@@ -62,6 +62,12 @@ openglossa build-exports                      # -> data/exports/ (TMX, JSONL, ..
 
 # Alignement article/alinéa (Akoma Ntoso eId) — TM fine, citable par article
 openglossa ingest-fedlex --articles --rs 220 --max-articles 40
+
+# Regeste trilingues du Tribunal fédéral (SLDS, CC-BY-4.0)
+openglossa ingest-slds --limit 200            # -> data/processed/tus_slds.jsonl
+
+# Fusionner les sources (dédup par tu_id) puis exporter
+openglossa merge-tus data/processed/tus.jsonl data/processed/tus_slds.jsonl
 openglossa build-exports
 ```
 
@@ -100,7 +106,7 @@ openglossa/
 |-------|-------|--------|
 | P0 | Setup (repo, licences, schémas, connecteurs) | ✅ |
 | P1 | Ingest Fedlex (SPARQL + Akoma Ntoso, alignement par eId article/alinéa) | ✅ |
-| P2 | Ingest SLDS (TU regeste trilingues) | ⬜ |
+| P2 | Ingest SLDS (TU regeste trilingues, groupées par décision) | ✅ |
 | P3 | Backbone terminologique (TERMDAT live) | ⬜ |
 | P4 | Term mining + verify (human-in-the-loop) | ⬜ |
 | P5 | Packaging / exports (TBX/TMX/...) | ⬜ |
