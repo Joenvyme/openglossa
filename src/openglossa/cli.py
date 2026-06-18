@@ -45,17 +45,23 @@ def cmd_ingest_fedlex(args: argparse.Namespace) -> int:
     from openglossa.sources import fedlex
 
     out_path = Path(args.out)
-    rs_numbers: list[str] = args.rs or DEFAULT_POC_ACTS
+    rs_numbers: list[str] = args.rs or (["220"] if args.articles else DEFAULT_POC_ACTS)
     langs = tuple(args.langs)
+    kind = "article/alinéa" if args.articles else "title"
 
     all_units: list[TranslationUnit] = []
     for rs in rs_numbers:
         try:
-            units = fedlex.fetch_title_translation_units(rs, langs=langs)
+            if args.articles:
+                units = fedlex.fetch_article_translation_units(
+                    rs, langs=langs, limit=args.max_articles
+                )
+            else:
+                units = fedlex.fetch_title_translation_units(rs, langs=langs)
         except Exception as exc:  # noqa: BLE001
             print(f"  ! RS {rs}: {exc}", file=sys.stderr)
             continue
-        print(f"  RS {rs}: {len(units)} title TU(s)")
+        print(f"  RS {rs}: {len(units)} {kind} TU(s)")
         all_units.extend(units)
 
     write_jsonl(all_units, out_path)
@@ -107,9 +113,20 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="openglossa", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
 
-    p_ing = sub.add_parser("ingest-fedlex", help="Fetch Fedlex acts -> title TUs (JSONL).")
+    p_ing = sub.add_parser("ingest-fedlex", help="Fetch Fedlex acts -> parallel TUs (JSONL).")
     p_ing.add_argument("--rs", nargs="*", help="RS numbers (default: PoC core acts).")
     p_ing.add_argument("--langs", nargs="*", default=list(CORE_LANGUAGES), help="Languages.")
+    p_ing.add_argument(
+        "--articles",
+        action="store_true",
+        help="Article/alinéa-level alignment (Akoma Ntoso eId) instead of titles.",
+    )
+    p_ing.add_argument(
+        "--max-articles",
+        type=int,
+        default=0,
+        help="Limit aligned eIds per act (0 = all). Useful for a verifiable slice.",
+    )
     p_ing.add_argument("--out", default=str(PROCESSED / "tus.jsonl"), help="Output JSONL path.")
     p_ing.set_defaults(func=cmd_ingest_fedlex)
 

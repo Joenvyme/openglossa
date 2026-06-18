@@ -1,19 +1,16 @@
 """Alignment strategies.
 
-* ``eli-structural`` — pair Fedlex articles across languages by ELI/eId structure.
+* ``eli-structural`` — pair Fedlex articles/alinéas across languages by ELI/eId
+  structure (implemented in :mod:`openglossa.align.eli_structural`).
 * ``labse`` — embedding-based alignment (LaBSE via sentence-transformers) for
-  segments without a shared structural key.
-
-P1/P4 work. Stubs for now.
+  segments without a shared structural key (P4 stub).
 """
 
 from __future__ import annotations
 
-__all__ = ["eli_structural", "labse"]
+from openglossa.align.eli_structural import align_segments, shared_eids
 
-
-def eli_structural(*args, **kwargs):  # noqa: ANN002, ANN003
-    raise NotImplementedError("ELI-structural alignment (P1) is not implemented yet.")
+__all__ = ["align_segments", "shared_eids", "labse"]
 
 
 def labse(*args, **kwargs):  # noqa: ANN002, ANN003

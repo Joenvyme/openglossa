@@ -57,8 +57,12 @@ make mcp
 openglossa poc                       # ou : python -m openglossa poc
 
 # Étapes séparées
-openglossa ingest-fedlex --rs 220 210 101    # -> data/processed/tus.jsonl
+openglossa ingest-fedlex --rs 220 210 101    # titres d'actes (rapide)
 openglossa build-exports                      # -> data/exports/ (TMX, JSONL, ...)
+
+# Alignement article/alinéa (Akoma Ntoso eId) — TM fine, citable par article
+openglossa ingest-fedlex --articles --rs 220 --max-articles 40
+openglossa build-exports
 ```
 
 Le serveur MCP lit `data/processed/*.jsonl` ; `search_parallel` renvoie des
@@ -95,7 +99,7 @@ openglossa/
 | Phase | Objet | Statut |
 |-------|-------|--------|
 | P0 | Setup (repo, licences, schémas, connecteurs) | ✅ |
-| P1 | Ingest Fedlex (SPARQL validé ; TUs au niveau titre) | 🚧 partiel (titres OK ; alignement par article à venir) |
+| P1 | Ingest Fedlex (SPARQL + Akoma Ntoso, alignement par eId article/alinéa) | ✅ |
 | P2 | Ingest SLDS (TU regeste trilingues) | ⬜ |
 | P3 | Backbone terminologique (TERMDAT live) | ⬜ |
 | P4 | Term mining + verify (human-in-the-loop) | ⬜ |
