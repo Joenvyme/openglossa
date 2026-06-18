@@ -158,6 +158,6 @@ openglossa/
 | P5 | Packaging / exports (TBX/TMX/CSV/JSONL/Parquet) + validation DTD + round-trip | ✅ |
 | P6 | Serveur MCP (lookup/search/verify/get_official_text + suggest_glossary) | ✅ |
 | P7 | Évaluation reproductible (term hit-rate avec/sans ancrage ; baseline committée) | ✅ |
-| P8 | Site statique | ⬜ |
+| P8 | Site statique (démo de recherche citée, téléchargements, schéma, licences) | ✅ |
 
 Voir [`PROJECT.md`](PROJECT.md) pour la fiche complète.

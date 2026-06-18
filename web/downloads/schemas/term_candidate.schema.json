@@ -1,0 +1,129 @@
+{
+  "$defs": {
+    "Evidence": {
+      "additionalProperties": false,
+      "description": "A piece of official-source proof backing a mined candidate (no fabrication).",
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "uri": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Uri",
+          "type": "string"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        }
+      },
+      "required": [
+        "source",
+        "uri"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Lang": {
+      "description": "Supported language codes (ISO 639-1).",
+      "enum": [
+        "de",
+        "fr",
+        "it",
+        "rm",
+        "en"
+      ],
+      "title": "Lang",
+      "type": "string"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "verified",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A mined term pair awaiting human review (P4).\n\nCarries the association ``score``, the corpus ``support`` (number of official\nsegments where both terms co-occur), and the ``evidence`` segments. Never\npresented as verified until ``review_status`` is promoted by a human.",
+  "properties": {
+    "src_lang": {
+      "$ref": "#/$defs/Lang"
+    },
+    "tgt_lang": {
+      "$ref": "#/$defs/Lang"
+    },
+    "src": {
+      "minLength": 1,
+      "title": "Src",
+      "type": "string"
+    },
+    "tgt": {
+      "minLength": 1,
+      "title": "Tgt",
+      "type": "string"
+    },
+    "score": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Score",
+      "type": "number"
+    },
+    "support": {
+      "minimum": 1,
+      "title": "Support",
+      "type": "integer"
+    },
+    "method": {
+      "default": "cooccurrence-dice",
+      "title": "Method",
+      "type": "string"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/Evidence"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "in_termdat": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "In Termdat"
+    },
+    "review_status": {
+      "$ref": "#/$defs/ReviewStatus",
+      "default": "candidate"
+    }
+  },
+  "required": [
+    "src_lang",
+    "tgt_lang",
+    "src",
+    "tgt",
+    "score",
+    "support"
+  ],
+  "title": "TermCandidate",
+  "type": "object"
+}

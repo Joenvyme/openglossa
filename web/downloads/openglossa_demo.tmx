@@ -1,0 +1,2606 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tmx version="1.4">
+  <header creationtool="OpenGlossa" creationtoolversion="0.1.0" segtype="sentence" o-tmf="OpenGlossa-JSONL" adminlang="en" srclang="de" datatype="plaintext" creationdate="20260618T181646Z" />
+  <body>
+    <tu tuid="og:tu:7e36cab074d017e5">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 1 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Zum Abschlusse eines Vertrages ist die übereinstimmende gegenseitige Willensäusserung der Parteien erforderlich.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le contrat est parfait lorsque les parties ont, réciproquement et d’une manière concordante, manifesté leur volonté.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ce4bf354ec4bad45">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 1 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Sie kann eine ausdrückliche oder stillschweigende sein.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Cette manifestation peut être expresse ou tacite.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:efa6a6966891b3eb">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 2 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Haben sich die Parteien über alle wesentlichen Punkte geeinigt, so wird vermutet, dass der Vorbehalt von Nebenpunkten die Verbindlichkeit des Vertrages nicht hindern solle.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si les parties se sont mises d’accord sur tous les points essentiels, le contrat est réputé conclu, lors même que des points secondaires ont été réservés.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:da6fdea2e33aee7e">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 2 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Kommt über die vorbehaltenen Nebenpunkte eine Vereinbarung nicht zustande, so hat der Richter über diese nach der Natur des Geschäftes zu entscheiden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>À défaut d’accord sur les points secondaires, le juge les règle en tenant compte de la nature de l’affaire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:476703f4d1d87c70">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 2 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Vorbehalten bleiben die Bestimmungen über die Form der Verträge.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sont réservées les dispositions qui régissent la forme des contrats.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ed643ce0ea6a0dac">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 3 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer einem andern den Antrag zum Abschlusse eines Vertrages stellt und für die Annahme eine Frist setzt, bleibt bis zu deren Ablauf an den Antrag gebunden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Toute personne qui propose à une autre la conclusion d’un contrat en lui fixant un délai pour accepter, est liée par son offre jusqu’à l’expiration de ce délai.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1e5e31b1bb67536c">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 3 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Er wird wieder frei, wenn eine Annahmeerklärung nicht vor Ablauf dieser Frist bei ihm eingetroffen ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Elle est déliée, si l’acceptation ne lui parvient pas avant l’expiration du délai.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:7e72030d529f4953">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 4 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird der Antrag ohne Bestimmung einer Frist an einen Anwesenden gestellt und nicht sogleich angenommen, so ist der Antragsteller nicht weiter gebunden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque l’offre a été faite à une personne présente, sans fixation d’un délai pour l’accepter, l’auteur de l’offre est délié si l’acceptation n’a pas lieu immédiatement.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:0f379d07cd6c1439">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 4 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wenn die Vertragschliessenden oder ihre Bevollmächtigten sich persönlich des Telefons bedienen, so gilt der Vertrag als unter Anwesenden abgeschlossen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les contrats conclus par téléphone sont censés faits entre présents, si les parties ou leurs mandataires ont été personnellement en communication.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:7f1bb395ef94dc52">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 5 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird der Antrag ohne Bestimmung einer Frist an einen Abwesenden gestellt, so bleibt der Antragsteller bis zu dem Zeitpunkte gebunden, wo er den Eingang der Antwort bei ihrer ordnungsmässigen und rechtzeitigen Absendung erwarten darf.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque l’offre a été faite sans fixation de délai à une personne non présente, l’auteur de l’offre reste lié jusqu’au moment où il peut s’attendre à l’arrivée d’une réponse expédiée à temps et régulièrement.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:59aaef7992af759b">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 5 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Er darf dabei voraussetzen, dass sein Antrag rechtzeitig angekommen sei.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Il a le droit d’admettre que l’offre a été reçue à temps.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:0296410838267d33">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 5 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Trifft die rechtzeitig abgesandte Annahmeerklärung erst nach jenem Zeitpunkte bei dem Antragsteller ein, so ist dieser, wenn er nicht gebunden sein will, verpflichtet, ohne Verzug hievon Anzeige zu machen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’acceptation expédiée à temps parvient tardivement à l’auteur de l’offre, et que celui-ci entende ne pas être lié, il doit en informer immédiatement l’acceptant.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:5b67ae7f4983b125">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 6</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist wegen der besonderen Natur des Geschäftes oder nach den Umständen eine ausdrückliche Annahme nicht zu erwarten, so gilt der Vertrag als abgeschlossen, wenn der Antrag nicht binnen angemessener Frist abgelehnt wird.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque l’auteur de l’offre ne devait pas, en raison soit de la nature spéciale de l’affaire, soit des circonstances, s’attendre à une acceptation expresse, le contrat est réputé conclu si l’offre n’a pas été refusée dans un délai convenable.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1dd4129c605e8624">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 6a al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Zusendung einer unbestellten Sache ist kein Antrag.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’envoi d’une chose non commandée n’est pas considéré comme une offre.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ec8a6c38456f43ab">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 6a al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Empfänger ist nicht verpflichtet, die Sache zurückzusenden oder aufzubewahren.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le destinataire n’est pas tenu de renvoyer la chose ni de la conserver.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b765e954f59d6b02">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 6a al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist eine unbestellte Sache offensichtlich irrtümlich zugesandt worden, so muss der Empfänger den Absender benachrichtigen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’envoi d’une chose non commandée est manifestement dû à une erreur, le destinataire doit en informer l’expéditeur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e304e70eb0d37a2c">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 7 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Antragsteller wird nicht gebunden, wenn er dem Antrage eine die Behaftung ablehnende Erklärung beifügt, oder wenn ein solcher Vorbehalt sich aus der Natur des Geschäftes oder aus den Umständen ergibt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’auteur de l’offre n’est pas lié s’il a fait à cet égard des réserves expresses, ou si son intention de ne pas s’obliger résulte soit des circonstances, soit de la nature spéciale de l’affaire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:782c0fb632dfa1b4">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 7 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Versendung von Tarifen, Preislisten u. dgl. bedeutet an sich keinen Antrag.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’envoi de tarifs, de prix courants, etc., ne constitue pas une offre de contracter.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:bd4da422abc8b4c6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 7 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Dagegen gilt die Auslage von Waren mit Angabe des Preises in der Regel als Antrag.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le fait d’exposer des marchandises, avec indication du prix, est tenu dans la règle pour une offre.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:8cf58afe937a5601">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 8 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer durch Preisausschreiben oder Auslobung für eine Leistung eine Belohnung aussetzt, hat diese seiner Auskündung gemäss zu entrichten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui promet publiquement un prix en échange d’une prestation est tenu de le payer conformément à sa promesse.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:38db12afe7750f2f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 8 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Tritt er zurück, bevor die Leistung erfolgt ist, so hat er denjenigen, die auf Grund der Auskündung in guten Treuen Aufwendungen gemacht haben, hierfür bis höchstens zum Betrag der ausgesetzten Belohnung Ersatz zu leisten, sofern er nicht beweist, dass ihnen die Leistung doch nicht gelungen wäre.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>S’il retire sa promesse avant qu’une prestation lui soit parvenue, il est tenu de rembourser, au plus jusqu’à concurrence de ce qu’il avait promis, les impenses faites de bonne foi; à moins cependant qu’il ne prouve que le succès espéré n’aurait pas été obtenu.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d72dfacef8205032">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 9 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Trifft der Widerruf bei dem anderen Teile vor oder mit dem Antrage ein, oder wird er bei späterem Eintreffen dem andern zur Kenntnis gebracht, bevor dieser vom Antrag Kenntnis genommen hat, so ist der Antrag als nicht geschehen zu betrachten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’offre est considérée comme non avenue, si le retrait en parvient avant l’offre ou en même temps au destinataire, ou si, étant arrivé postérieurement, il est communiqué au destinataire avant que celui-ci ait pris connaissance de l’offre.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a212e826c3b86953">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 9 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Dasselbe gilt für den Widerruf der Annahme.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La même règle s’applique au retrait de l’acceptation.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:bddea96855d1d3aa">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 10 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist ein Vertrag unter Abwesenden zustande gekommen, so beginnen seine Wirkungen mit dem Zeitpunkte, wo die Erklärung der Annahme zur Absendung abgegeben wurde.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le contrat conclu entre absents déploie ses effets dès le moment où l’acceptation a été expédiée.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:8196055f83983f59">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 10 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wenn eine ausdrückliche Annahme nicht erforderlich ist, so beginnen die Wirkungen des Vertrages mit dem Empfange des Antrages.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si une acceptation expresse n’est pas nécessaire, les effets du contrat remontent au moment de la réception de l’offre.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:06a933bffc9363b5">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 11 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Verträge bedürfen zu ihrer Gültigkeit nur dann einer besonderen Form, wenn das Gesetz eine solche vorschreibt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La validité des contrats n’est subordonnée à l’observation d’une forme particulière qu’en vertu d’une prescription spéciale de la loi.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:4365b7cf07fbb7a5">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 11 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist über Bedeutung und Wirkung einer gesetzlich vorgeschriebenen Form nicht etwas anderes bestimmt, so hängt von deren Beobachtung die Gültigkeit des Vertrages ab.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>À défaut d’une disposition contraire sur la portée et les effets de la forme prescrite, le contrat n’est valable que si cette forme a été observée.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:dfcc81e205b2037a">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 12</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist für einen Vertrag die schriftliche Form gesetzlich vorgeschrieben, so gilt diese Vorschrift auch für jede Abänderung, mit Ausnahme von ergänzenden Nebenbestimmungen, die mit der Urkunde nicht im Widerspruche stehen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque la loi exige qu’un contrat soit fait en la forme écrite, cette règle s’applique également à toutes les modifications du contrat, hormis les stipulations complémentaires et accessoires qui ne sont pas en contradiction avec l’acte.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ff5a0e67307e1f3d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 13 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ein Vertrag, für den die schriftliche Form gesetzlich vorgeschrieben ist, muss die Unterschriften aller Personen tragen, die durch ihn verpflichtet werden sollen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le contrat pour lequel la loi exige la forme écrite doit être signé par toutes les personnes auxquelles il impose des obligations.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:7ff2b70c450bb775">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 13 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>…</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>…</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3126684207349946">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 14 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Unterschrift ist eigenhändig zu schreiben.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La signature doit être écrite à la main par celui qui s’oblige.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a6a76fd384ba2265">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 14 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Eine Nachbildung der eigenhändigen Schrift auf mechanischem Wege wird nur da als genügend anerkannt, wo deren Gebrauch im Verkehr üblich ist, insbesondere wo es sich um die Unterschrift auf Wertpapieren handelt, die in grosser Zahl ausgegeben werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celle qui procède de quelque moyen mécanique n’est tenu pour suffisante que dans les affaires où elle est admise par l’usage, notamment lorsqu’il s’agit de signer des papiers-valeurs émis en nombre considérable.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:11c51a3599cfcc9c">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 14 al. 2_bis</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der eigenhändigen Unterschrift gleichgestellt ist die mit einem qualifizierten Zeitstempel verbundene qualifizierte elektronische Signatur gemäss Bundesgesetz vom 18. März 2016</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La signature électronique qualifiée avec horodatage électronique qualifié au sens de la loi du 18 mars 2016 sur la signature électronique</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a9f6f31008215ca9">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 14 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Für den Blinden ist die Unterschrift nur dann verbindlich, wenn sie beglaubigt ist, oder wenn nachgewiesen wird, dass er zur Zeit der Unterzeichnung den Inhalt der Urkunde gekannt hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La signature des aveugles ne les oblige que si elle a été dûment légalisée, ou s’il est établi qu’ils ont connu le texte de l’acte au moment de signer.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:9161edd5c36dffcc">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 15</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Kann eine Person nicht unterschreiben, so ist es, mit Vorbehalt der Bestimmungen über den Wechsel, gestattet, die Unterschrift durch ein beglaubigtes Handzeichen zu ersetzen oder durch eine öffentliche Beurkundung ersetzen zu lassen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Il est permis à toute personne qui ne peut signer de remplacer sa signature par une marque à la main, dûment légalisée, ou par une attestation authentique; sont réservées les dispositions concernant la lettre de change.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:47ac81fd052e3ab7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 16 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist für einen Vertrag, der vom Gesetze an keine Form gebunden ist, die Anwendung einer solchen vorbehalten worden, so wird vermutet, dass die Parteien vor Erfüllung der Form nicht verpflichtet sein wollen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les parties qui ont convenu de donner une forme spéciale à un contrat pour lequel la loi n’en exige point, sont réputées n’avoir entendu se lier que dès l’accomplissement de cette forme.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:54ff1c006b77bdc9">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 16 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Geht eine solche Abrede auf schriftliche Form ohne nähere Bezeichnung, so gelten für deren Erfüllung die Erfordernisse der gesetzlich vorgeschriebenen Schriftlichkeit.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>S’il s’agit de la forme écrite, sans indication plus précise, il y a lieu d’observer les dispositions relatives à cette forme lorsqu’elle est exigée par la loi.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:243d0829f6b94664">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 17</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ein Schuldbekenntnis ist gültig auch ohne die Angabe eines Verpflichtungsgrundes.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La reconnaissance d’une dette est valable, même si elle n’énonce pas la cause de l’obligation.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d61d486163789d8d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 18 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bei der Beurteilung eines Vertrages sowohl nach Form als nach Inhalt ist der übereinstimmende wirkliche Wille und nicht die unrichtige Bezeichnung oder Ausdrucksweise zu beachten, die von den Parteien aus Irrtum oder in der Absicht gebraucht wird, die wahre Beschaffenheit des Vertrages zu verbergen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Pour apprécier la forme et les clauses d’un contrat, il y a lieu de rechercher la réelle et commune intention des parties, sans s’arrêter aux expressions ou dénominations inexactes dont elles ont pu se servir, soit par erreur, soit pour déguiser la nature véritable de la convention.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ff09aaaba9e890f6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 18 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Dem Dritten, der die Forderung im Vertrauen auf ein schriftliches Schuldbekenntnis erworben hat, kann der Schuldner die Einrede der Simulation nicht entgegensetzen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le débiteur ne peut opposer l’exception de simulation au tiers qui est devenu créancier sur la foi d’une reconnaissance écrite de la dette.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:81d60afc8a4bff47">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 19 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Inhalt des Vertrages kann innerhalb der Schranken des Gesetzes beliebig festgestellt werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’objet d’un contrat peut être librement déterminé, dans les limites de la loi.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b4462a5b799be844">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 19 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Von den gesetzlichen Vorschriften abweichende Vereinbarungen sind nur zulässig, wo das Gesetz nicht eine unabänderliche Vorschrift aufstellt oder die Abweichung nicht einen Verstoss gegen die öffentliche Ordnung, gegen die guten Sitten oder gegen das Recht der Persönlichkeit in sich schliesst.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La loi n’exclut les conventions des parties que lorsqu’elle édicte une règle de droit strict, ou lorsqu’une dérogation à son texte serait contraire aux moeurs, à l’ordre public ou aux droits attachés à la personnalité.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ee9d0a0a67fcfbb1">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 20 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ein Vertrag, der einen unmöglichen oder widerrechtlichen Inhalt hat oder gegen die guten Sitten verstösst, ist nichtig.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le contrat est nul s’il a pour objet une chose impossible, illicite ou contraire aux moeurs.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:20e2e3afa2810ff6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 20 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Betrifft aber der Mangel bloss einzelne Teile des Vertrages, so sind nur diese nichtig, sobald nicht anzunehmen ist, dass er ohne den nichtigen Teil überhaupt nicht geschlossen worden wäre.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si le contrat n’est vicié que dans certaines de ses clauses, ces clauses sont seules frappées de nullité, à moins qu’il n’y ait lieu d’admettre que le contrat n’aurait pas été conclu sans elles.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:6c9e4cefef2fc2b5">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 21 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird ein offenbares Missverhältnis zwischen der Leistung und der Gegenleistung durch einen Vertrag begründet, dessen Abschluss von dem einen Teil durch Ausbeutung der Notlage, der Unerfahrenheit oder des Leichtsinns des andern herbeigeführt worden ist, so kann der Verletzte innerhalb Jahresfrist erklären, dass er den Vertrag nicht halte, und das schon Geleistete zurückverlangen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de disproportion évidente entre la prestation promise par l’une des parties et la contre-prestation de l’autre, la partie lésée peut, dans le délai d’un an, déclarer qu’elle résilie le contrat et répéter ce qu’elle a payé, si la lésion a été déterminée par l’exploitation de sa gêne, de sa légèreté ou de son inexpérience.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ac2b045e013778f1">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 21 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Jahresfrist beginnt mit dem Abschluss des Vertrages.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le délai d’un an court dès la conclusion du contrat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3cd7b0a051171ac2">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 22 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Durch Vertrag kann die Verpflichtung zum Abschluss eines künftigen Vertrages begründet werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’obligation de passer une convention future peut être assumée contractuellement.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3ed25172b74206f1">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 22 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wo das Gesetz zum Schutze der Vertragschliessenden für die Gültigkeit des künftigen Vertrages eine Form vorschreibt, gilt diese auch für den Vorvertrag.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque, dans l’intérêt des parties, la loi subordonne la validité du contrat à l’observation d’une certaine forme, celle-ci s’applique également à la promesse de contracter.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:25cf7e25b4077fdc">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 23</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Vertrag ist für denjenigen unverbindlich, der sich beim Abschluss in einem wesentlichen Irrtum befunden hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le contrat n’oblige pas celle des parties qui, au moment de le conclure, était dans une erreur essentielle.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b48d50f753aa7906">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 24 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Irrtum ist namentlich in folgenden Fällen ein wesentlicher:1. wenn der Irrende einen andern Vertrag eingehen wollte als denjenigen, für den er seine Zustimmung erklärt hat;2. wenn der Wille des Irrenden auf eine andere Sache oder, wo der Vertrag mit Rücksicht auf eine bestimmte Person abgeschlossen wurde, auf eine andere Person gerichtet war, als er erklärt hat;3. wenn der Irrende eine Leistung von erheblich grösserem Umfange versprochen hat oder eine Gegenleistung von erheblich geringerem Umfange sich hat versprechen lassen, als es sein Wille war;4. wenn der Irrtum einen bestimmten Sachverhalt betraf, der vom Irrenden nach Treu und Glauben im Geschäftsverkehr als eine notwendige Grundlage des Vertrages betrachtet wurde.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’erreur est essentielle, notamment:1. lorsque la partie qui se prévaut de son erreur entendait faire un contrat autre que celui auquel elle a déclaré consentir;2. lorsqu’elle avait en vue une autre chose que celle qui a fait l’objet du contrat, ou une autre personne et qu’elle s’est engagée principalement en considération de cette personne;3. lorsque la prestation promise par celui des contractants qui se prévaut de son erreur est notablement plus étendue, ou lorsque la contre-prestation l’est notablement moins qu’il ne le voulait en réalité;4. lorsque l’erreur porte sur des faits que la loyauté commerciale permettait à celui qui se prévaut de son erreur de considérer comme des éléments nécessaires du contrat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:cc3a98f53ab40efd">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 24 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bezieht sich dagegen der Irrtum nur auf den Beweggrund zum Vertragsabschlusse, so ist er nicht wesentlich.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’erreur qui concerne uniquement les motifs du contrat n’est pas essentielle.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:f5417711d814e9ca">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 24 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Blosse Rechnungsfehler hindern die Verbindlichkeit des Vertrages nicht, sind aber zu berichtigen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>De simples erreurs de calcul n’infirment pas la validité du contrat; elles doivent être corrigées.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:496dbc0545d12808">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 25 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Berufung auf Irrtum ist unstatthaft, wenn sie Treu und Glauben widerspricht.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La partie qui est victime d’une erreur ne peut s’en prévaloir d’une façon contraire aux règles de la bonne foi.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:4edea216750707d2">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 25 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Insbesondere muss der Irrende den Vertrag gelten lassen, wie er ihn verstanden hat, sobald der andere sich hierzu bereit erklärt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Elle reste notamment obligée par le contrat qu’elle entendait faire, si l’autre partie se déclare prête à l’exécuter.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:83dc4d0001f40fdd">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 26 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Irrende, der den Vertrag nicht gegen sich gelten lässt, seinen Irrtum der eigenen Fahrlässigkeit zuzuschreiben, so ist er zum Ersatze des aus dem Dahinfallen des Vertrages erwachsenen Schadens verpflichtet, es sei denn, dass der andere den Irrtum gekannt habe oder hätte kennen sollen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La partie qui invoque son erreur pour se soustraire à l’effet du contrat est tenue de réparer le dommage résultant de l’invalidité de la convention si l’erreur provient de sa propre faute, à moins que l’autre partie n’ait connu ou dû connaître l’erreur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1ed4e45a2301241c">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 26 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wo es der Billigkeit entspricht, kann der Richter auf Ersatz weiteren Schadens erkennen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge peut, si l’équité l’exige, allouer des dommages-intérêts plus considérables à la partie lésée.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e7906714cadddffd">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 27</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird beim Vertragsabschluss Antrag oder Annahme durch einen Boten oder auf andere Weise unrichtig übermittelt, so finden die Vorschriften über den Irrtum entsprechende Anwendung.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les règles concernant l’erreur s’appliquent par analogie, lorsque la volonté d’une des parties a été inexactement transmise par un messager ou quelque autre intermédiaire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:22eac80980a253d0">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 28 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist ein Vertragschliessender durch absichtliche Täuschung seitens des andern zu dem Vertragsabschlusse verleitet worden, so ist der Vertrag für ihn auch dann nicht verbindlich, wenn der erregte Irrtum kein wesentlicher war.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La partie induite à contracter par le dol de l’autre n’est pas obligée, même si son erreur n’est pas essentielle.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b53ba45c2ffd7ce3">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 28 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die von einem Dritten verübte absichtliche Täuschung hindert die Verbindlichkeit für den Getäuschten nur, wenn der andere zur Zeit des Vertragsabschlusses die Täuschung gekannt hat oder hätte kennen sollen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La partie qui est victime du dol d’un tiers demeure obligée, à moins que l’autre partie n’ait connu ou dû connaître le dol lors de la conclusion du contrat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:678ca4290cb52161">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 29 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist ein Vertragschliessender von dem anderen oder von einem Dritten widerrechtlich durch Erregung gegründeter Furcht zur Eingehung eines Vertrages bestimmt worden, so ist der Vertrag für den Bedrohten unverbindlich.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’une des parties a contracté sous l’empire d’une crainte fondée que lui aurait inspirée sans droit l’autre partie ou un tiers, elle n’est point obligée.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ce9e8e8fa7f3f1a8">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 29 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die Drohung von einem Dritten ausgegangen, so hat, wo es der Billigkeit entspricht, der Bedrohte, der den Vertrag nicht halten will, dem anderen, wenn dieser die Drohung weder gekannt hat noch hätte kennen sollen, Entschädigung zu leisten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque les menaces sont le fait d’un tiers et que l’autre partie ne les a ni connues, ni dû connaître, celui des contractants qui en est victime et qui veut se départir du contrat est tenu d’indemniser l’autre si l’équité l’exige.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:59bbcfb01aef2e4a">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 30 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Furcht ist für denjenigen eine gegründete, der nach den Umständen annehmen muss, dass er oder eine ihm nahe verbundene Person an Leib und Leben, Ehre oder Vermögen mit einer nahen und erheblichen Gefahr bedroht sei.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La crainte est réputée fondée lorsque la partie menacée devait croire, d’après les circonstances, qu’un danger grave et imminent la menaçait elle-même, ou l’un de ses proches, dans sa vie, sa personne, son honneur ou ses biens.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:81c0b869181b81ea">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 30 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Furcht vor der Geltendmachung eines Rechtes wird nur dann berücksichtigt, wenn die Notlage des Bedrohten benutzt worden ist, um ihm die Einräumung übermässiger Vorteile abzunötigen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La crainte de voir invoquer un droit ne peut être prise en considération que si la gêne de la partie menacée a été exploitée pour extorquer à celle-ci des avantages excessifs.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1d6d56b2d6f3b57b">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 31 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wenn der durch Irrtum, Täuschung oder Furcht beeinflusste Teil binnen Jahresfrist weder dem anderen eröffnet, dass er den Vertrag nicht halte, noch eine schon erfolgte Leistung zurückfordert, so gilt der Vertrag als genehmigt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le contrat entaché d’erreur ou de dol, ou conclu sous l’empire d’une crainte fondée, est tenu pour ratifié lorsque la partie qu’il n’oblige point a laissé s’écouler une année sans déclarer à l’autre sa résolution de ne pas le maintenir, ou sans répéter ce qu’elle a payé.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e8ad33330b9553eb">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 31 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Frist beginnt in den Fällen des Irrtums und der Täuschung mit der Entdeckung, in den Fällen der Furcht mit deren Beseitigung.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le délai court dès que l’erreur ou le dol a été découvert, ou dès que la crainte s’est dissipée.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:7606edeb7856e843">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 31 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Genehmigung eines wegen Täuschung oder Furcht unverbindlichen Vertrages schliesst den Anspruch auf Schadenersatz nicht ohne weiteres aus.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La ratification d’un contrat entaché de dol ou conclu sous l’empire d’une crainte fondée n’implique pas nécessairement la renonciation au droit de demander des dommages-intérêts.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:c24233084ed8bed7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 32 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wenn jemand, der zur Vertretung eines andern ermächtigt ist, in dessen Namen einen Vertrag abschliesst, so wird der Vertretene und nicht der Vertreter berechtigt und verpflichtet.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les droits et les obligations dérivant d’un contrat fait au nom d’une autre personne par un représentant autorisé passent au représenté.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:028506d6c2a57270">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 32 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Vertreter bei dem Vertragsabschlusse sich nicht als solcher zu erkennen gegeben, so wird der Vertretene nur dann unmittelbar berechtigt oder verpflichtet, wenn der andere aus den Umständen auf das Vertretungsverhältnis schliessen musste, oder wenn es ihm gleichgültig war, mit wem er den Vertrag schliesse.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque au moment de la conclusion du contrat le représentant ne s’est pas fait connaître comme tel, le représenté ne devient directement créancier ou débiteur que si celui avec lequel il contracte devait inférer des circonstances qu’il existait un rapport de représentation, ou s’il lui était indifférent de traiter avec l’un ou l’autre.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:48f39bb2d9d343c9">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 32 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist dies nicht der Fall, so bedarf es einer Abtretung der Forderung oder einer Schuldübernahme nach den hierfür geltenden Grundsätzen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Dans les autres cas, une cession de la créance ou une reprise de la dette est nécessaire en conformité des principes qui régissent ces actes.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e47b6a07300b96eb">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 33 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Soweit die Ermächtigung, im Namen eines andern Rechtshandlungen vorzunehmen, aus Verhältnissen des öffentlichen Rechtes hervorgeht, ist sie nach den Vorschriften des öffentlichen Rechtes des Bundes und der Kantone zu beurteilen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le pouvoir d’accomplir des actes juridiques pour autrui, en tant qu’il se fonde sur des rapports de droit public, est réglé par le droit public de la Confédération ou des cantons.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:5f93487927972353">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 33 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die Ermächtigung durch Rechtsgeschäft eingeräumt, so beurteilt sich ihr Umfang nach dessen Inhalt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque les pouvoirs découlent d’un acte juridique, l’étendue en est déterminée par cet acte même.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:8192005783af5c96">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 33 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird die Ermächtigung vom Vollmachtgeber einem Dritten mitgeteilt, so beurteilt sich ihr Umfang diesem gegenüber nach Massgabe der erfolgten Kundgebung.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si les pouvoirs ont été portés par le représenté à la connaissance d’un tiers, leur étendue est déterminée envers ce dernier par les termes de la communication qui lui a été faite.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d9d7ea86b3592c31">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 34 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Eine durch Rechtsgeschäft erteilte Ermächtigung kann vom Vollmachtgeber jederzeit beschränkt oder widerrufen werden, unbeschadet der Rechte, die sich aus einem unter den Beteiligten bestehenden anderen Rechtsverhältnis, wie Einzelarbeitsvertrag, Gesellschaftsvertrag, Auftrag, ergeben können.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le représenté a en tout temps le droit de restreindre ou de révoquer les pouvoirs découlant d’un acte juridique, sans préjudice des réclamations que le représentant peut avoir à former contre lui en vertu d’une autre cause, telle qu’un contrat individuel de travail, un contrat de société ou un mandat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:9f77315fb4edee4e">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 34 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ein vom Vollmachtgeber zum voraus erklärter Verzicht auf dieses Recht ist ungültig.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Est nulle toute renonciation anticipée à ce droit par le représenté.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:086fba500facf7f0">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 34 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Vertretene die Vollmacht ausdrücklich oder tatsächlich kundgegeben, so kann er deren gänzlichen oder teilweisen Widerruf gutgläubigen Dritten nur dann entgegensetzen, wenn er ihnen auch diesen Widerruf mitgeteilt hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque le représenté a fait connaître, soit en termes exprès, soit par ses actes, les pouvoirs qu’il a conférés, il ne peut en opposer aux tiers de bonne foi la révocation totale ou partielle que s’il a fait connaître également cette révocation.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:4311117c663463ac">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 35 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die durch Rechtsgeschäft erteilte Ermächtigung erlischt, sofern nicht das Gegenteil bestimmt ist oder aus der Natur des Geschäfts hervorgeht, mit dem Verlust der entsprechenden Handlungsfähigkeit, dem Konkurs, dem Tod oder der Verschollenerklärung des Vollmachtgebers oder des Bevollmächtigten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les pouvoirs découlant d’un acte juridique s’éteignent par la perte de l’exercice des droits civils, par la faillite, par la mort ou par la déclaration d’absence, soit du représenté, soit du représentant, à moins que le contraire n’ait été ordonné ou ne résulte de la nature de l’affaire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:32cdf31dd06e2c5f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 35 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die nämliche Wirkung hat die Auflösung einer juristischen Person oder einer in das Handelsregister eingetragenen Gesellschaft.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Il en est de même lorsqu’une personne morale cesse d’exister, ou lorsqu’une société inscrite au registre du commerce est dissoute.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:16e62a5cb323b60d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 35 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die gegenseitigen persönlichen Ansprüche werden hievon nicht berührt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les droits personnels des parties l’une envers l’autre demeurent réservés.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1d4961ba7e16d3c9">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 36 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist dem Bevollmächtigten eine Vollmachtsurkunde ausgestellt worden, so ist er nach dem Erlöschen der Vollmacht zur Rückgabe oder gerichtlichen Hinterlegung der Urkunde verpflichtet.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le représentant nanti d’un titre constatant ses pouvoirs est tenu, lorsqu’ils ont pris fin, de le restituer ou d’en effectuer le dépôt en justice.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:f10b66d7553acbfe">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 36 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird er von dem Vollmachtgeber oder seinen Rechtsnachfolgern hierzu nicht angehalten, so sind diese den gutgläubigen Dritten für den Schaden verantwortlich.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si le représenté ou ses ayants droit négligent d’y contraindre le représentant, ils répondent du dommage qui pourrait en résulter à l’égard des tiers de bonne foi.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:33db25066ec79824">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 37 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Solange das Erlöschen der Vollmacht dem Bevollmächtigten nicht bekannt geworden ist, berechtigt und verpflichtet er den Vollmachtgeber oder dessen Rechtsnachfolger, wie wenn die Vollmacht noch bestehen würde.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Aussi longtemps que le représentant n’a pas connaissance de l’extinction de ses pouvoirs, le représenté ou ses ayants cause deviennent par son fait créanciers ou débiteurs comme si les pouvoirs existaient encore.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3d3d772c82ebc7ea">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 37 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ausgenommen sind die Fälle, in denen der Dritte vom Erlöschen der Vollmacht Kenntnis hatte.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sont exceptés les cas dans lesquels des tiers ont su que les pouvoirs avaient pris fin.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:270bf4162edfb543">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 38 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat jemand, ohne dazu ermächtigt zu sein, als Stellvertreter einen Vertrag abgeschlossen, so wird der Vertretene nur dann Gläubiger oder Schuldner, wenn er den Vertrag genehmigt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsqu’une personne contracte sans pouvoirs au nom d’un tiers, celui-ci ne devient créancier ou débiteur que s’il ratifie le contrat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d4d22aa3de1c8a29">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 38 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der andere ist berechtigt, von dem Vertretenen innerhalb einer angemessenen Frist eine Erklärung über die Genehmigung zu verlangen und ist nicht mehr gebunden, wenn der Vertretene nicht binnen dieser Frist die Genehmigung erklärt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’autre partie a le droit d’exiger que le représenté déclare, dans un délai convenable, s’il ratifie ou non le contrat; elle cesse d’être liée, faute de ratification dans ce délai.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:135b02a074870607">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 39 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird die Genehmigung ausdrücklich oder stillschweigend abgelehnt, so kann derjenige, der als Stellvertreter gehandelt hat, auf Ersatz des aus dem Dahinfallen des Vertrages erwachsenen Schadens belangt werden, sofern er nicht nachweist, dass der andere den Mangel der Vollmacht kannte oder hätte kennen sollen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si la ratification est refusée expressément ou tacitement, celui qui a pris la qualité de représentant peut être actionné en réparation du préjudice résultant de l’invalidité du contrat, à moins qu’il ne prouve que l’autre partie a connu ou dû connaître l’absence de pouvoirs.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:734c856da01363ac">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 39 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bei Verschulden des Vertreters kann der Richter, wo es der Billigkeit entspricht, auf Ersatz weitern Schadens erkennen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de faute du représentant, le juge peut, si l’équité l’exige, le condamner à des dommages-intérêts plus considérables.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:c68ff62d4b78f2b3">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 39 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>In allen Fällen bleibt die Forderung aus ungerechtfertigter Bereicherung vorbehalten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’action fondée sur l’enrichissement illégitime subsiste dans tous les cas.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:db2454c9630bc89c">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>In Bezug auf die Vollmacht der Vertreter und Organe von Gesellschaften, der Prokuristen und anderer Handlungsbevollmächtigter bleiben die besonderen Vorschriften vorbehalten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sont réservées les dispositions spéciales sur les pouvoirs des représentants et organes de sociétés, ainsi que des fondés de procuration et autres mandataires commerciaux.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3ec09dec16faf5ff">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40a al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die nachfolgenden Bestimmungen sind auf Verträge über bewegliche Sachen und Dienstleistungen, die für den persönlichen oder familiären Gebrauch des Kunden bestimmt sind, anwendbar, wenn:a. der Anbieter der Güter oder Dienstleistungen im Rahmen einer beruflichen oder gewerblichen Tätigkeit gehandelt hat undb. die Leistung des Kunden 100 Franken übersteigt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les dispositions ci-après sont applicables aux contrats portant sur des choses mobilières ou des services destinés à un usage personnel ou familial du client si:a. le fournisseur de biens ou de services a agi dans le cadre d’une activité professionnelle ou commerciale et queb. la prestation de l’acquéreur dépasse 100 francs.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:bed64385e2d85d85">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40a al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Bestimmungen gelten nicht für Rechtsgeschäfte, die im Rahmen von bestehenden Finanzdienstleistungsverträgen gemäss Finanzdienstleistungsgesetz vom 15. Juni 2018</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ces dispositions ne sont pas applicables aux actes juridiques conclus par des établissements financiers ou par des banques dans le cadre de contrats de prestations financières existants au sens de la loi fédérale du 15 juin 2018 sur les services financiers.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a6d2ec51caafd201">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40a al. 2_bis</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Für Versicherungsverträge gelten die Bestimmungen des Versicherungsvertragsgesetzes vom 2. April 1908</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Pour les contrats d’assurance, les dispositions de la loi du 2 avril 1908 sur le contrat d’assurance</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:c92675bb2c6abf19">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40a al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bei wesentlicher Veränderung der Kaufkraft des Geldes passt der Bundesrat den in Absatz 1 Buchstabe b genannten Betrag entsprechend an.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de modification importante du pouvoir d’achat de la monnaie, le Conseil fédéral adapte en conséquence le montant indiqué à l’al. 1, let. b.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:10970e5323edcc85">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40b</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Kunde kann seinen Antrag zum Vertragsabschluss oder seine Annahmeerklärung widerrufen, wenn ihm das Angebot gemacht wurde:a.an seinem Arbeitsplatz, in Wohnräumen oder in deren unmittelbaren Umgebung;b. in öffentlichen Verkehrsmitteln oder auf öffentlichen Strassen und Plätzen;c. an einer Werbeveranstaltung, die mit einer Ausflugsfahrt oder einem ähnlichen Anlass verbunden war;d.am Telefon oder über vergleichbare Mittel der gleichzeitigen mündlichen Telekommunikation.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’acquéreur peut révoquer son offre ou son acceptation s’il a été invité à prendre un engagement:a. à son lieu de travail, dans des locaux d’habitation ou dans leurs alentours immédiats;b. dans les transports publics ou sur la voie publique;c. lors d’une manifestation publicitaire liée à une excursion ou à une occasion de même genre;d.par téléphone ou par un moyen semblable de télécommunication vocale instantanée.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1843891600ba25ca">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40c</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Kunde hat kein Widerrufsrecht, wenn er:a. die Vertragsverhandlungen ausdrücklich gewünscht hat;b. seine Erklärung an einem Markt- oder Messestand abgegeben hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’acquéreur ne peut invoquer son droit de révocation:a. s’il a demandé expressément les négociations;b. s’il a fait sa déclaration à un stand de marché ou de foire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:9708722c08500bdc">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40d al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Anbieter muss den Kunden schriftlich oder in einer anderen Form, die den Nachweis durch Text ermöglicht, über das Widerrufsrecht sowie über Form und Frist des Widerrufs unterrichten und ihm seine Adresse bekannt geben.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le fournisseur doit, par écrit ou par tout autre moyen permettant d’en établir la preuve par un texte, informer l’acquéreur de son droit de révocation, de la forme et du délai à observer pour le faire valoir, et lui communiquer son adresse.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:7b0331b7589f42a1">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40d al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Diese Angaben müssen datiert sein und die Identifizierung des Vertrags ermöglichen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ces informations doivent être datées et permettre l’identification du contrat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:20169ae6d3f30f4f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40d al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Sie sind dem Kunden so zu übermitteln, dass er sie kennt, wenn er den Vertrag beantragt oder annimmt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Elles doivent être fournies à l’acquéreur de sorte qu’il en ait connaissance au moment où il propose le contrat ou l’accepte.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:5a22b1c9b2f5ddbb">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40e al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Widerruf ist an keine Form gebunden. Der Nachweis des fristgemässen Widerrufs obliegt dem Kunden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La révocation n’est soumise à aucune forme. La preuve qu’elle a eu lieu dans les délais incombe à l’acquéreur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:5ac08d7b3a139b6f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40e al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Widerrufsfrist beträgt 14 Tage und beginnt, sobald der Kunde:a. den Vertrag beantragt oder angenommen hat; undb. von den Angaben nach Artikel 40d Kenntnis erhalten hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le délai de révocation est de quatorze jours et commence à courir dès que l’acquéreur:a. a proposé ou accepté le contrat etb. a eu connaissance des informations prévues à l’art. 40d.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ab8951bbf7da1320">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40e al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Beweis des Zeitpunkts, in dem der Kunde von den Angaben nach Artikel 40d Kenntnis erhalten hat, obliegt dem Anbieter.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La preuve du moment où l’acquéreur a eu connaissance des informations prévues à l’art. 40d incombe au fournisseur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:6f910d910a3185c4">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40e al. 4</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Frist ist eingehalten, wenn der Kunde am letzten Tag der Widerrufsfrist dem Anbieter seinen Widerruf mitteilt oder seine Widerrufserklärung der Post übergibt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le délai est respecté si l’acquéreur communique son avis de révocation au fournisseur ou le remet à la poste le dernier jour du délai.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d7df86a93908a6c4">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40f al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Kunde widerrufen, so müssen die Parteien bereits empfangene Leistungen zurückerstatten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’acquéreur a révoqué le contrat, les parties doivent rembourser les prestations reçues.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:09077bfc03d758d7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40f al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Kunde eine Sache bereits gebraucht, so schuldet er dem Anbieter einen angemessenen Mietzins.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’acquéreur a fait usage de la chose, il doit un loyer approprié au fournisseur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:5a295969211d7d39">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40f al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Anbieter eine Dienstleistung erbracht, so muss ihm der Kunde Auslagen und Verwendungen nach den Bestimmungen über den Auftrag (Art. 402) ersetzen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’acquéreur doit rembourser les avances et les frais faits par la personne qui lui a fourni une prestation de service, conformément aux dispositions régissant le mandat (art. 402).</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:38377fbc22d5e952">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 40f al. 4</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Kunde schuldet dem Anbieter keine weitere Entschädigung.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’acquéreur ne doit aucun autre dédommagement au fournisseur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:2f7fca5b5b49069e">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 41 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer einem andern widerrechtlich Schaden zufügt, sei es mit Absicht, sei es aus Fahrlässigkeit, wird ihm zum Ersatze verpflichtet.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui cause, d’une manière illicite, un dommage à autrui, soit intentionnellement, soit par négligence ou imprudence, est tenu de le réparer.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:046faef6f6660da4">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 41 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ebenso ist zum Ersatze verpflichtet, wer einem andern in einer gegen die guten Sitten verstossenden Weise absichtlich Schaden zufügt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui cause intentionnellement un dommage à autrui par des faits contraires aux moeurs est également tenu de le réparer.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b7d69c69e04dbb33">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 42 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer Schadenersatz beansprucht, hat den Schaden zu beweisen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La preuve du dommage incombe au demandeur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:27e9d90b4ea8ada7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 42 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der nicht ziffernmässig nachweisbare Schaden ist nach Ermessen des Richters mit Rücksicht auf den gewöhnlichen Lauf der Dinge und auf die vom Geschädigten getroffenen Massnahmen abzuschätzen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque le montant exact du dommage ne peut être établi, le juge le détermine équitablement en considération du cours ordinaire des choses et des mesures prises par la partie lésée.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a33a82ed2d34afa5">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 42 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bei Tieren, die im häuslichen Bereich und nicht zu Vermögens- oder Erwerbszwecken gehalten werden, können die Heilungskosten auch dann angemessen als Schaden geltend gemacht werden, wenn sie den Wert des Tieres übersteigen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les frais de traitement pour les animaux qui vivent en milieu domestique et ne sont pas gardés dans un but patrimonial ou de gain font l’objet d’un remboursement approprié, même s’ils sont supérieurs à la valeur de l’animal.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d5ef22adac0c6700">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 43 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Art und Grösse des Ersatzes für den eingetretenen Schaden bestimmt der Richter, der hiebei sowohl die Umstände als die Grösse des Verschuldens zu würdigen hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge détermine le mode ainsi que l’étendue de la réparation, d’après les circonstances et la gravité de la faute.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:40b09454893cb782">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 43 al. 1_bis</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Im Falle der Verletzung oder Tötung eines Tieres, das im häuslichen Bereich und nicht zu Vermögens- oder Erwerbszwecken gehalten wird, kann er dem Affektionswert, den dieses für seinen Halter oder dessen Angehörige hatte, angemessen Rechnung tragen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsqu’un animal qui vit en milieu domestique et n’est pas gardé dans un but patrimonial ou de gain, est blessé ou tué, le juge peut tenir compte dans une mesure appropriée de la valeur affective de l’animal pour son détenteur ou les proches de celui-ci.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:083cdf5b0bfd63dc">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 43 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird Schadenersatz in Gestalt einer Rente zugesprochen, so ist der Schuldner gleichzeitig zur Sicherheitsleistung anzuhalten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Des dommages-intérêts ne peuvent être alloués sous forme de rente que si le débiteur est en même temps astreint à fournir des sûretés.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3d854c958bd6e2af">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 44 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Geschädigte in die schädigende Handlung eingewilligt, oder haben Umstände, für die er einstehen muss, auf die Entstehung oder Verschlimmerung des Schadens eingewirkt oder die Stellung des Ersatzpflichtigen sonst erschwert, so kann der Richter die Ersatzpflicht ermässigen oder gänzlich von ihr entbinden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge peut réduire les dommages-intérêts, ou même n’en point allouer, lorsque la partie lésée a consenti à la lésion ou lorsque des faits dont elle est responsable ont contribué à créer le dommage, à l’augmenter, ou qu’ils ont aggravé la situation du débiteur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:515b1b8bc5b97c9b">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 44 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Würde ein Ersatzpflichtiger, der den Schaden weder absichtlich noch grobfahrlässig verursacht hat, durch Leistung des Ersatzes in eine Notlage versetzt, so kann der Richter auch aus diesem Grunde die Ersatzpflicht ermässigen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque le préjudice n’a été causé ni intentionnellement ni par l’effet d’une grave négligence ou imprudence, et que sa réparation exposerait le débiteur à la gêne, le juge peut équitablement réduire les dommages-intérêts.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:6a84a1b0fc45872f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 45 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Im Falle der Tötung eines Menschen sind die entstandenen Kosten, insbesondere diejenigen der Bestattung, zu ersetzen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de mort d’homme, les dommages-intérêts comprennent les frais, notamment ceux d’inhumation.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ac748bf8ebba07d5">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 45 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist der Tod nicht sofort eingetreten, so muss namentlich auch für die Kosten der versuchten Heilung und für die Nachteile der Arbeitsunfähigkeit Ersatz geleistet werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si la mort n’est pas survenue immédiatement, ils comprennent en particulier les frais de traitement, ainsi que le préjudice dérivant de l’incapacité de travail.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b6866e5ba85fe2f7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 45 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Haben andere Personen durch die Tötung ihren Versorger verloren, so ist auch für diesen Schaden Ersatz zu leisten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque, par suite de la mort, d’autres personnes ont été privées de leur soutien, il y a également lieu de les indemniser de cette perte.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:cb3a724c2e6abd66">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 46 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Körperverletzung gibt dem Verletzten Anspruch auf Ersatz der Kosten, sowie auf Entschädigung für die Nachteile gänzlicher oder teilweiser Arbeitsunfähigkeit, unter Berücksichtigung der Erschwerung des wirtschaftlichen Fortkommens.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de lésions corporelles, la partie qui en est victime a droit au remboursement des frais et aux dommages-intérêts qui résultent de son incapacité de travail totale ou partielle, ainsi que de l’atteinte portée à son avenir économique.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a19acbc4c78fffb4">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 46 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Sind im Zeitpunkte der Urteilsfällung die Folgen der Verletzung nicht mit hinreichender Sicherheit festzustellen, so kann der Richter bis auf zwei Jahre, vom Tage des Urteils an gerechnet, dessen Abänderung vorbehalten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>S’il n’est pas possible, lors du jugement, de déterminer avec une certitude suffisante les suites des lésions corporelles, le juge a le droit de réserver une révision du jugement pendant un délai de deux ans au plus à compter du jour où il a prononcé.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3b9eee766ff92d25">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 47</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bei Tötung eines Menschen oder Körperverletzung kann der Richter unter Würdigung der besonderen Umstände dem Verletzten oder den Angehörigen des Getöteten eine angemessene Geldsumme als Genugtuung zusprechen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge peut, en tenant compte de circonstances particulières, allouer à la victime de lésions corporelles ou, en cas de mort d’homme, à la famille une indemnité équitable à titre de réparation morale.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:357032ce3cbbcace">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 49 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer in seiner Persönlichkeit widerrechtlich verletzt wird, hat Anspruch auf Leistung einer Geldsumme als Genugtuung, sofern die Schwere der Verletzung es rechtfertigt und diese nicht anders wiedergutgemacht worden ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui subit une atteinte illicite à sa personnalité a droit à une somme d’argent à titre de réparation morale, pour autant que la gravité de l’atteinte le justifie et que l’auteur ne lui ait pas donné satisfaction autrement</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:2f7df5533c943f0b">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 49 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Anstatt oder neben dieser Leistung kann der Richter auch auf eine andere Art der Genugtuung erkennen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge peut substituer ou ajouter à l’allocation de cette indemnité un autre mode de réparation.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:144c01317cf7e833">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 50 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Haben mehrere den Schaden gemeinsam verschuldet, sei es als Anstifter, Urheber oder Gehilfen, so haften sie dem Geschädigten solidarisch.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque plusieurs ont causé ensemble un dommage, ils sont tenus solidairement de le réparer, sans qu’il y ait lieu de distinguer entre l’instigateur, l’auteur principal et le complice.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b5fd72fc3847374f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 50 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ob und in welchem Umfange die Beteiligten Rückgriff gegeneinander haben, wird durch richterliches Ermessen bestimmt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge appréciera s’ils ont un droit de recours les uns contre les autres et déterminera, le cas échéant, l’étendue de ce recours.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:5766064ac0c629e8">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 50 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Begünstiger haftet nur dann und nur soweit für Ersatz, als er einen Anteil an dem Gewinn empfangen oder durch seine Beteiligung Schaden verursacht hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le receleur n’est tenu du dommage qu’autant qu’il a reçu une part du gain ou causé un préjudice par le fait de sa coopération.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a5ad04159a7fa608">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 51 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Haften mehrere Personen aus verschiedenen Rechtsgründen, sei es aus unerlaubter Handlung, aus Vertrag oder aus Gesetzesvorschrift dem Verletzten für denselben Schaden, so wird die Bestimmung über den Rückgriff unter Personen, die einen Schaden gemeinsam verschuldet haben, entsprechend auf sie angewendet.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque plusieurs répondent du même dommage en vertu de causes différentes (acte illicite, contrat, loi), les dispositions légales concernant le recours de ceux qui ont causé ensemble un dommage s’appliquent par analogie.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:b014724c8a703557">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 51 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Dabei trägt in der Regel derjenige in erster Linie den Schaden, der ihn durch unerlaubte Handlung verschuldet hat, und in letzter Linie derjenige, der ohne eigene Schuld und ohne vertragliche Verpflichtung nach Gesetzesvorschrift haftbar ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le dommage est, dans la règle, supporté en première ligne par celle des personnes responsables dont l’acte illicite l’a déterminé et, en dernier lieu, par celle qui, sans qu’il y ait faute de sa part ni obligation contractuelle, en est tenue aux termes de la loi.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ab6c46aab9569239">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 52 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer in berechtigter Notwehr einen Angriff abwehrt, hat den Schaden, den er dabei dem Angreifer in seiner Person oder in seinem Vermögen zufügt, nicht zu ersetzen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de légitime défense, il n’est pas dû de réparation pour le dommage causé à la personne ou aux biens de l’agresseur.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:48ed936c62094d32">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 52 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer in fremdes Vermögen eingreift, um drohenden Schaden oder Gefahr von sich oder einem andern abzuwenden, hat nach Ermessen des Richters Schadenersatz zu leisten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge détermine équitablement le montant de la réparation due par celui qui porte atteinte aux biens d’autrui pour se préserver ou pour préserver un tiers d’un dommage ou d’un danger imminent.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:87239ed2b5e9dfdd">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 52 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer zum Zwecke der Sicherung eines berechtigten Anspruches sich selbst Schutz verschafft, ist dann nicht ersatzpflichtig, wenn nach den gegebenen Umständen amtliche Hilfe nicht rechtzeitig erlangt und nur durch Selbsthilfe eine Vereitelung des Anspruches oder eine wesentliche Erschwerung seiner Geltendmachung verhindert werden konnte.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui recourt à la force pour protéger ses droits ne doit aucune réparation, si, d’après les circonstances, l’intervention de l’autorité ne pouvait être obtenue en temps utile et s’il n’existait pas d’autre moyen d’empêcher que ces droits ne fussent perdus ou que l’exercice n’en fût rendu beaucoup plus difficile.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:4a425a1b0e875aa6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 53 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bei der Beurteilung der Schuld oder Nichtschuld, Urteilsfähigkeit oder Urteilsunfähigkeit ist der Richter an die Bestimmungen über strafrechtliche Zurechnungsfähigkeit oder an eine Freisprechung durch das Strafgericht nicht gebunden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le juge n’est point lié par les dispositions du droit criminel en matière d’imputabilité, ni par l’acquittement prononcé au pénal, pour décider s’il y a eu faute commise ou si l’auteur de l’acte illicite était capable de discernement.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d8ddc3b8855d6cd0">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 53 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ebenso ist das strafgerichtliche Erkenntnis mit Bezug auf die Beurteilung der Schuld und die Bestimmung des Schadens für den Zivilrichter nicht verbindlich.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le jugement pénal ne lie pas davantage le juge civil en ce qui concerne l’appréciation de la faute et la fixation du dommage.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1589eb4cdfc3a9bd">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 54 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Aus Billigkeit kann der Richter auch eine nicht urteilsfähige Person, die Schaden verursacht hat, zu teilweisem oder vollständigem Ersatze verurteilen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’équité l’exige, le juge peut condamner une personne même incapable de discernement à la réparation totale ou partielle du dommage qu’elle a causé.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d9de40c96a03eb25">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 54 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat jemand vorübergehend die Urteilsfähigkeit verloren und in diesem Zustand Schaden angerichtet, so ist er hierfür ersatzpflichtig, wenn er nicht nachweist, dass dieser Zustand ohne sein Verschulden eingetreten ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui a été frappé d’une incapacité passagère de discernement est tenu de réparer le dommage qu’il a causé dans cet état, s’il ne prouve qu’il y a été mis sans sa faute.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:8af7b1b300e6fcb7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 55 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Geschäftsherr haftet für den Schaden, den seine Arbeitnehmer oder andere Hilfspersonen in Ausübung ihrer dienstlichen oder geschäftlichen Verrichtungen verursacht haben, wenn er nicht nachweist, dass er alle nach den Umständen gebotene Sorgfalt angewendet hat, um einen Schaden dieser Art zu verhüten, oder dass der Schaden auch bei Anwendung dieser Sorgfalt eingetreten wäre.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’employeur est responsable du dommage causé par ses travailleurs ou ses autres auxiliaires dans l’accomplissement de leur travail, s’il ne prouve qu’il a pris tous les soins commandés par les circonstances pour détourner un dommage de ce genre ou que sa diligence n’eût pas empêché le dommage de se produire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:468d41d074af5622">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 55 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Geschäftsherr kann auf denjenigen, der den Schaden gestiftet hat, insoweit Rückgriff nehmen, als dieser selbst schadenersatzpflichtig ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’employeur a son recours contre la personne qui a causé le préjudice, en tant qu’elle est responsable du dommage.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:eff888138bbcbfa8">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 56 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Für den von einem Tier angerichteten Schaden haftet, wer dasselbe hält, wenn er nicht nachweist, dass er alle nach den Umständen gebotene Sorgfalt in der Verwahrung und Beaufsichtigung angewendet habe, oder dass der Schaden auch bei Anwendung dieser Sorgfalt eingetreten wäre.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de dommage causé par un animal, la personne qui le détient est responsable, si elle ne prouve qu’elle l’a gardé et surveillé avec toute l’attention commandée par les circonstances ou que sa diligence n’eût pas empêché le dommage de se produire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:633430c67d2a28ca">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 56 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Vorbehalten bleibt ihm der Rückgriff, wenn das Tier von einem andern oder durch das Tier eines andern gereizt worden ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Son recours demeure réservé, si l’animal a été excité soit par un tiers, soit par un animal appartenant à autrui.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e60ba55739a2d46d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 56 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>…</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>…</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:2d87dbe979debc6c">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 57 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Besitzer eines Grundstückes ist berechtigt, Dritten angehörige Tiere, die auf dem Grundstücke Schaden anrichten, zur Sicherung seiner Ersatzforderung einzufangen und in seinen Gewahrsam zu nehmen und, wo die Umstände es rechtfertigen, sogar zu töten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le possesseur d’un immeuble a le droit de s’emparer des animaux appartenant à autrui qui causent du dommage sur cet immeuble, et de les retenir en garantie de l’indemnité qui peut lui être due; il a même le droit de les tuer, si cette mesure est justifiée par les circonstances.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:aa77f41f65ed829f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 57 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Er ist jedoch verpflichtet, ohne Verzug dem Eigentümer davon Kenntnis zu geben und, sofern ihm dieser nicht bekannt ist, zu dessen Ermittlung das Nötige vorzukehren.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Il est toutefois tenu d’aviser sans retard le propriétaire des animaux, et, s’il ne le connaît pas, de prendre les mesures nécessaires pour le découvrir.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:0aa2b3a9e49f7628">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 58 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Eigentümer eines Gebäudes oder eines andern Werkes hat den Schaden zu ersetzen, den diese infolge von fehlerhafter Anlage oder Herstellung oder von mangelhafter Unterhaltung verursachen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le propriétaire d’un bâtiment ou de tout autre ouvrage répond du dommage causé par des vices de construction ou par le défaut d’entretien.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:672a9f37a86f04a0">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 58 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Vorbehalten bleibt ihm der Rückgriff auf andere, die ihm hierfür verantwortlich sind.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Est réservé son recours contre les personnes responsables envers lui de ce chef.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:7d91461837c2b0c6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 59 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer von dem Gebäude oder Werke eines andern mit Schaden bedroht ist, kann von dem Eigentümer verlangen, dass er die erforderlichen Massregeln zur Abwendung der Gefahr treffe.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui est menacé d’un dommage provenant du bâtiment ou de l’ouvrage d’autrui a le droit d’exiger du propriétaire que celui-ci prenne les mesures nécessaires pour écarter le danger.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:c2c9667c8a05a082">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 59 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Vorbehalten bleiben die Anordnungen der Polizei zum Schutze von Personen und Eigentum.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sont réservés les règlements de police concernant la protection des personnes et des propriétés.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:f4b6f500d4c7fbf1">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 59a al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Inhaber eines kryptografischen Schlüssels, der zur Erzeugung elektronischer Signaturen oder Siegel eingesetzt wird, haftet Drittpersonen für Schäden, die diese erleiden, weil sie sich auf ein gültiges geregeltes Zertifikat einer anerkannten Anbieterin von Zertifizierungsdiensten im Sinne des Bundesgesetzes vom 18. März 2016</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le titulaire d’une clé cryptographique utilisée pour créer une signature ou un cachet électronique répond envers les tiers des dommages que ces derniers ont subis parce qu’ils se sont fiés à un certificat réglementé valable délivré par un fournisseur de services de certification reconnu au sens de la loi du 18 mars 2016 sur la signature électronique</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:ac8fb4e853ab4e44">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 59a al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Haftung entfällt, wenn der Inhaber glaubhaft darlegen kann, dass er die nach den Umständen notwendigen und zumutbaren Sicherheitsvorkehrungen getroffen hat, um den Missbrauch des kryptografischen Schlüssels zu verhindern.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le titulaire de la clé est libéré de sa responsabilité s’il peut établir de manière crédible qu’il a pris les mesures de sécurité raisonnablement imposées par les circonstances pour éviter qu’elle ne soit utilisée de façon abusive.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:fa69a6e2b9d7bc69">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 59a al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Bundesrat umschreibt die Sicherheitsvorkehrungen im Sinne von Absatz 2.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le Conseil fédéral arrête les mesures de sécurité à prendre au sens de l’al. 2.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e73303b3d90bade2">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 60 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Anspruch auf Schadenersatz oder Genugtuung verjährt mit Ablauf von drei Jahren von dem Tage an gerechnet, an welchem der Geschädigte Kenntnis vom Schaden und von der Person des Ersatzpflichtigen erlangt hat, jedenfalls aber mit Ablauf von zehn Jahren, vom Tage an gerechnet, an welchem das schädigende Verhalten erfolgte oder aufhörte.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’action en dommages-intérêts ou en paiement d’une somme d’argent à titre de réparation morale se prescrit par trois ans à compter du jour où la partie lésée a eu connaissance du dommage ainsi que de la personne tenue à réparation et, dans tous les cas, par dix ans à compter du jour où le fait dommageable s’est produit ou a cessé.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:186a5773fef51334">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 60 al. 1_bis</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Bei Tötung eines Menschen oder bei Körperverletzung verjährt der Anspruch auf Schadenersatz oder Genugtuung mit Ablauf von drei Jahren von dem Tage an gerechnet, an welchem der Geschädigte Kenntnis vom Schaden und von der Person des Ersatzpflichtigen erlangt hat, jedenfalls aber mit Ablauf von zwanzig Jahren, vom Tage an gerechnet, an welchem das schädigende Verhalten erfolgte oder aufhörte.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de mort d’homme ou de lésions corporelles, elle se prescrit par trois ans à compter du jour où la partie lésée a eu connaissance du dommage ainsi que de la personne tenue à réparation et, dans tous les cas, par vingt ans à compter du jour où le fait dommageable s’est produit ou a cessé.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:26f61a164c97f3a7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 60 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat die ersatzpflichtige Person durch ihr schädigendes Verhalten eine strafbare Handlung begangen, so verjährt der Anspruch auf Schadenersatz oder Genugtuung ungeachtet der vorstehenden Absätze frühestens mit Eintritt der strafrechtlichen Verfolgungsverjährung. Tritt diese infolge eines erstinstanzlichen Strafurteils nicht mehr ein, so verjährt der Anspruch frühestens mit Ablauf von drei Jahren seit Eröffnung des Urteils.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si le fait dommageable résulte d’un acte punissable de la personne tenue à réparation, elle se prescrit au plus tôt à l’échéance du délai de prescription de l’action pénale, nonobstant les alinéas précédents. Si la prescription de l’action pénale ne court plus parce qu’un jugement de première instance a été rendu, l’action civile se prescrit au plus tôt par trois ans à compter de la notification du jugement.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:57dcec70a5bebfac">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 60 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist durch die unerlaubte Handlung gegen den Verletzten eine Forderung begründet worden, so kann dieser die Erfüllung auch dann verweigern, wenn sein Anspruch aus der unerlaubten Handlung verjährt ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’acte illicite a donné naissance à une créance contre la partie lésée, celle-ci peut en refuser le paiement lors même que son droit d’exiger la réparation du dommage serait atteint par la prescription.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:c0767fb02771ff4f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 61 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Über die Pflicht von öffentlichen Beamten oder Angestellten, den Schaden, den sie in Ausübung ihrer amtlichen Verrichtungen verursachen, zu ersetzen oder Genugtuung zu leisten, können der Bund und die Kantone auf dem Wege der Gesetzgebung abweichende Bestimmungen aufstellen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La législation fédérale ou cantonale peut déroger aux dispositions du présent chapitre, en ce qui concerne la responsabilité encourue par des fonctionnaires et employés publics pour le dommage ou le tort moral qu’ils causent dans l’exercice de leur charge.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a312ea1ff507e58d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 61 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Für gewerbliche Verrichtungen von öffentlichen Beamten oder Angestellten können jedoch die Bestimmungen dieses Abschnittes durch kantonale Gesetze nicht geändert werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les lois cantonales ne peuvent déroger aux dispositions du présent chapitre, s’il s’agit d’actes commis par des fonctionnaires ou des employés publics et se rattachant à l’exercice d’une industrie.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:37a818bea4b4d3f1">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 62 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer in ungerechtfertigter Weise aus dem Vermögen eines andern bereichert worden ist, hat die Bereicherung zurückzuerstatten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui, sans cause légitime, s’est enrichi aux dépens d’autrui, est tenu à restitution.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:80ac52f7733db2f9">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 62 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Insbesondere tritt diese Verbindlichkeit dann ein, wenn jemand ohne jeden gültigen Grund oder aus einem nicht verwirklichten oder nachträglich weggefallenen Grund eine Zuwendung erhalten hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La restitution est due, en particulier, de ce qui a été reçu sans cause valable, en vertu d’une cause qui ne s’est pas réalisée, ou d’une cause qui a cessé d’exister.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:fddc8e92ec4d2497">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 63 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer eine Nichtschuld freiwillig bezahlt, kann das Geleistete nur dann zurückfordern, wenn er nachzuweisen vermag, dass er sich über die Schuldpflicht im Irrtum befunden hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui a payé volontairement ce qu’il ne devait pas ne peut le répéter s’il ne prouve qu’il a payé en croyant, par erreur, qu’il devait ce qu’il a payé.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:495e108646ece0ba">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 63 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ausgeschlossen ist die Rückforderung, wenn die Zahlung für eine verjährte Schuld oder in Erfüllung einer sittlichen Pflicht geleistet wurde.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ce qui a été payé pour acquitter une dette prescrite ou pour accomplir un devoir moral ne peut être répété.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:34c9cce024784ed2">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 63 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Vorbehalten bleibt die Rückforderung einer bezahlten Nichtschuld nach Schuldbetreibungs- und Konkursrecht.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sont réservées les dispositions de la loi fédérale du 11 avril 1889 sur la poursuite pour dettes et la faillite</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:df4d30d3976555c2">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 64</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Rückerstattung kann insoweit nicht gefordert werden, als der Empfänger nachweisbar zur Zeit der Rückforderung nicht mehr bereichert ist, es sei denn, dass er sich der Bereicherung entäusserte und hierbei nicht in gutem Glauben war oder doch mit der Rückerstattung rechnen musste.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Il n’y a pas lieu à restitution, dans la mesure où celui qui a reçu indûment établit qu’il n’est plus enrichi lors de la répétition; à moins cependant qu’il ne se soit dessaisi de mauvaise foi de ce qu’il a reçu ou qu’il n’ait dû savoir, en se dessaisissant, qu’il pouvait être tenu à restituer.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:358ae0656781bcd7">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 65 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Empfänger hat Anspruch auf Ersatz der notwendigen und nützlichen Verwendungen, für letztere jedoch, wenn er beim Empfange nicht in gutem Glauben war, nur bis zum Betrage des zur Zeit der Rückerstattung noch vorhandenen Mehrwertes.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le défendeur a droit au remboursement de ses impenses nécessaires ou utiles; néanmoins, s’il était déjà de mauvaise foi lors de la réception, les impenses utiles ne lui sont remboursées que jusqu’à concurrence de la plus-value existant encore au moment de la restitution.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:696fbdef3b092494">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 65 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Für andere Verwendungen kann er keinen Ersatz verlangen, darf aber, wenn ihm ein solcher nicht angeboten wird, vor der Rückgabe der Sache, was er verwendet hat, wieder wegnehmen, soweit dies ohne Beschädigung der Sache selbst geschehen kann.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les autres impenses ne lui donnent droit à aucune indemnité, mais il a la faculté d’enlever, avant toute restitution, ce qu’il a uni à la chose et qui en peut être séparé sans dommage pour elle, si le demandeur ne lui offre la contre-valeur de ses impenses.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:745e954793a3fe39">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 66</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Was in der Absicht, einen rechtswidrigen oder unsittlichen Erfolg herbeizuführen, gegeben worden ist, kann nicht zurückgefordert werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Il n’y a pas lieu à répétition de ce qui a été donné en vue d’atteindre un but illicite ou contraire aux moeurs.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:2bcbb58fe2fc454d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 67 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Bereicherungsanspruch verjährt mit Ablauf von drei Jahren, nachdem der Verletzte von seinem Anspruch Kenntnis erhalten hat, in jedem Fall aber mit Ablauf von zehn Jahren seit der Entstehung des Anspruchs.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’action pour cause d’enrichissement illégitime se prescrit par trois ans à compter du jour où la partie lésée a eu connaissance de son droit de répétition et, dans tous les cas, par dix ans à compter de la naissance de ce droit.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:53ebfa990a830472">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 67 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Besteht die Bereicherung in einer Forderung an den Verletzten, so kann dieser die Erfüllung auch dann verweigern, wenn der Bereicherungsanspruch verjährt ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’enrichissement consiste en une créance contre la partie lésée, celle-ci peut en refuser le paiement lors même que ses droits seraient atteints par la prescription.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:adf1fa67a534da16">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 68</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Schuldner ist nur dann verpflichtet, persönlich zu erfüllen, wenn es bei der Leistung auf seine Persönlichkeit ankommt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le débiteur n’est tenu d’exécuter personnellement son obligation que si le créancier a intérêt à ce qu’elle soit exécutée par le débiteur lui-même.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:4115f606cb3b057c">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 69 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Gläubiger braucht eine Teilzahlung nicht anzunehmen, wenn die gesamte Schuld feststeht und fällig ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le créancier peut refuser un paiement partiel, lorsque la dette est liquide et exigible pour le tout.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d5a0778c3203cc2b">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 69 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Will der Gläubiger eine Teilzahlung annehmen, so kann der Schuldner die Zahlung des von ihm anerkannten Teiles der Schuld nicht verweigern.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si le créancier accepte un paiement partiel, le débiteur ne peut refuser d’acquitter la partie reconnue de la dette.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e8bc806edf62e2a9">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 70 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist eine unteilbare Leistung an mehrere Gläubiger zu entrichten, so hat der Schuldner an alle gemeinsam zu leisten, und jeder Gläubiger kann die Leistung an alle gemeinsam fordern.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsque l’obligation est indivisible et qu’il y a plusieurs créanciers, chacun d’eux peut en exiger l’exécution intégrale et le débiteur est tenu de se libérer envers tous.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:5308e87c201f4a98">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 70 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist eine unteilbare Leistung von mehreren Schuldnern zu entrichten, so ist jeder Schuldner zu der ganzen Leistung verpflichtet.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>S’il y a plusieurs débiteurs, chacun d’eux est tenu d’acquitter l’obligation indivisible pour le tout.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:2564fa9b98c895e6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 70 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Sofern sich aus den Umständen nicht etwas anderes ergibt, kann alsdann der Schuldner, der den Gläubiger befriedigt hat, von den übrigen Schuldnern verhältnismässigen Ersatz verlangen, und es gehen, soweit ihm ein solcher Anspruch zusteht, die Rechte des befriedigten Gläubigers auf ihn über.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>À moins que le contraire ne résulte des circonstances, le débiteur qui a payé a un recours contre ses codébiteurs pour leur part et portion et il est subrogé dans cette mesure aux droits du créancier.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d8b5a1b56cd4da5f">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 71 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die geschuldete Sache nur der Gattung nach bestimmt, so steht dem Schuldner die Auswahl zu, insofern sich aus dem Rechtsverhältnis nicht etwas anderes ergibt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si la chose due n’est déterminée que par son genre, le choix appartient au débiteur, à moins que le contraire ne résulte de l’affaire.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:39905aa7de046048">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 71 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Er darf jedoch nicht eine Sache unter mittlerer Qualität anbieten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Toutefois, le débiteur ne peut offrir une chose de qualité inférieure à la qualité moyenne.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:cc91ed02c94b719e">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 72</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die Schuldpflicht in der Weise auf mehrere Leistungen gerichtet, dass nur die eine oder die andere erfolgen soll, so steht die Wahl dem Schuldner zu, insofern sich aus dem Rechtsverhältnis nicht etwas anderes ergibt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si le contraire ne résulte de l’affaire, le choix appartient au débiteur lorsque son obligation s’étend à plusieurs prestations mais qu’il ne peut être tenu que de l’une d’elles.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:c9ce21db6cd4fe66">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 73 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Geht die Schuldpflicht auf Zahlung von Zinsen und ist deren Höhe weder durch Vertrag noch durch Gesetz oder Übung bestimmt, so sind Zinse zu fünf vom Hundert für das Jahr zu bezahlen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui doit des intérêts dont le taux n’est fixé ni par la convention, ni par la loi ou l’usage, les acquitte au taux annuel de 5 %.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:82e7eb4cb01e2348">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 73 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Dem öffentlichen Rechte bleibt es vorbehalten, Bestimmungen gegen Missbräuche im Zinswesen aufzustellen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>La répression des abus en matière d’intérêt conventionnel est réservée au droit public.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1d7dfd47fe781fe6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 74 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Ort der Erfüllung wird durch den ausdrücklichen oder aus den Umständen zu schliessenden Willen der Parteien bestimmt.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le lieu où l’obligation doit être exécutée est déterminé par la volonté expresse ou présumée des parties.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:0d83a066c521ae7a">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 74 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wo nichts anderes bestimmt ist, gelten folgende Grundsätze:1. Geldschulden sind an dem Orte zu zahlen, wo der Gläubiger zur Zeit der Erfüllung seinen Wohnsitz hat;2. wird eine bestimmte Sache geschuldet, so ist diese da zu übergeben, wo sie sich zur Zeit des Vertragsabschlusses befand;3. andere Verbindlichkeiten sind an dem Orte zu erfüllen, wo der Schuldner zur Zeit ihrer Entstehung seinen Wohnsitz hatte.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>À défaut de stipulation contraire, les dispositions suivantes sont applicables:1. lorsqu’il s’agit d’une somme d’argent, le paiement s’opère dans le lieu où le créancier est domicilié à l’époque du paiement;2. lorsque l’obligation porte sur une chose déterminée, la chose est délivrée dans le lieu où elle se trouvait au temps de la conclusion du contrat;3. toute autre obligation est exécutée dans le lieu où le débiteur était domicilié lorsqu’elle a pris naissance.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3473350eb60d283e">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 74 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wenn der Gläubiger seinen Wohnsitz, an dem er die Erfüllung fordern kann, nach der Entstehung der Schuld ändert und dem Schuldner daraus eine erhebliche Belästigung erwächst, so ist dieser berechtigt, an dem ursprünglichen Wohnsitze zu erfüllen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si l’exécution d’une obligation qui devait être acquittée au domicile du créancier est notablement aggravée par le fait que le créancier a changé de domicile depuis que l’obligation a pris naissance, l’exécution peut avoir lieu valablement en son domicile primitif.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:4497c600862f95dc">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 75</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die Zeit der Erfüllung weder durch Vertrag noch durch die Natur des Rechtsverhältnisses bestimmt, so kann die Erfüllung sogleich geleistet und gefordert werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>À défaut de terme stipulé ou résultant de la nature de l’affaire, l’obligation peut être exécutée et l’exécution peut en être exigée immédiatement.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:046dad6f9d08bfe8">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 76 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die Zeit auf Anfang oder Ende eines Monates festgesetzt, so ist darunter der erste oder der letzte Tag des Monates zu verstehen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le terme fixé pour l’exécution au commencement ou à la fin d’un mois s’entend du premier ou du dernier jour du mois.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d6b70076eb70bac4">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 76 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die Zeit auf die Mitte eines Monates festgesetzt, so gilt der fünfzehnte dieses Monates.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le terme fixé au milieu d’un mois s’entend du quinze de ce mois.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1afdc010c62e2b9d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 77 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Soll die Erfüllung einer Verbindlichkeit oder eine andere Rechtshandlung mit dem Ablaufe einer bestimmten Frist nach Abschluss des Vertrages erfolgen, so fällt ihr Zeitpunkt:1. wenn die Frist nach Tagen bestimmt ist, auf den letzten Tag der Frist, wobei der Tag, an dem der Vertrag geschlossen wurde, nicht mitgerechnet und, wenn die Frist auf acht oder 15 Tage lautet, nicht die Zeit von einer oder zwei Wochen verstanden wird, sondern volle acht oder 15 Tage;2. wenn die Frist nach Wochen bestimmt ist, auf denjenigen Tag der letzten Woche, der durch seinen Namen dem Tage des Vertragsabschlusses entspricht;3. wenn die Frist nach Monaten oder einem mehrere Monate umfassenden Zeitraume (Jahr, halbes Jahr, Vierteljahr) bestimmt ist, auf denjenigen Tag des letzten Monates, der durch seine Zahl dem Tage des Vertragsabschlusses entspricht, und, wenn dieser Tag in dem letzten Monate fehlt, auf den letzten Tag dieses Monates.Der Ausdruck «halber Monat» wird einem Zeitraume von 15 Tagen gleichgeachtet, die, wenn eine Frist auf einen oder mehrere Monate und einen halben Monat lautet, zuletzt zu zählen sind.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsqu’une obligation doit être exécutée ou quelque autre acte juridique accompli à l’expiration d’un certain délai depuis la conclusion du contrat, l’échéance est réglée comme suit:1. si le délai est fixé par jours, la dette est échue le dernier jour du délai, celui de la conclusion du contrat n’étant pas compté; s’il est de huit ou de quinze jours, il signifie non pas une ou deux semaines, mais huit ou quinze jours pleins;2. si le délai est fixé par semaines, la dette est échue le jour qui, dans la dernière semaine, correspond par son nom au jour de la conclusion du contrat;3. si le délai est fixé par mois ou par un laps de temps comprenant plusieurs mois (année, semestre, trimestre), la dette est échue le jour qui, dans le dernier mois, correspond par son quantième au jour de la conclusion du contrat; s’il n’y a pas, dans le dernier mois, de jour correspondant l’obligation s’exécute le dernier jour dudit mois.L’expression «demi-mois» équivaut à un délai de quinze jours; si le délai est d’un ou plusieurs mois et d’un demi-mois, les quinze jours sont comptés en dernier lieu.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:21ab25e626b45a45">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 77 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>In gleicher Weise wird die Frist auch dann berechnet, wenn sie nicht von dem Tage des Vertragsabschlusses, sondern von einem andern Zeitpunkte an zu laufen hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ces règles sont également applicables si le délai court à partir d’une époque autre que celle de la conclusion du contrat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:60c9a01cd041cf46">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 77 al. 3</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Soll die Erfüllung innerhalb einer bestimmten Frist geschehen, so muss sie vor deren Ablauf erfolgen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Lorsqu’une obligation doit être exécutée au cours d’un certain laps de temps, le débiteur est tenu de s’acquitter avant l’expiration du délai fixé.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:d77aa32404c7302d">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 78 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Fällt der Zeitpunkt der Erfüllung oder der letzte Tag einer Frist auf einen Sonntag oder auf einen andern am Erfüllungsorte staatlich anerkannten Feiertag</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’échéance qui tombe sur un dimanche ou sur un autre jour reconnu férié</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a5649b8223477303">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 78 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Abweichende Vereinbarungen bleiben vorbehalten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Les conventions contraires demeurent réservées.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:2dea41bc423ebf91">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 79</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Die Erfüllung muss an dem festgesetzten Tage während der gewöhnlichen Geschäftszeit vollzogen und angenommen werden.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L’exécution a lieu et doit être acceptée, le jour de l’échéance, pendant les heures habituellement consacrées aux affaires.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:08af063816ea86d5">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 80</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist die vertragsmässige Frist verlängert worden, so beginnt die neue Frist, sofern sich aus dem Vertrage nicht etwas anderes ergibt, am ersten Tage nach Ablauf der alten Frist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>En cas de prolongation du terme convenu pour l’exécution, le nouveau délai court, sauf stipulation contraire, à partir du premier jour qui suit l’expiration du précédent délai.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:3ea602c009af39f6">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 81 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Sofern sich nicht aus dem Inhalt oder der Natur des Vertrages oder aus den Umständen eine andere Willensmeinung der Parteien ergibt, kann der Schuldner schon vor dem Verfalltage erfüllen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le débiteur peut exécuter son obligation avant l’échéance, si l’intention contraire des parties ne ressort ni des clauses ou de la nature du contrat, ni des circonstances.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1f3dc6eb8cee2dc8">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 81 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Er ist jedoch nicht berechtigt, einen Diskonto abzuziehen, es sei denn, dass Übereinkunft oder Übung einen solchen gestatten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Il n’a toutefois le droit de déduire un escompte que s’il y est autorisé par la convention ou l’usage.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:e1b969fa2904f003">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 82</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wer bei einem zweiseitigen Vertrage den andern zur Erfüllung anhalten will, muss entweder bereits erfüllt haben oder die Erfüllung anbieten, es sei denn, dass er nach dem Inhalte oder der Natur des Vertrages erst später zu erfüllen hat.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Celui qui poursuit l’exécution d’un contrat bilatéral doit avoir exécuté ou offrir d’exécuter sa propre obligation, à moins qu’il ne soit au bénéfice d’un terme d’après les clauses ou la nature du contrat.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:f3ac9f6c2c184610">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 83 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Ist bei einem zweiseitigen Vertrag der eine Teil zahlungsunfähig geworden, wie namentlich, wenn er in Konkurs geraten oder fruchtlos gepfändet ist, und wird durch diese Verschlechterung der Vermögenslage der Anspruch des andern gefährdet, so kann dieser seine Leistung so lange zurückhalten, bis ihm die Gegenleistung sichergestellt wird.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si, dans un contrat bilatéral, les droits de l’une des parties sont mis en péril parce que l’autre est devenue insolvable, et notamment en cas de faillite ou de saisie infructueuse, la partie ainsi menacée peut se refuser à exécuter jusqu’à ce que l’exécution de l’obligation contractée à son profit ait été garantie.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:1c456b5d68ca3b92">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 83 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Wird er innerhalb einer angemessenen Frist auf sein Begehren nicht sichergestellt, so kann er vom Vertrage zurücktreten.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Elle peut se départir du contrat si cette garantie ne lui est pas fournie, à sa requête, dans un délai convenable.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:a28005a337e6fb90">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 84 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Geldschulden sind in gesetzlichen Zahlungsmitteln der geschuldeten Währung zu bezahlen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le paiement d’une dette qui a pour objet une somme d’argent se fait en moyens de paiement ayant cours légal dans la monnaie due.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:eb28d5067a1f6411">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 84 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Lautet die Schuld auf eine Währung, die am Zahlungsort nicht Landeswährung ist, so kann die geschuldete Summe nach ihrem Wert zur Verfallzeit dennoch in Landeswährung bezahlt werden, sofern nicht durch den Gebrauch des Wortes «effektiv» oder eines ähnlichen Zusatzes die wortgetreue Erfüllung des Vertrags ausbedungen ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si la dette est exprimée dans une monnaie qui n’est pas la monnaie du pays du lieu de paiement, elle peut être acquittée en monnaie du pays au cours du jour de l’échéance, à moins que l’exécution littérale du contrat n’ait été stipulée par les mots «valeur effective» ou par quelqu’autre complément analogue.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:15d523b8ecceee29">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 85 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Der Schuldner kann eine Teilzahlung nur insoweit auf das Kapital anrechnen, als er nicht mit Zinsen oder Kosten im Rückstande ist.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le débiteur ne peut imputer un paiement partiel sur le capital qu’en tant qu’il n’est pas en retard pour les intérêts ou les frais.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:fdc3c5f7a696efed">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 85 al. 2</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Sind dem Gläubiger für einen Teil seiner Forderung Bürgen gestellt, oder Pfänder oder andere Sicherheiten gegeben worden, so ist der Schuldner nicht berechtigt, eine Teilzahlung auf den gesicherten oder besser gesicherten Teil der Forderung anzurechnen.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Si le créancier a reçu pour une fraction de la créance des cautionnements, gages ou autres sûretés, le débiteur n’a pas le droit d’imputer un paiement partiel sur la fraction garantie ou mieux garantie de la créance.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="og:tu:55d606697272e065">
+      <prop type="x-source">Fedlex</prop>
+      <prop type="x-source-uri">https://fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de</prop>
+      <prop type="x-license">Fedlex-open-reuse</prop>
+      <prop type="x-reference">SR 220 Art. 86 al. 1</prop>
+      <prop type="x-domain">statute</prop>
+      <tuv xml:lang="de">
+        <seg>Hat der Schuldner mehrere Schulden an denselben Gläubiger zu bezahlen, so ist er berechtigt, bei der Zahlung zu erklären, welche Schuld er tilgen will.</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le débiteur qui a plusieurs dettes à payer au même créancier a le droit de déclarer, lors du paiement, laquelle il entend acquitter.</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
