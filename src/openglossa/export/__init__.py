@@ -7,10 +7,18 @@ source whose redistribution is not confirmed (see LICENSING.md / termdat).
 from __future__ import annotations
 
 from openglossa.export.deepl_csv import write_deepl_glossary
+from openglossa.export.jsonl import read_jsonl, write_jsonl
 from openglossa.export.tbx import write_tbx
 from openglossa.export.tmx import write_tmx
 
-__all__ = ["write_tbx", "write_tmx", "write_deepl_glossary", "write_parquet"]
+__all__ = [
+    "write_tbx",
+    "write_tmx",
+    "write_deepl_glossary",
+    "write_jsonl",
+    "read_jsonl",
+    "write_parquet",
+]
 
 
 def write_parquet(*args, **kwargs):  # noqa: ANN002, ANN003

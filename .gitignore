@@ -30,6 +30,12 @@ data/cache/
 *.duckdb.wal
 *.lance/
 
+# Generated pipeline artifacts (kept out of git; regenerate with the CLI)
+data/processed/*
+!data/processed/.gitkeep
+data/exports/*
+!data/exports/.gitkeep
+
 # Vector indexes
 *.sqlite-vec
 

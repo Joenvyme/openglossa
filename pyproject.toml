@@ -59,6 +59,7 @@ all = [
 ]
 
 [project.scripts]
+openglossa = "openglossa.cli:main"
 openglossa-mcp = "openglossa.mcp.server:main"
 
 [project.urls]

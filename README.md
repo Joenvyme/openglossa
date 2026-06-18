@@ -50,6 +50,20 @@ make schema           # écrit dans schemas/
 make mcp
 ```
 
+### PoC bout-en-bout (Fedlex → exports → MCP)
+
+```bash
+# Ingestion live des actes fédéraux (titres parallèles DE/FR/IT) + exports
+openglossa poc                       # ou : python -m openglossa poc
+
+# Étapes séparées
+openglossa ingest-fedlex --rs 220 210 101    # -> data/processed/tus.jsonl
+openglossa build-exports                      # -> data/exports/ (TMX, JSONL, ...)
+```
+
+Le serveur MCP lit `data/processed/*.jsonl` ; `search_parallel` renvoie des
+segments officiels **cités** (n° RS + URI ELI Fedlex).
+
 Sur **Windows PowerShell** (sans `make`) :
 
 ```powershell
@@ -80,8 +94,8 @@ openglossa/
 
 | Phase | Objet | Statut |
 |-------|-------|--------|
-| P0 | Setup (repo, licences, schémas, connecteurs) | 🚧 en cours |
-| P1 | Ingest Fedlex (SPARQL → alignement ELI) | ⬜ |
+| P0 | Setup (repo, licences, schémas, connecteurs) | ✅ |
+| P1 | Ingest Fedlex (SPARQL validé ; TUs au niveau titre) | 🚧 partiel (titres OK ; alignement par article à venir) |
 | P2 | Ingest SLDS (TU regeste trilingues) | ⬜ |
 | P3 | Backbone terminologique (TERMDAT live) | ⬜ |
 | P4 | Term mining + verify (human-in-the-loop) | ⬜ |
