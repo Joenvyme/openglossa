@@ -84,8 +84,22 @@ officiels DE/FR/IT/RM/EN + définition + base légale, cités). TERMDAT étant e
 statut 🟠 (redistribution non confirmée), aucun texte brut n'est écrit sur disque :
 seul un index dérivé (`concept_id` + URI + identifiant + langues + base légale).
 
-Le serveur MCP lit `data/processed/*.jsonl` ; `search_parallel` renvoie des
-segments officiels **cités** (n° RS + URI ELI Fedlex).
+Le serveur MCP lit `data/processed/*.jsonl` et expose (transport **Streamable
+HTTP**, à ajouter comme connecteur custom dans Claude) :
+
+- `lookup_term(query, src, tgt, domain?)` — traductions officielles + définition
+  + base légale, **citées** (termbase local + TERMDAT live optionnel) ;
+- `search_parallel(text, src, tgt, k)` — exemples parallèles cités (RAG few-shot),
+  insensible à l'orientation des TUs ;
+- `verify_translation(src, tgt, …)` — le couple est-il **attesté en source
+  officielle** ? (termbase **et** TM Fedlex/SLDS) ; renvoie `false` proprement ;
+- `get_official_text(eli_or_citation, lang)` — **texte officiel Fedlex en live**
+  (ex. « SR 220 Art. 1 al. 1 ») avec URI ELI citable ;
+- `suggest_glossary(text, src, tgt)` *(stretch)* — termes d'un passage + leurs
+  traductions officielles citées.
+
+Toutes les réponses incluent les citations et un `disclaimer` (sortie non
+officielle).
 
 `mine-terms` extrait des **couples de termes candidats** du parallèle par
 co-occurrence (coefficient de Dice), avec `score`, `support` et **preuve de
@@ -137,7 +151,7 @@ openglossa/
 | P3 | Backbone terminologique TERMDAT (live LINDAS, schema.org) | ✅ (JURIVOC en backlog) |
 | P4 | Term mining + verify (human-in-the-loop) | ✅ (baseline co-occurrence ; LaBSE/eflomal en backlog) |
 | P5 | Packaging / exports (TBX/TMX/CSV/JSONL/Parquet) + validation DTD + round-trip | ✅ |
-| P6 | Serveur MCP | ⬜ |
+| P6 | Serveur MCP (lookup/search/verify/get_official_text + suggest_glossary) | ✅ |
 | P7 | Évaluation (term hit-rate) | ⬜ |
 | P8 | Site statique | ⬜ |
 

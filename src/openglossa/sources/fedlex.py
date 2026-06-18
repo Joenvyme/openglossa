@@ -19,6 +19,7 @@ dependency (SPARQLWrapper) is optional (``pip install 'openglossa[sources]'``).
 from __future__ import annotations
 
 import hashlib
+import re
 from collections.abc import Iterable
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
@@ -361,6 +362,83 @@ def fetch_article_translation_units(
         citable_uri_by_lang=citable_uri_by_lang,
         limit=limit,
     )
+
+
+_RS_RE = re.compile(r"(?:SR|RS)\s*([0-9][0-9.]*)", re.IGNORECASE)
+
+
+def rs_from_citation(citation: str) -> str | None:
+    """Extract an RS number from a citation, ELI URI, or bare number."""
+    m = _RS_RE.search(citation)
+    if m:
+        return m.group(1).rstrip(".")
+    m2 = re.fullmatch(r"\s*([0-9][0-9.]*)\s*", citation)
+    return m2.group(1) if m2 else None
+
+
+def fetch_official_text(
+    eli_or_citation: str,
+    lang: str,
+    *,
+    endpoint: str = SPARQL_ENDPOINT,
+) -> dict:
+    """Fetch the in-force official text for a citation/RS in one language.
+
+    Resolves the in-force consolidation, downloads its Akoma Ntoso XML, and
+    returns the requested article/alinéa text. The result always carries the
+    citable ELI expression URI (hard rule #3) and never fabricates: unknown
+    inputs return ``text=None`` with an explanatory note.
+    """
+    from openglossa.sources.akn import eid_from_citation, parse_segments, ref_from_eid
+
+    rs = rs_from_citation(eli_or_citation)
+    if rs is None:
+        return {
+            "text": None,
+            "uri": None,
+            "lang": lang,
+            "note": f"Could not parse an RS number from {eli_or_citation!r}.",
+        }
+
+    sources = fetch_consolidation_sources(rs, langs=(lang,), fmt="xml", endpoint=endpoint)
+    if not sources:
+        return {
+            "text": None,
+            "uri": None,
+            "lang": lang,
+            "note": f"No in-force consolidation found for SR {rs} in '{lang}'.",
+        }
+
+    src = sources[0]
+    segments = parse_segments(_download(src.file_url))
+    eid = eid_from_citation(eli_or_citation)
+
+    if eid is None:
+        return {
+            "text": None,
+            "uri": src.citable_uri,
+            "lang": lang,
+            "note": f"SR {rs} resolved; specify an article (e.g. 'Art. 1') to get text.",
+        }
+
+    text = segments.get(eid)
+    if text is None and "/" in eid:  # fall back to article level
+        eid = eid.split("/", 1)[0]
+        text = segments.get(eid)
+    if text is None:
+        return {
+            "text": None,
+            "uri": src.citable_uri,
+            "lang": lang,
+            "note": f"Article {eid!r} not found in SR {rs} ({lang}).",
+        }
+
+    return {
+        "text": text,
+        "uri": f"{src.citable_uri}#{eid}",
+        "lang": lang,
+        "ref": ref_from_eid(rs, eid),
+    }
 
 
 if __name__ == "__main__":  # pragma: no cover - manual smoke test

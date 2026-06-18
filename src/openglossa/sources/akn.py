@@ -58,8 +58,16 @@ def parse_segments(xml: str | bytes) -> dict[str, str]:
     # mining). They are not part of the statutory text.
     for note in root.findall(f".//{_Q}authorialNote"):
         parent = note.getparent()
-        if parent is not None:
-            parent.remove(note)
+        if parent is None:
+            continue
+        # Preserve the text that follows the footnote marker (its tail).
+        tail = note.tail or ""
+        prev = note.getprevious()
+        if prev is not None:
+            prev.tail = (prev.tail or "") + tail
+        else:
+            parent.text = (parent.text or "") + tail
+        parent.remove(note)
 
     segments: dict[str, str] = {}
     for article in root.iter(f"{_Q}article"):
@@ -95,3 +103,26 @@ def ref_from_eid(rs_number: str, eid: str) -> str:
     if len(parts) > 1 and parts[1].startswith("para_"):
         ref += f" al. {parts[1].removeprefix('para_')}"
     return ref
+
+
+_ART_RE = re.compile(r"\bart\.?\s*([0-9]+)\s*([a-z]?)\b", re.IGNORECASE)
+# alinéa / Absatz / capoverso / paragraph, all map to the AKN para_ component.
+_PARA_RE = re.compile(r"\b(?:al|abs|cpv|para)\.?\s*([0-9]+)\b", re.IGNORECASE)
+
+
+def eid_from_citation(citation: str) -> str | None:
+    """Inverse of :func:`ref_from_eid`: map a human citation to an eId.
+
+    ``'SR 220 Art. 6a al. 2'`` -> ``'art_6_a/para_2'``. Returns ``None`` when no
+    article can be parsed (the RS number, if present, is ignored here).
+    """
+    art = _ART_RE.search(citation)
+    if not art:
+        return None
+    eid = f"art_{art.group(1)}"
+    if art.group(2):
+        eid += f"_{art.group(2).lower()}"
+    para = _PARA_RE.search(citation)
+    if para:
+        eid += f"/para_{para.group(1)}"
+    return eid

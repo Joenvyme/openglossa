@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from openglossa.align.eli_structural import align_segments, shared_eids
-from openglossa.sources.akn import parse_segments, ref_from_eid
+from openglossa.sources.akn import eid_from_citation, parse_segments, ref_from_eid
 
 _AKN_FR = """<?xml version="1.0" encoding="UTF-8"?>
 <akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
@@ -42,6 +42,33 @@ def test_ref_from_eid():
     assert ref_from_eid("220", "art_1/para_1") == "SR 220 Art. 1 al. 1"
     assert ref_from_eid("220", "art_6_a/para_2") == "SR 220 Art. 6a al. 2"
     assert ref_from_eid("220", "art_10") == "SR 220 Art. 10"
+
+
+def test_eid_from_citation_roundtrip():
+    assert eid_from_citation("SR 220 Art. 1 al. 1") == "art_1/para_1"
+    assert eid_from_citation("SR 220 Art. 6a al. 2") == "art_6_a/para_2"
+    assert eid_from_citation("art. 10") == "art_10"
+    # Multilingual paragraph keywords map to the same para_ component.
+    assert eid_from_citation("Art. 4 Abs. 3") == "art_4/para_3"
+    assert eid_from_citation("art. 4 cpv. 3") == "art_4/para_3"
+    assert eid_from_citation("no article here") is None
+    # Round-trips with ref_from_eid for the common cases.
+    for eid in ("art_1/para_1", "art_6_a/para_2", "art_10"):
+        assert eid_from_citation(ref_from_eid("220", eid)) == eid
+
+
+def test_parse_segments_strips_footnotes():
+    xml = """<?xml version="1.0"?>
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
+ <act><body>
+  <article eId="art_1"><num><b>Art. 1</b></num>
+   <paragraph eId="art_1/para_1"><num>1</num><content><p>Der Vertrag<authorialNote><p>Eingefuegt durch Ziff. II AS 2005 BBl 2002.</p></authorialNote> ist gueltig.</p></content></paragraph>
+  </article>
+ </body></act>
+</akomaNtoso>"""
+    segs = parse_segments(xml)
+    assert "AS 2005" not in segs["art_1/para_1"]
+    assert segs["art_1/para_1"] == "Der Vertrag ist gueltig."
 
 
 def test_shared_eids_intersection():

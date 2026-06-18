@@ -124,6 +124,15 @@ def lookup_term(
     return {"results": results, "disclaimer": DISCLAIMER}
 
 
+def _oriented(tu: TranslationUnit, src_lang: str, tgt_lang: str) -> tuple[str, str] | None:
+    """Return ``(src, tgt)`` text oriented to the requested direction, or None."""
+    if str(tu.src_lang) == src_lang and str(tu.tgt_lang) == tgt_lang:
+        return tu.src, tu.tgt
+    if str(tu.src_lang) == tgt_lang and str(tu.tgt_lang) == src_lang:
+        return tu.tgt, tu.src
+    return None
+
+
 def search_parallel(
     repo: Repository,
     text: str,
@@ -131,24 +140,31 @@ def search_parallel(
     tgt_lang: str,
     k: int = 5,
 ) -> dict[str, Any]:
-    """Naive lexical RAG over the TM. Replaced by a vector index in P5/P6."""
+    """Lexical RAG over the TM (few-shot examples), with citations.
+
+    Direction-agnostic: TUs stored in either orientation are matched. A vector
+    index (sqlite-vec/LaBSE) is an optional future backend; the lexical baseline
+    is deterministic and dependency-free.
+    """
     q = text.strip().casefold()
-    scored: list[tuple[float, TranslationUnit]] = []
+    scored: list[tuple[float, str, str, TranslationUnit]] = []
     for tu in repo.tus:
-        if str(tu.src_lang) != src_lang or str(tu.tgt_lang) != tgt_lang:
+        oriented = _oriented(tu, src_lang, tgt_lang)
+        if oriented is None:
             continue
-        score = _overlap(q, tu.src.casefold())
+        src_text, tgt_text = oriented
+        score = _overlap(q, src_text.casefold())
         if score > 0:
-            scored.append((score, tu))
-    scored.sort(key=lambda x: x[0], reverse=True)
+            scored.append((score, src_text, tgt_text, tu))
+    scored.sort(key=lambda x: (x[0], x[1]), reverse=True)
     hits = [
         {
-            "src": tu.src,
-            "tgt": tu.tgt,
+            "src": src_text,
+            "tgt": tgt_text,
             "source": {"name": tu.source.name, "ref": tu.source.ref, "uri": str(tu.source.uri)},
             "score": round(score, 4),
         }
-        for score, tu in scored[:k]
+        for score, src_text, tgt_text, tu in scored[:k]
     ]
     return {"results": hits, "disclaimer": DISCLAIMER}
 
@@ -169,6 +185,25 @@ def verify_translation(
         tgt_match = any(t == x.text.casefold() for x in (rec.terms.get(tgt_lang) or []))
         if src_match and tgt_match:
             evidence.extend(_sources_payload(rec))
+
+    # Also accept attestation in the official parallel TM (both terms co-occur
+    # in the same aligned segment), which is genuine source evidence.
+    for tu in repo.tus:
+        oriented = _oriented(tu, src_lang, tgt_lang)
+        if oriented is None:
+            continue
+        src_text, tgt_text = oriented
+        if s in src_text.casefold() and t in tgt_text.casefold():
+            evidence.append(
+                {
+                    "name": tu.source.name,
+                    "uri": str(tu.source.uri),
+                    "license": tu.source.license,
+                    "ref": tu.source.ref,
+                }
+            )
+            if len(evidence) >= 5:
+                break
     supported = bool(evidence)
     return {
         "supported": supported,
@@ -183,14 +218,52 @@ def verify_translation(
 
 
 def get_official_text(eli_or_citation: str, lang: str) -> dict[str, Any]:
-    """Delegate to Fedlex (P1 / Fedlex Connector). Stub for now."""
-    return {
-        "text": None,
-        "uri": None,
-        "lang": lang,
-        "note": "get_official_text delegates to Fedlex (P1) — not wired yet.",
-        "disclaimer": DISCLAIMER,
-    }
+    """Fetch the official Fedlex text for an ELI/citation (live, best-effort)."""
+    try:
+        from openglossa.sources import fedlex
+
+        result = fedlex.fetch_official_text(eli_or_citation, lang)
+    except Exception as exc:  # noqa: BLE001 - live source is best-effort
+        result = {"text": None, "uri": None, "lang": lang, "error": str(exc)}
+    result["disclaimer"] = DISCLAIMER
+    return result
+
+
+def suggest_glossary(
+    repo: Repository,
+    text: str,
+    src_lang: str,
+    tgt_lang: str,
+    *,
+    max_terms: int = 50,
+) -> dict[str, Any]:
+    """Stretch tool: extract known terms occurring in a passage + official trads.
+
+    Scans the local termbase for source-language terms present in ``text`` and
+    returns their official translation with citations. Deterministic and offline.
+    """
+    hay = text.casefold()
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for rec in repo.terms:
+        res = _term_record_to_result(rec, src_lang, tgt_lang)
+        if not res:
+            continue
+        for term in rec.terms.get(src_lang) or []:
+            key = term.text.casefold()
+            if key in seen or key not in hay:
+                continue
+            seen.add(key)
+            out.append(
+                {
+                    "term": term.text,
+                    "translation": res["translations"][0],
+                    "sources": res["sources"],
+                }
+            )
+            if len(out) >= max_terms:
+                return {"results": out, "disclaimer": DISCLAIMER}
+    return {"results": out, "disclaimer": DISCLAIMER}
 
 
 def _overlap(query: str, text: str) -> float:
@@ -246,6 +319,13 @@ def build_server(repo: Repository | None = None, *, termdat_live: bool = True):
     def get_official_text_tool(eli_or_citation: str, lang: str) -> dict[str, Any]:
         """Fetch the official Fedlex text for an ELI/citation in a given language."""
         return get_official_text(eli_or_citation, lang)
+
+    @mcp.tool()
+    def suggest_glossary_tool(
+        text: str, src_lang: str, tgt_lang: str
+    ) -> dict[str, Any]:
+        """Extract known legal terms from a passage with their official translations."""
+        return suggest_glossary(repo, text, src_lang, tgt_lang)
 
     return mcp
 
