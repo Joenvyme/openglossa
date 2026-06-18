@@ -6,6 +6,7 @@ ingest-fedlex   Fetch consolidated acts from Fedlex (live SPARQL) and write
                 title-level parallel TranslationUnits to data/processed/tus.jsonl.
 mine-terms      Mine source→target term candidates from parallel TUs by
                 co-occurrence (Dice) and write a human-review queue (JSONL).
+build-index     Build a sqlite-vec semantic index over the TM (search_parallel).
 build-exports   Read data/processed/*.jsonl and write all export formats
                 (TBX, TMX, DeepL CSV per language pair, JSONL copies).
 poc             ingest-fedlex on a default set of core acts, then build-exports.
@@ -202,6 +203,28 @@ def cmd_mine_terms(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_build_index(args: argparse.Namespace) -> int:
+    """Build a sqlite-vec semantic index over the TM for search_parallel."""
+    from openglossa.search import HashingEncoder, VectorIndex, load_labse
+
+    tus = read_jsonl(TranslationUnit, Path(args.input))
+    if not tus:
+        print(f"no translation units in {args.input} — run 'ingest-fedlex' first", file=sys.stderr)
+        return 1
+
+    if args.encoder == "labse":
+        print("loading LaBSE (first run downloads the model)…")
+        encoder = load_labse()
+    else:
+        encoder = HashingEncoder()
+    print(f"encoding {len(tus)} TUs (2 sides each) with {encoder.name} (dim={encoder.dim})…")
+
+    index = VectorIndex.build(tus, encoder, Path(args.out))
+    index.close()
+    print(f"wrote vector index -> {args.out}")
+    return 0
+
+
 def cmd_build_exports(args: argparse.Namespace) -> int:
     processed = Path(args.processed)
     exports = Path(args.out)
@@ -348,6 +371,24 @@ def build_parser() -> argparse.ArgumentParser:
         "--out", default=str(PROCESSED / "term_candidates.jsonl"), help="Output JSONL."
     )
     p_mine.set_defaults(func=cmd_mine_terms)
+
+    p_idx = sub.add_parser(
+        "build-index",
+        help="Build a sqlite-vec semantic index over the TM (for search_parallel).",
+    )
+    p_idx.add_argument(
+        "--in", dest="input", default=str(PROCESSED / "tus.jsonl"), help="Input TUs."
+    )
+    p_idx.add_argument(
+        "--encoder",
+        choices=["labse", "hashing"],
+        default="labse",
+        help="Embedding encoder (labse = production; hashing = light, offline).",
+    )
+    p_idx.add_argument(
+        "--out", default=str(PROCESSED / "tm_index.db"), help="Output sqlite-vec index path."
+    )
+    p_idx.set_defaults(func=cmd_build_index)
 
     p_exp = sub.add_parser("build-exports", help="Write all export formats from data/processed.")
     p_exp.add_argument("--processed", default=str(PROCESSED), help="Processed JSONL dir.")

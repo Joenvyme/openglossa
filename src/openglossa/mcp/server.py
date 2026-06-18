@@ -139,13 +139,33 @@ def search_parallel(
     src_lang: str,
     tgt_lang: str,
     k: int = 5,
+    *,
+    index: Any = None,
 ) -> dict[str, Any]:
-    """Lexical RAG over the TM (few-shot examples), with citations.
+    """RAG over the TM (few-shot examples), with citations.
 
-    Direction-agnostic: TUs stored in either orientation are matched. A vector
-    index (sqlite-vec/LaBSE) is an optional future backend; the lexical baseline
-    is deterministic and dependency-free.
+    Direction-agnostic: TUs stored in either orientation are matched. When a
+    sqlite-vec ``index`` (LaBSE/embeddings) is provided it is used for semantic
+    retrieval, with a transparent fallback to the deterministic lexical baseline.
     """
+    if index is not None:
+        try:
+            hits = index.search(text, src_lang, tgt_lang, k)
+            return {"results": hits, "method": "vector", "disclaimer": DISCLAIMER}
+        except Exception as exc:  # noqa: BLE001 - degrade gracefully to lexical
+            return _search_parallel_lexical(repo, text, src_lang, tgt_lang, k, error=str(exc))
+    return _search_parallel_lexical(repo, text, src_lang, tgt_lang, k)
+
+
+def _search_parallel_lexical(
+    repo: Repository,
+    text: str,
+    src_lang: str,
+    tgt_lang: str,
+    k: int = 5,
+    *,
+    error: str | None = None,
+) -> dict[str, Any]:
     q = text.strip().casefold()
     scored: list[tuple[float, str, str, TranslationUnit]] = []
     for tu in repo.tus:
@@ -166,7 +186,10 @@ def search_parallel(
         }
         for score, src_text, tgt_text, tu in scored[:k]
     ]
-    return {"results": hits, "disclaimer": DISCLAIMER}
+    out: dict[str, Any] = {"results": hits, "method": "lexical", "disclaimer": DISCLAIMER}
+    if error:
+        out["vector_error"] = error
+    return out
 
 
 def verify_translation(
@@ -279,10 +302,33 @@ def _overlap(query: str, text: str) -> float:
 # --------------------------------------------------------------------------- #
 
 
-def build_server(repo: Repository | None = None, *, termdat_live: bool = True):
+DEFAULT_INDEX_PATH = Path(os.environ.get("OPENGLOSSA_INDEX", "data/processed/tm_index.db"))
+
+
+def _maybe_open_index(index_path: Path | None) -> Any:
+    """Open a sqlite-vec index with the LaBSE encoder, or return None."""
+    if index_path is None or not Path(index_path).exists():
+        return None
+    try:
+        from openglossa.search import VectorIndex, load_labse
+
+        return VectorIndex.open(index_path, load_labse())
+    except Exception:  # noqa: BLE001 - missing extra/model -> lexical fallback
+        return None
+
+
+def build_server(
+    repo: Repository | None = None,
+    *,
+    termdat_live: bool = True,
+    index: Any = None,
+    index_path: Path | None = DEFAULT_INDEX_PATH,
+):
     """Build a FastMCP server bound to ``repo`` (loaded from disk if None).
 
     ``termdat_live`` enables the live TERMDAT backbone for ``lookup_term``.
+    ``index`` (or an ``index_path`` to open) enables semantic ``search_parallel``;
+    without it, ``search_parallel`` uses the lexical baseline.
     """
     try:
         from mcp.server.fastmcp import FastMCP
@@ -292,6 +338,8 @@ def build_server(repo: Repository | None = None, *, termdat_live: bool = True):
         ) from exc
 
     repo = repo or Repository.load()
+    if index is None:
+        index = _maybe_open_index(index_path)
     mcp = FastMCP("OpenGlossa")
 
     @mcp.tool()
@@ -306,7 +354,7 @@ def build_server(repo: Repository | None = None, *, termdat_live: bool = True):
         text: str, src_lang: str, tgt_lang: str, k: int = 5
     ) -> dict[str, Any]:
         """Retrieve parallel example segments (few-shot RAG) with citations."""
-        return search_parallel(repo, text, src_lang, tgt_lang, k)
+        return search_parallel(repo, text, src_lang, tgt_lang, k, index=index)
 
     @mcp.tool()
     def verify_translation_tool(

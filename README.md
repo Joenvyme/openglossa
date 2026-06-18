@@ -77,6 +77,9 @@ openglossa ingest-termdat Motion Bundesrat --src de
 openglossa mine-terms --in data/processed/tus.jsonl --src de --tgt fr
 # ... + ne garder que les couples ABSENTS de TERMDAT (vérif live)
 openglossa mine-terms --src de --tgt fr --check-termdat --novel-only
+
+# Index sémantique (sqlite-vec) pour search_parallel — LaBSE (prod) ou hashing
+openglossa build-index --encoder labse   # -> data/processed/tm_index.db
 ```
 
 Le serveur MCP interroge **TERMDAT en live** pour `lookup_term` (équivalents
@@ -90,7 +93,8 @@ HTTP**, à ajouter comme connecteur custom dans Claude) :
 - `lookup_term(query, src, tgt, domain?)` — traductions officielles + définition
   + base légale, **citées** (termbase local + TERMDAT live optionnel) ;
 - `search_parallel(text, src, tgt, k)` — exemples parallèles cités (RAG few-shot),
-  insensible à l'orientation des TUs ;
+  insensible à l'orientation des TUs ; **sémantique** via index sqlite-vec/LaBSE
+  s'il est présent (`build-index`), sinon repli **lexical** déterministe ;
 - `verify_translation(src, tgt, …)` — le couple est-il **attesté en source
   officielle** ? (termbase **et** TM Fedlex/SLDS) ; renvoie `false` proprement ;
 - `get_official_text(eli_or_citation, lang)` — **texte officiel Fedlex en live**
@@ -133,6 +137,7 @@ openglossa/
 │   ├── sources/          # fedlex, slds, termdat, jurivoc (+ provenance)
 │   ├── align/            # eli-structural, labse
 │   ├── mining/           # term extraction + verify
+│   ├── search/           # index vectoriel sqlite-vec (LaBSE/hashing)
 │   ├── export/           # tbx, tmx, deepl_csv, jsonl, parquet, validate (DTD)
 │   └── mcp/server.py     # outils MCP (lookup/search/verify/get_official_text)
 ├── eval/                 # mini-benchmark traduction juridique
