@@ -94,6 +94,13 @@ source** (segments officiels). C'est une file de revue *human-in-the-loop*
 relecture. `--check-termdat` signale (ou, avec `--novel-only`, filtre) les
 couples déjà connus de TERMDAT.
 
+`build-exports` génère **TMX 1.4**, **TBX-Basic (DCA)**, **glossaire DeepL CSV**
+(par paire de langues), **JSONL** et **Parquet** (colonnes plates + colonne
+`record` JSON sans perte, interrogeable en DuckDB/polars). Les fichiers TMX/TBX
+sont **validés** : structurellement et contre une **DTD** (TMX 1.4 canonique de
+LISA OSCAR + profil TBX OpenGlossa, dans `schemas/dtd/`). Round-trip garanti
+(export → ré-import → égalité) couvert par les tests.
+
 Sur **Windows PowerShell** (sans `make`) :
 
 ```powershell
@@ -112,7 +119,7 @@ openglossa/
 │   ├── sources/          # fedlex, slds, termdat, jurivoc (+ provenance)
 │   ├── align/            # eli-structural, labse
 │   ├── mining/           # term extraction + verify
-│   ├── export/           # tbx, tmx, deepl_csv, parquet
+│   ├── export/           # tbx, tmx, deepl_csv, jsonl, parquet, validate (DTD)
 │   └── mcp/server.py     # outils MCP (lookup/search/verify/get_official_text)
 ├── eval/                 # mini-benchmark traduction juridique
 ├── data/                 # raw/ (gitignored), processed/, exports/
@@ -129,7 +136,7 @@ openglossa/
 | P2 | Ingest SLDS (TU regeste trilingues, groupées par décision) | ✅ |
 | P3 | Backbone terminologique TERMDAT (live LINDAS, schema.org) | ✅ (JURIVOC en backlog) |
 | P4 | Term mining + verify (human-in-the-loop) | ✅ (baseline co-occurrence ; LaBSE/eflomal en backlog) |
-| P5 | Packaging / exports (TBX/TMX/...) | ⬜ |
+| P5 | Packaging / exports (TBX/TMX/CSV/JSONL/Parquet) + validation DTD + round-trip | ✅ |
 | P6 | Serveur MCP | ⬜ |
 | P7 | Évaluation (term hit-rate) | ⬜ |
 | P8 | Site statique | ⬜ |

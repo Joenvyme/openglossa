@@ -45,8 +45,12 @@ typecheck: ## Static type check with mypy
 	$(RUN) mypy src
 
 .PHONY: schema
-schema: ## Export JSON Schemas (TermRecord, TranslationUnit) into schemas/
+schema: ## Export JSON Schemas (TermRecord, TranslationUnit, TermCandidate)
 	$(PY) -m openglossa.schemas
+
+.PHONY: exports
+exports: ## Build all export formats (TBX/TMX/CSV/JSONL/Parquet) + validate
+	$(RUN) python -m openglossa build-exports
 
 .PHONY: mcp
 mcp: ## Run the MCP server (Streamable HTTP)

@@ -22,9 +22,15 @@ from pathlib import Path
 
 from openglossa import CORE_LANGUAGES
 from openglossa.export import (
+    TBX_DTD,
+    TMX_DTD,
     read_jsonl,
+    validate_tbx,
+    validate_tmx,
+    validate_with_dtd,
     write_deepl_glossary,
     write_jsonl,
+    write_parquet,
     write_tbx,
     write_tmx,
 )
@@ -206,13 +212,26 @@ def cmd_build_exports(args: argparse.Namespace) -> int:
     print(f"loaded {len(terms)} term records, {len(tus)} translation units")
 
     written: list[Path] = []
+    to_validate: list[tuple[Path, str]] = []
+
+    def _maybe_parquet(records, path: Path) -> None:
+        try:
+            written.append(write_parquet(records, path))
+        except ImportError as exc:
+            print(f"  (skipping {path.name}: {exc})")
 
     if tus:
-        written.append(write_tmx(tus, exports / "openglossa.tmx"))
+        tmx = write_tmx(tus, exports / "openglossa.tmx")
+        written.append(tmx)
+        to_validate.append((tmx, "tmx"))
         written.append(write_jsonl(tus, exports / "tus.jsonl"))
+        _maybe_parquet(tus, exports / "tus.parquet")
     if terms:
-        written.append(write_tbx(terms, exports / "openglossa.tbx"))
+        tbx = write_tbx(terms, exports / "openglossa.tbx")
+        written.append(tbx)
+        to_validate.append((tbx, "tbx"))
         written.append(write_jsonl(terms, exports / "terms.jsonl"))
+        _maybe_parquet(terms, exports / "terms.parquet")
         for src, tgt in combinations(CORE_LANGUAGES, 2):
             path = exports / f"glossary_deepl_{src}-{tgt}.csv"
             written.append(write_deepl_glossary(terms, src, tgt, path))
@@ -221,7 +240,26 @@ def cmd_build_exports(args: argparse.Namespace) -> int:
         print(f"  wrote {p}")
     if not written:
         print("nothing to export (data/processed is empty) — run 'ingest-fedlex' first")
-    return 0
+        return 0
+
+    problems = 0
+    for path, kind in to_validate:
+        structural = validate_tmx(path) if kind == "tmx" else validate_tbx(path)
+        try:
+            dtd = validate_with_dtd(path, TMX_DTD if kind == "tmx" else TBX_DTD)
+            checks = "structural + DTD"
+        except ImportError:
+            dtd = []
+            checks = "structural (DTD skipped: install 'sources' extra)"
+        issues = structural + dtd
+        if issues:
+            problems += len(issues)
+            print(f"  ! {path.name} INVALID:")
+            for msg in issues:
+                print(f"      - {msg}")
+        else:
+            print(f"  validated {path.name} ({checks})")
+    return 1 if problems else 0
 
 
 def cmd_poc(args: argparse.Namespace) -> int:

@@ -5,8 +5,8 @@ Produces a TBX-Basic-flavoured document with the stdlib XML writer. Each
 ``conceptEntry``) with one ``<langSec>`` per language and provenance carried as
 notes/admin info (hard rule #3).
 
-This is a pragmatic generator suitable for the PoC; strict DTD/XSD validation is
-wired in P5.
+Output is validated (structural + DTD) by :mod:`openglossa.export.validate`
+against ``schemas/dtd/tbx_openglossa.dtd`` (the TBX-Basic DCA subset we emit).
 """
 
 from __future__ import annotations

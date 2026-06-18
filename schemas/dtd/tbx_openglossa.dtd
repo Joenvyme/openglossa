@@ -1,0 +1,49 @@
+<!-- OpenGlossa TBX profile (TBX-Basic, DCA style)
+
+Describes exactly the subset of TBX (ISO 30042 / TBX-Basic) emitted by
+openglossa.export.tbx. Not the full TBX-Basic schema: it constrains the
+document type OpenGlossa produces so exports can be DTD-validated offline.
+
+Use:  <!DOCTYPE tbx SYSTEM "tbx_openglossa.dtd">
+-->
+
+<!ELEMENT tbx             (tbxHeader, text) >
+<!ATTLIST tbx
+        type              CDATA          #IMPLIED
+        style             CDATA          #IMPLIED >
+
+<!ELEMENT tbxHeader       (fileDesc) >
+
+<!ELEMENT fileDesc        (titleStmt?, sourceDesc?) >
+
+<!ELEMENT titleStmt       (title) >
+<!ELEMENT title           (#PCDATA) >
+
+<!ELEMENT sourceDesc      (p+) >
+<!ELEMENT p               (#PCDATA) >
+
+<!ELEMENT text            (body) >
+<!ELEMENT body            (conceptEntry*) >
+
+<!ELEMENT conceptEntry    (descrip*, admin*, langSec+) >
+<!ATTLIST conceptEntry
+        id                CDATA          #REQUIRED >
+
+<!ELEMENT descrip         (#PCDATA) >
+<!ATTLIST descrip
+        type              CDATA          #REQUIRED >
+
+<!ELEMENT admin           (#PCDATA) >
+<!ATTLIST admin
+        type              CDATA          #REQUIRED >
+
+<!ELEMENT langSec         (descrip*, termSec+) >
+<!ATTLIST langSec
+        xml:lang          CDATA          #REQUIRED >
+
+<!ELEMENT termSec         (term, termNote*) >
+<!ELEMENT term            (#PCDATA) >
+
+<!ELEMENT termNote        (#PCDATA) >
+<!ATTLIST termNote
+        type              CDATA          #REQUIRED >
