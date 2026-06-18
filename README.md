@@ -69,7 +69,15 @@ openglossa ingest-slds --limit 200            # -> data/processed/tus_slds.jsonl
 # Fusionner les sources (dédup par tu_id) puis exporter
 openglossa merge-tus data/processed/tus.jsonl data/processed/tus_slds.jsonl
 openglossa build-exports
+
+# Terminologie TERMDAT en live (backbone) — index dérivé uniquement (règle #6)
+openglossa ingest-termdat Motion Bundesrat --src de
 ```
+
+Le serveur MCP interroge **TERMDAT en live** pour `lookup_term` (équivalents
+officiels DE/FR/IT/RM/EN + définition + base légale, cités). TERMDAT étant en
+statut 🟠 (redistribution non confirmée), aucun texte brut n'est écrit sur disque :
+seul un index dérivé (`concept_id` + URI + identifiant + langues + base légale).
 
 Le serveur MCP lit `data/processed/*.jsonl` ; `search_parallel` renvoie des
 segments officiels **cités** (n° RS + URI ELI Fedlex).
@@ -107,7 +115,7 @@ openglossa/
 | P0 | Setup (repo, licences, schémas, connecteurs) | ✅ |
 | P1 | Ingest Fedlex (SPARQL + Akoma Ntoso, alignement par eId article/alinéa) | ✅ |
 | P2 | Ingest SLDS (TU regeste trilingues, groupées par décision) | ✅ |
-| P3 | Backbone terminologique (TERMDAT live) | ⬜ |
+| P3 | Backbone terminologique TERMDAT (live LINDAS, schema.org) | ✅ (JURIVOC en backlog) |
 | P4 | Term mining + verify (human-in-the-loop) | ⬜ |
 | P5 | Packaging / exports (TBX/TMX/...) | ⬜ |
 | P6 | Serveur MCP | ⬜ |

@@ -20,7 +20,7 @@
 | 1 | **Fedlex** (Recueil systématique) | Statuts fédéraux parallèles | DE/FR/IT | SPARQL `https://fedlex.data.admin.ch/sparqlendpoint` ; filestore HTML/DOCX/PDF ; RDF (JOLux, ELI) | Réutilisation autorisée incl. commerciale ; citer la source ; ne pas présenter comme officiel. Base : art. 5 LDA | ✅ VERT | Termes + TM alignée par article |
 | 2 | **SLDS** (`ipst/slds`, HF) | Regeste trilingues, ~20K arrêts TF, ~60K paires | DE/FR/IT | `datasets.load_dataset("ipst/slds")` | **CC-BY-4.0** | ✅ VERT | TM concept-alignée + exemples |
 | 3 | **swiss_leading_decision_summarization** (`rcds/...`, HF) | Décisions TF + résumés | DE/FR/IT | `datasets` | **CC-BY-4.0** | ✅ VERT | TM/texte complémentaire (optionnel) |
-| 4 | **TERMDAT** (Chancellerie fédérale) | Termbase officiel ~400K entrées | DE/FR/IT/RM/EN | `termdat.bk.admin.ch` ; LINDAS RDF `register.ld.admin.ch` / SPARQL | Accès gratuit ; **tag de redistribution à confirmer** | 🟠 ORANGE | Backbone terminologique — **live d'abord** |
+| 4 | **TERMDAT** (Chancellerie fédérale) | Termbase officiel (~107K entrées `schema:DefinedTerm`) | DE/FR/IT/RM/EN | LINDAS SPARQL `https://ld.admin.ch/query`, graphe `https://lindas.admin.ch/fch/termdat` ; IRIs `register.ld.admin.ch/termdat/{id}` ; UI `termdat.bk.admin.ch` | Accès gratuit ; **tag de redistribution à confirmer** | 🟠 ORANGE | Backbone terminologique — **live d'abord** (implémenté : `sources/termdat.lookup_live`) |
 | 5 | **JURIVOC** (thésaurus TF) | Vocabulaire de matières | DE/FR/IT | À localiser (souvent SKOS/RDF) | **À vérifier** | 🟠 ORANGE | Synonymes / matières |
 | 6 | **OpenCaseLaw** | 950k+ décisions, dump Parquet HF, MCP | DE/FR/IT | API / HF Parquet | **À vérifier** | 🟠 ORANGE | TM étendue (optionnel) |
 | 7 | **MultiLegalPile** (`joelniklaus/Multi_Legal_Pile`) | Corpus multilingue 689GB | multi | HF | **Licences mixtes** — sous-ensembles permissifs seulement | 🟠 RÉFÉRENCE | Probablement inutile en v1 |
@@ -30,6 +30,10 @@
 - [ ] **TERMDAT** : confirmer le tag de redistribution (fiche LINDAS / opendata.swiss,
       contact Chancellerie fédérale — Section terminologie). Tant que non confirmé :
       **live-only**, ne bundler que `concept_id` + URI + dérivés.
+      *Statut technique* : endpoint + modèle localisés (graphe `fch/termdat`,
+      schema.org `DefinedTerm`) ; `lookup_live` opérationnel ; garde
+      `REDISTRIBUTION_CONFIRMED = False` + `assert_redistribution_allowed()` en place ;
+      la CLI `ingest-termdat` n'écrit que des dérivés (aucun texte brut).
 - [ ] **JURIVOC** : localiser l'export SKOS/RDF + vérifier la licence.
 - [ ] **OpenCaseLaw** : vérifier la licence du dump Parquet HF avant tout export.
 - [ ] **MultiLegalPile** : si utilisé, documenter sous-ensemble par sous-ensemble.

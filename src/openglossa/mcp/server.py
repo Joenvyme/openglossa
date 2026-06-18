@@ -66,6 +66,24 @@ def _sources_payload(rec: TermRecord) -> list[dict[str, Any]]:
     ]
 
 
+def _term_record_to_result(
+    rec: TermRecord, src_lang: str, tgt_lang: str
+) -> dict[str, Any] | None:
+    """Shape a TermRecord into a lookup_term result for a language direction."""
+    src_terms = [t.text for t in (rec.terms.get(src_lang) or [])]
+    translations = [t.text for t in (rec.terms.get(tgt_lang) or [])]
+    if not src_terms or not translations:
+        return None
+    return {
+        "term": rec.preferred(src_lang),
+        "translations": translations,
+        "domain": rec.domain,
+        "authority": rec.authority,
+        "definition": rec.definition.get(tgt_lang) or rec.definition.get(src_lang),
+        "sources": _sources_payload(rec),
+    }
+
+
 # --------------------------------------------------------------------------- #
 # Tool implementations (pure functions, unit-testable without the MCP runtime)
 # --------------------------------------------------------------------------- #
@@ -77,6 +95,8 @@ def lookup_term(
     src_lang: str,
     tgt_lang: str,
     domain: str | None = None,
+    *,
+    termdat_live: bool = False,
 ) -> dict[str, Any]:
     q = query.strip().casefold()
     results: list[dict[str, Any]] = []
@@ -86,19 +106,21 @@ def lookup_term(
         src_terms = rec.terms.get(src_lang) or []
         if not any(q == t.text.casefold() or q in t.text.casefold() for t in src_terms):
             continue
-        translations = [t.text for t in (rec.terms.get(tgt_lang) or [])]
-        if not translations:
-            continue
-        results.append(
-            {
-                "term": rec.preferred(src_lang),
-                "translations": translations,
-                "domain": rec.domain,
-                "authority": rec.authority,
-                "definition": rec.definition.get(tgt_lang) or rec.definition.get(src_lang),
-                "sources": _sources_payload(rec),
-            }
-        )
+        res = _term_record_to_result(rec, src_lang, tgt_lang)
+        if res:
+            results.append(res)
+
+    if termdat_live:
+        try:
+            from openglossa.sources import termdat
+
+            for rec in termdat.lookup_live(query, src_lang):
+                res = _term_record_to_result(rec, src_lang, tgt_lang)
+                if res:
+                    results.append(res)
+        except Exception as exc:  # noqa: BLE001 - live backbone is best-effort
+            return {"results": results, "disclaimer": DISCLAIMER, "termdat_error": str(exc)}
+
     return {"results": results, "disclaimer": DISCLAIMER}
 
 
@@ -184,8 +206,11 @@ def _overlap(query: str, text: str) -> float:
 # --------------------------------------------------------------------------- #
 
 
-def build_server(repo: Repository | None = None):
-    """Build a FastMCP server bound to ``repo`` (loaded from disk if None)."""
+def build_server(repo: Repository | None = None, *, termdat_live: bool = True):
+    """Build a FastMCP server bound to ``repo`` (loaded from disk if None).
+
+    ``termdat_live`` enables the live TERMDAT backbone for ``lookup_term``.
+    """
     try:
         from mcp.server.fastmcp import FastMCP
     except ImportError as exc:  # pragma: no cover - exercised only without extra
@@ -201,7 +226,7 @@ def build_server(repo: Repository | None = None):
         query: str, src_lang: str, tgt_lang: str, domain: str | None = None
     ) -> dict[str, Any]:
         """Look up official translations of a legal term, with source citations."""
-        return lookup_term(repo, query, src_lang, tgt_lang, domain)
+        return lookup_term(repo, query, src_lang, tgt_lang, domain, termdat_live=termdat_live)
 
     @mcp.tool()
     def search_parallel_tool(

@@ -108,6 +108,35 @@ def cmd_merge_tus(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_ingest_termdat(args: argparse.Namespace) -> int:
+    """Look up terms in TERMDAT (live) and persist a redistribution-safe derived
+    index only (concept_id + URI + identifier + languages + legal basis).
+
+    Honours hard rule #6: TERMDAT redistribution is unconfirmed, so raw term text
+    is never written to disk here. Use the MCP server for live term text.
+    """
+    import json
+
+    from openglossa.sources import termdat
+
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    n = 0
+    with out_path.open("w", encoding="utf-8") as fh:
+        for term in args.terms:
+            try:
+                derived = termdat.derived_index(term, args.src, limit=args.limit)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ! '{term}': {exc}", file=sys.stderr)
+                continue
+            print(f"  '{term}' ({args.src}): {len(derived)} entr(y/ies)")
+            for d in derived:
+                fh.write(json.dumps(d, ensure_ascii=False) + "\n")
+                n += 1
+    print(f"wrote {n} derived TERMDAT records (no raw text, rule #6) -> {out_path}")
+    return 0
+
+
 def cmd_build_exports(args: argparse.Namespace) -> int:
     processed = Path(args.processed)
     exports = Path(args.out)
@@ -177,6 +206,18 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_slds.add_argument("--out", default=str(PROCESSED / "tus_slds.jsonl"), help="Output JSONL.")
     p_slds.set_defaults(func=cmd_ingest_slds)
+
+    p_td = sub.add_parser(
+        "ingest-termdat",
+        help="Live TERMDAT lookup -> derived index only (rule #6, no raw text).",
+    )
+    p_td.add_argument("terms", nargs="+", help="Source-language terms to look up.")
+    p_td.add_argument("--src", default="de", help="Source language (default: de).")
+    p_td.add_argument("--limit", type=int, default=10, help="Max entries per term.")
+    p_td.add_argument(
+        "--out", default=str(PROCESSED / "termdat_derived.jsonl"), help="Output JSONL."
+    )
+    p_td.set_defaults(func=cmd_ingest_termdat)
 
     p_merge = sub.add_parser("merge-tus", help="Merge JSONL TU files, dedup by tu_id.")
     p_merge.add_argument("inputs", nargs="+", help="Input JSONL files.")
