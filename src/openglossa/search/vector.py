@@ -75,7 +75,11 @@ class _SentenceTransformerEncoder:
             ) from exc
         self._model = SentenceTransformer(model_name)
         self.name = model_name
-        self.dim = int(self._model.get_sentence_embedding_dimension())
+        # sentence-transformers renamed this method; support both.
+        if hasattr(self._model, "get_embedding_dimension"):
+            self.dim = int(self._model.get_embedding_dimension())
+        else:
+            self.dim = int(self._model.get_sentence_embedding_dimension())
 
     def encode(self, texts: Sequence[str]) -> list[list[float]]:
         vecs = self._model.encode(
