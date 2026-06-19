@@ -16,6 +16,10 @@ env/
 .uv-python/
 .uv-cache/
 
+# Vercel (local CLI install + linked project metadata)
+.vercel/
+.vercel-cli/
+
 # Tooling caches
 .pytest_cache/
 .ruff_cache/
@@ -54,3 +58,4 @@ Thumbs.db
 web/node_modules/
 web/dist/
 web/.astro/
+.vercel

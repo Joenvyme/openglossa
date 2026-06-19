@@ -1,0 +1,24 @@
+# Keep the Vercel deployment minimal: only public/ (static), api/ (function),
+# src/ (imported by the function), requirements.txt and vercel.json are needed.
+#
+# Patterns are anchored with a leading "/" so they match ONLY the repo root and
+# never nested dirs like public/data/ or public/downloads/schemas/.
+#
+# pyproject.toml is excluded on purpose: Vercel's Python builder prefers it over
+# requirements.txt, but it only declares the slim `pydantic` core dep (mcp et al.
+# live in extras). The function imports openglossa from src/ via sys.path, so it
+# needs no installed package — only the deps in requirements.txt.
+/pyproject.toml
+/.git/
+/.vercel-cli/
+/.venv/
+/.venv311/
+/.uv-python/
+/.uv-cache/
+/.pytest_cache/
+/.ruff_cache/
+/.mypy_cache/
+/data/
+/eval/
+/tests/
+/schemas/

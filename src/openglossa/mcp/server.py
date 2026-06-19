@@ -323,12 +323,16 @@ def build_server(
     termdat_live: bool = True,
     index: Any = None,
     index_path: Path | None = DEFAULT_INDEX_PATH,
+    stateless: bool = False,
 ):
     """Build a FastMCP server bound to ``repo`` (loaded from disk if None).
 
     ``termdat_live`` enables the live TERMDAT backbone for ``lookup_term``.
     ``index`` (or an ``index_path`` to open) enables semantic ``search_parallel``;
     without it, ``search_parallel`` uses the lexical baseline.
+    ``stateless`` runs the Streamable HTTP transport without persistent sessions
+    and with JSON responses — required for serverless hosts (e.g. Vercel) where
+    each request is a fresh, isolated function invocation.
     """
     try:
         from mcp.server.fastmcp import FastMCP
@@ -340,7 +344,23 @@ def build_server(
     repo = repo or Repository.load()
     if index is None:
         index = _maybe_open_index(index_path)
-    mcp = FastMCP("OpenGlossa")
+
+    # On serverless hosts the platform proxy terminates TLS and sets the public
+    # Host header (e.g. *.vercel.app, a custom domain), which the SDK's default
+    # DNS-rebinding protection would reject ("Invalid Host header"). Disable it
+    # for the hosted, stateless transport — the tools are public and read-only.
+    transport_security = None
+    if stateless:
+        from mcp.server.transport_security import TransportSecuritySettings
+
+        transport_security = TransportSecuritySettings(enable_dns_rebinding_protection=False)
+
+    mcp = FastMCP(
+        "OpenGlossa",
+        stateless_http=stateless,
+        json_response=stateless,
+        transport_security=transport_security,
+    )
 
     @mcp.tool()
     def lookup_term_tool(

@@ -1,0 +1,9 @@
+# Runtime dependencies for the Vercel serverless MCP function (api/index.py).
+# Kept deliberately light: no torch/sentence-transformers (semantic search is
+# disabled on serverless). Live-source deps (SPARQLWrapper, lxml, httpx) are
+# imported lazily and only needed by get_official_text / TERMDAT lookup.
+pydantic>=2.6
+mcp>=1.2
+SPARQLWrapper>=2.0
+lxml>=5.0
+httpx>=0.27

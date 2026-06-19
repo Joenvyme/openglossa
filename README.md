@@ -105,6 +105,27 @@ HTTP**, à ajouter comme connecteur custom dans Claude) :
 Toutes les réponses incluent les citations et un `disclaimer` (sortie non
 officielle).
 
+### Hébergement (Vercel)
+
+Le serveur MCP se déploie en **fonction serverless** sur Vercel (Streamable HTTP
+en mode *stateless*). Le dépôt est préconfiguré :
+
+- `api/index.py` — point d'entrée Vercel ; expose l'app ASGI FastMCP (`app`),
+  amorcée avec la TM de démo citée (`web/downloads/openglossa_demo.jsonl`) ;
+- `requirements.txt` — dépendances légères de la fonction (sans torch/LaBSE :
+  la recherche sémantique est désactivée en serverless, repli lexical) ;
+- `vercel.json` — sert le site statique (`web/`) et réécrit `/mcp` → `/api/index`.
+
+```bash
+npm i -g vercel
+vercel            # déploiement de préversion
+vercel --prod     # production
+```
+
+Endpoint public : `https://<projet>.vercel.app/mcp` (ou ton domaine personnalisé,
+à ajouter dans *Project → Settings → Domains*). Les outils live
+(`get_official_text`, TERMDAT) restent best-effort et dégradent proprement.
+
 `mine-terms` extrait des **couples de termes candidats** du parallèle par
 co-occurrence (coefficient de Dice), avec `score`, `support` et **preuve de
 source** (segments officiels). C'est une file de revue *human-in-the-loop*

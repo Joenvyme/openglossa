@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenGlossa — traduction juridique suisse ancrée dans les sources officielles</title>
+    <meta
+      name="description"
+      content="Termbase et mémoire de traduction open source pour le droit suisse (DE/FR/IT), ancrés dans des sources officielles citables (Fedlex, TERMDAT, Tribunal fédéral)."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <header class="topbar">
+      <a class="brand" href="#top">openglossa <span>/</span></a>
+      <nav class="topnav">
+        <a href="#demo">Recherche</a>
+        <a href="#data">Données</a>
+        <a href="#api">MCP</a>
+      </nav>
+      <a class="topright" href="https://github.com/Joenvyme/openglossa" target="_blank" rel="noopener">GitHub ↗</a>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1 class="display">citer.</h1>
+        <hr class="hero-rule" />
+        <p class="hero-sub">le droit suisse, traduit sans inventer.</p>
+        <p class="hero-meta">
+          Termbase &amp; mémoire de traduction juridique suisse — DE / FR / IT ·
+          open source (depuis 2026)
+        </p>
+      </section>
+
+      <section class="intro">
+        <p class="intro-note">
+          OpenGlossa agrège la terminologie et les textes parallèles du droit
+          fédéral suisse — Fedlex, TERMDAT, Tribunal fédéral — en une base
+          citable, exposée via un serveur MCP.
+        </p>
+        <p class="intro-statement">
+          Une base terminologique et une mémoire de traduction qui ancrent
+          chaque résultat dans une source officielle citable, pour traduire le
+          droit suisse sans rien inventer.
+        </p>
+      </section>
+
+      <nav class="index">
+        <a href="#demo"><span class="arrow">↘</span><span class="t">Recherche<br />citée</span></a>
+        <a href="#data"><span class="arrow">↘</span><span class="t">Données<br />&amp; exports</span></a>
+        <a href="#api"><span class="arrow">↘</span><span class="t">API MCP<br />(5)</span></a>
+      </nav>
+
+      <p class="disclaimer">
+        <span class="mark">Avis</span>
+        <span>
+          Les sorties d'OpenGlossa ne constituent <b>pas</b> le texte légal
+          officiel faisant foi. Toujours vérifier contre la source officielle
+          (n° RS + article Fedlex, ou référence ATF/BGE).
+        </span>
+      </p>
+
+      <section id="demo" class="block">
+        <div class="block-head"><span class="num">(01)</span><h2>Recherche</h2></div>
+        <p class="lead">
+          Recherche dans la mémoire de traduction (extrait officiel du Code des
+          obligations, SR 220). Chaque résultat est cité — article + lien ELI
+          Fedlex. Exécutée dans votre navigateur ; le serveur MCP ajoute la
+          recherche sémantique (LaBSE).
+        </p>
+        <div class="search-bar">
+          <input id="q" type="search" placeholder="ex. « Schuldner Verzug », « erreur essentielle », « dol »…" autocomplete="off" />
+          <select id="dir" aria-label="Direction">
+            <option value="de">DE → FR</option>
+            <option value="fr">FR → DE</option>
+          </select>
+          <button id="go">Rechercher</button>
+        </div>
+        <div id="results" aria-live="polite"></div>
+      </section>
+
+      <section id="eval" class="block">
+        <div class="block-head"><span class="num">(02)</span><h2>Évaluation</h2></div>
+        <p class="lead">
+          Term hit-rate@3 sur 15 requêtes tenues à l'écart : le terme officiel
+          attendu apparaît-il dans les segments récupérés ?
+        </p>
+        <div class="metrics">
+          <div class="metric"><div class="v">0.00</div><div class="k">sans ancrage</div></div>
+          <div class="metric"><div class="v">0.60</div><div class="k">lexical</div></div>
+          <div class="metric"><div class="v">0.73</div><div class="k">vectoriel · hashing</div></div>
+          <div class="metric best"><div class="v">0.93</div><div class="k">vectoriel · LaBSE</div></div>
+        </div>
+      </section>
+
+      <section id="data" class="block">
+        <div class="block-head"><span class="num">(03)</span><h2>Téléchargements</h2></div>
+        <p class="lead">Extrait de démonstration (CO / SR 220, source officielle Fedlex, citée).</p>
+        <div class="rows">
+          <div class="row">
+            <div class="row-main">
+              <a class="dl-arrow" href="downloads/openglossa_demo.tmx" download>openglossa_demo.tmx</a>
+              <span class="row-sub">Mémoire de traduction, TMX 1.4 (validée DTD).</span>
+            </div>
+            <span class="row-meta">TMX</span>
+          </div>
+          <div class="row">
+            <div class="row-main">
+              <a class="dl-arrow" href="downloads/openglossa_demo.jsonl" download>openglossa_demo.jsonl</a>
+              <span class="row-sub">Segments parallèles avec provenance.</span>
+            </div>
+            <span class="row-meta">JSONL</span>
+          </div>
+          <div class="row">
+            <div class="row-main">
+              <a class="dl-arrow" href="downloads/glossary_deepl_de-fr.csv" download>glossary_deepl_de-fr.csv</a>
+              <span class="row-sub">Glossaire DeepL DE→FR (couples extraits, à relire).</span>
+            </div>
+            <span class="row-meta">CSV</span>
+          </div>
+          <div class="row">
+            <div class="row-main">
+              <a class="dl-arrow" href="downloads/schemas/translation_unit.schema.json" download>translation_unit.schema.json</a>
+              <span class="row-sub">JSON Schema d'une unité de traduction.</span>
+            </div>
+            <span class="row-meta">Schema</span>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:1.2rem">
+          Formats complets (TBX, Parquet, toutes paires) : <code>openglossa build-exports</code>.
+        </p>
+      </section>
+
+      <section id="schema" class="block">
+        <div class="block-head"><span class="num">(04)</span><h2>Schéma</h2></div>
+        <p class="lead">Modèles pydantic v2 à provenance obligatoire — aucun enregistrement sans source citable.</p>
+        <div class="rows">
+          <div class="row">
+            <div class="row-main">
+              <a href="downloads/schemas/term_record.schema.json"><code>TermRecord</code></a>
+              <span class="row-sub">Entrée terminologique centrée concept (≈ termEntry TBX).</span>
+            </div>
+            <span class="row-meta">concept</span>
+          </div>
+          <div class="row">
+            <div class="row-main">
+              <a href="downloads/schemas/translation_unit.schema.json"><code>TranslationUnit</code></a>
+              <span class="row-sub">Segment parallèle aligné (≈ tu TMX).</span>
+            </div>
+            <span class="row-meta">segment</span>
+          </div>
+          <div class="row">
+            <div class="row-main">
+              <a href="downloads/schemas/term_candidate.schema.json"><code>TermCandidate</code></a>
+              <span class="row-sub">Couple de termes extrait, en file de revue.</span>
+            </div>
+            <span class="row-meta">candidat</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="licences" class="block">
+        <div class="block-head"><span class="num">(05)</span><h2>Licences</h2></div>
+        <div class="rows reg">
+          <div class="row">
+            <div class="row-main">Fedlex (RS)<span class="row-sub">Lois fédérales DE/FR/IT — texte + métadonnées RDF</span></div>
+            <div>Réutilisation, citation requise</div>
+            <span class="row-meta"><span class="badge ok">réutilisable</span></span>
+          </div>
+          <div class="row">
+            <div class="row-main">Tribunal fédéral (SLDS)<span class="row-sub">Regestes trilingues (ATF/BGE)</span></div>
+            <div>CC-BY-4.0</div>
+            <span class="row-meta"><span class="badge ok">réutilisable</span></span>
+          </div>
+          <div class="row">
+            <div class="row-main">TERMDAT (LINDAS)<span class="row-sub">Terminologie officielle multilingue</span></div>
+            <div>OGD — redistribution à confirmer</div>
+            <span class="row-meta"><span class="badge warn">live / dérivés</span></span>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:1.2rem">
+          Détails : <code>LICENSING.md</code>, <code>ATTRIBUTIONS.md</code>. Code Apache-2.0 · données CC-BY-4.0.
+        </p>
+      </section>
+
+      <section id="api" class="block">
+        <div class="block-head"><span class="num">(06)</span><h2>Connexion MCP</h2></div>
+        <p class="lead">
+          Serveur MCP distant (Streamable HTTP) — cinq outils, réponses toujours
+          citées. Branche-le sur Cursor, Claude Desktop ou tout client MCP.
+        </p>
+        <div class="endpoint">
+          <span class="endpoint-label">Endpoint</span>
+          <code id="mcp-url">https://openglossa.vercel.app/mcp</code>
+        </div>
+        <p class="hint">Configuration client (Cursor <code>~/.cursor/mcp.json</code> ou Claude Desktop) :</p>
+        <pre><code>{
+  "mcpServers": {
+    "openglossa": {
+      "url": "https://openglossa.vercel.app/mcp"
+    }
+  }
+}</code></pre>
+        <p class="hint">
+          Client en stdio uniquement ? Faites le pont avec
+          <code>npx mcp-remote https://openglossa.vercel.app/mcp</code>.
+        </p>
+
+        <h3 class="sub">Outils</h3>
+        <pre><code>lookup_term(query, src_lang, tgt_lang, domain?)
+search_parallel(text, src_lang, tgt_lang, k)
+verify_translation(src_term, tgt_term, src_lang, tgt_lang)
+get_official_text(eli_or_citation, lang)
+suggest_glossary(text, src_lang, tgt_lang)</code></pre>
+
+        <h3 class="sub">Pipeline &amp; serveur local</h3>
+        <pre><code>pip install -e ".[all]"
+openglossa ingest-fedlex --articles --rs 220 --max-articles 200
+openglossa build-index --encoder labse        # recherche sémantique
+openglossa build-exports                       # TBX / TMX / CSV / JSONL / Parquet
+python -m openglossa.mcp.server                # serveur MCP</code></pre>
+      </section>
+
+      <footer>
+        <div class="foot-top"><a href="#top" aria-label="Haut de page">↑</a></div>
+        <div class="foot-grid">
+          <span class="fl">R</span>
+          <span class="fv foot-row"><a href="https://github.com/Joenvyme/openglossa" target="_blank" rel="noopener">github.com/Joenvyme/openglossa ↘</a></span>
+          <span class="foot-row"></span>
+          <span class="fl">D</span>
+          <span class="fv foot-row"><a href="#data">Téléchargements (TMX · JSONL · CSV · schémas)</a></span>
+          <span class="foot-row"></span>
+          <span class="fl">L</span>
+          <span class="fv foot-row">Apache-2.0 (code) · CC-BY-4.0 (données)</span>
+          <span class="foot-row"></span>
+        </div>
+        <p class="copyright">© 2026 OpenGlossa · sortie non officielle — vérifiez toujours la source faisant foi.</p>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
