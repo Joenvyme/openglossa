@@ -122,8 +122,8 @@ vercel            # déploiement de préversion
 vercel --prod     # production
 ```
 
-Endpoint public : `https://<projet>.vercel.app/mcp` (ou ton domaine personnalisé,
-à ajouter dans *Project → Settings → Domains*). Les outils live
+Endpoint public : `https://www.openglossa.ch/mcp` (domaine personnalisé ;
+l'alias `https://openglossa.vercel.app/mcp` reste fonctionnel). Les outils live
 (`get_official_text`, TERMDAT) restent best-effort et dégradent proprement.
 
 `mine-terms` extrait des **couples de termes candidats** du parallèle par
