@@ -12,7 +12,16 @@ from openglossa.search.vector import (
     Encoder,
     HashingEncoder,
     VectorIndex,
+    encoder_for_name,
     load_labse,
+    load_minilm,
 )
 
-__all__ = ["Encoder", "HashingEncoder", "VectorIndex", "load_labse"]
+__all__ = [
+    "Encoder",
+    "HashingEncoder",
+    "VectorIndex",
+    "encoder_for_name",
+    "load_labse",
+    "load_minilm",
+]

@@ -1,11 +1,12 @@
-# Render blueprint — OpenGlossa MCP server with semantic search (LaBSE).
+# Render blueprint — OpenGlossa MCP server with semantic search (MiniLM).
 #
 # Build pulls the official corpus live from Fedlex (article-level, DE/FR/IT),
-# merges the SLDS regeste set, then builds the LaBSE semantic index. The service
+# merges the SLDS regeste set, then builds the MiniLM semantic index. The service
 # then serves the Streamable HTTP MCP endpoint at /mcp.
 #
-# NOTE: LaBSE loads a ~1.8 GB model in RAM. Use at least the `standard` plan
-# (2 GB); `pro` (4 GB) gives comfortable headroom for building the index.
+# NOTE: the multilingual MiniLM encoder (~470 MB model) fits the `standard` plan
+# (2 GB RAM). For maximum quality on a 4 GB host, switch the build/env to LaBSE
+# (`--encoder labse` + tm_index_labse.db) and bump the plan to `pro`.
 services:
   - type: web
     name: openglossa-mcp
@@ -24,7 +25,7 @@ services:
       --out data/processed/tus_articles.jsonl &&
       (python -m openglossa ingest-slds --out data/processed/tus_slds.jsonl || echo "slds skipped") &&
       python -m openglossa merge-tus data/processed/tus_articles.jsonl data/processed/tus_slds.jsonl --out data/processed/tus.jsonl &&
-      python -m openglossa build-index --encoder labse --out data/processed/tm_index_labse.db
+      python -m openglossa build-index --encoder minilm --out data/processed/tm_index_minilm.db
     startCommand: python -m openglossa.mcp.server
     envVars:
       - key: HOST
@@ -34,6 +35,6 @@ services:
       - key: OPENGLOSSA_DATA
         value: data/processed
       - key: OPENGLOSSA_INDEX
-        value: data/processed/tm_index_labse.db
+        value: data/processed/tm_index_minilm.db
       - key: HF_HOME
         value: /opt/render/project/src/.hf

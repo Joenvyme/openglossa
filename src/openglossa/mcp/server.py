@@ -306,13 +306,17 @@ DEFAULT_INDEX_PATH = Path(os.environ.get("OPENGLOSSA_INDEX", "data/processed/tm_
 
 
 def _maybe_open_index(index_path: Path | None) -> Any:
-    """Open a sqlite-vec index with the LaBSE encoder, or return None."""
+    """Open a sqlite-vec index, reconstructing its encoder from the index itself.
+
+    Encoder-agnostic: works with LaBSE, MiniLM or hashing indexes. Returns None
+    on any failure (missing extra/model) so the server falls back to lexical.
+    """
     if index_path is None or not Path(index_path).exists():
         return None
     try:
-        from openglossa.search import VectorIndex, load_labse
+        from openglossa.search import VectorIndex
 
-        return VectorIndex.open(index_path, load_labse())
+        return VectorIndex.open_auto(index_path)
     except Exception:  # noqa: BLE001 - missing extra/model -> lexical fallback
         return None
 

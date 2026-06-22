@@ -205,7 +205,7 @@ def cmd_mine_terms(args: argparse.Namespace) -> int:
 
 def cmd_build_index(args: argparse.Namespace) -> int:
     """Build a sqlite-vec semantic index over the TM for search_parallel."""
-    from openglossa.search import HashingEncoder, VectorIndex, load_labse
+    from openglossa.search import HashingEncoder, VectorIndex, load_labse, load_minilm
 
     tus = read_jsonl(TranslationUnit, Path(args.input))
     if not tus:
@@ -215,6 +215,9 @@ def cmd_build_index(args: argparse.Namespace) -> int:
     if args.encoder == "labse":
         print("loading LaBSE (first run downloads the model)…")
         encoder = load_labse()
+    elif args.encoder == "minilm":
+        print("loading MiniLM (first run downloads the model)…")
+        encoder = load_minilm()
     else:
         encoder = HashingEncoder()
     print(f"encoding {len(tus)} TUs (2 sides each) with {encoder.name} (dim={encoder.dim})…")
@@ -381,9 +384,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_idx.add_argument(
         "--encoder",
-        choices=["labse", "hashing"],
+        choices=["labse", "minilm", "hashing"],
         default="labse",
-        help="Embedding encoder (labse = production; hashing = light, offline).",
+        help=(
+            "Embedding encoder (labse = best/heavy; minilm = light multilingual, "
+            "fits 2 GB hosts; hashing = offline, non-semantic)."
+        ),
     )
     p_idx.add_argument(
         "--out", default=str(PROCESSED / "tm_index.db"), help="Output sqlite-vec index path."

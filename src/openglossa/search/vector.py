@@ -93,6 +93,28 @@ def load_labse(model_name: str = "sentence-transformers/LaBSE") -> Encoder:
     return _SentenceTransformerEncoder(model_name)
 
 
+# A lighter multilingual encoder (~470 MB, 384-dim) that fits a 2 GB host while
+# staying well above the lexical baseline. Good DE/FR/IT coverage.
+MINILM_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+
+
+def load_minilm(model_name: str = MINILM_MODEL) -> Encoder:
+    """Load the light multilingual encoder (paraphrase-multilingual MiniLM)."""
+    return _SentenceTransformerEncoder(model_name)
+
+
+def encoder_for_name(name: str) -> Encoder:
+    """Reconstruct the encoder used to build an index, from its stored name.
+
+    Lets the server open any index without knowing its encoder in advance:
+    hashing encoders are rebuilt from their dimension, model-backed encoders
+    (a name containing ``/``) from their sentence-transformers model id.
+    """
+    if name.startswith("hashing-"):
+        return HashingEncoder(int(name.split("-", 1)[1]))
+    return _SentenceTransformerEncoder(name)
+
+
 def _serialize(vec: Sequence[float]) -> bytes:
     return struct.pack(f"{len(vec)}f", *vec)
 
@@ -177,6 +199,18 @@ class VectorIndex:
                 f"index built with encoder {cfg.get('encoder')!r}, "
                 f"got {encoder.name!r}"
             )
+        return cls(db, encoder)
+
+    @classmethod
+    def open_auto(cls, path: str | Path) -> VectorIndex:
+        """Open an existing index, reconstructing its encoder from the stored name.
+
+        The index is self-describing, so the caller need not know which encoder
+        (LaBSE, MiniLM, hashing, …) was used to build it.
+        """
+        db = _connect(path)
+        cfg = dict(db.execute("SELECT key, value FROM config").fetchall())
+        encoder = encoder_for_name(cfg.get("encoder", ""))
         return cls(db, encoder)
 
     # -- query -------------------------------------------------------------- #
