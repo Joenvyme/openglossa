@@ -122,8 +122,9 @@ vercel            # déploiement de préversion
 vercel --prod     # production
 ```
 
-Endpoint public : `https://openglossa.ch/mcp` (domaine personnalisé ;
-les alias `www.openglossa.ch` et `openglossa.vercel.app` redirigent ou pointent dessus). Les outils live
+Endpoint MCP public : `https://openglossa-mcp.onrender.com/mcp` (Render, recherche
+sémantique MiniLM sur le corpus complet). Le site `https://openglossa.ch`
+(hébergé sur Vercel) présente le projet et les téléchargements. Les outils live
 (`get_official_text`, TERMDAT) restent best-effort et dégradent proprement.
 
 `mine-terms` extrait des **couples de termes candidats** du parallèle par
