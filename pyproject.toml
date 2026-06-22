@@ -44,6 +44,9 @@ data = [
     "polars>=0.20",
     "duckdb>=0.10",
     "sqlite-vec>=0.1",
+    # Some hosts (e.g. Render) ship a CPython without loadable-SQLite-extension
+    # support, which sqlite-vec needs. This wheel bundles a SQLite that allows it.
+    "pysqlite3-binary>=0.5; platform_system == 'Linux'",
 ]
 # MCP server (Streamable HTTP).
 mcp = [

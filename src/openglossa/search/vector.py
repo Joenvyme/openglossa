@@ -119,6 +119,22 @@ def _serialize(vec: Sequence[float]) -> bytes:
     return struct.pack(f"{len(vec)}f", *vec)
 
 
+def _sqlite_module():
+    """Return a sqlite3-compatible module that supports loadable extensions.
+
+    Some CPython builds (e.g. Render's) are compiled without
+    ``--enable-loadable-sqlite-extensions``, so ``enable_load_extension`` is
+    missing. ``pysqlite3`` (the ``pysqlite3-binary`` wheel) bundles a SQLite that
+    allows it; prefer it when present, otherwise fall back to stdlib ``sqlite3``.
+    """
+    try:
+        import pysqlite3  # type: ignore[import-not-found]
+
+        return pysqlite3
+    except ImportError:
+        return sqlite3
+
+
 def _connect(path: str | Path) -> sqlite3.Connection:
     try:
         import sqlite_vec
@@ -127,7 +143,7 @@ def _connect(path: str | Path) -> sqlite3.Connection:
             "Vector index requires sqlite-vec (the 'data' extra): "
             "pip install 'openglossa[data]'"
         ) from exc
-    db = sqlite3.connect(str(path))
+    db = _sqlite_module().connect(str(path))
     db.enable_load_extension(True)
     sqlite_vec.load(db)
     db.enable_load_extension(False)
