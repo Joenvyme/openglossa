@@ -118,6 +118,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   background: var(--accent); color: #fff; border: 0; cursor: pointer;
 }
 .search-bar button:hover { background: var(--ink); }
+.search-bar .arrow { display: flex; align-items: center; font-size: 0.95rem; }
+.hint.method { margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }
 
 #results .result { padding: 1.1rem 0; border-top: 1px solid var(--line); }
 #results .result:first-child { border-top: 0; }

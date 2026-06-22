@@ -63,16 +63,23 @@
       <section id="demo" class="block">
         <div class="block-head"><span class="num">(01)</span><h2>Recherche</h2></div>
         <p class="lead">
-          Recherche dans la mémoire de traduction (extrait officiel du Code des
-          obligations, SR 220). Chaque résultat est cité — article + lien ELI
-          Fedlex. Exécutée dans votre navigateur ; le serveur MCP ajoute la
-          recherche sémantique (LaBSE).
+          Recherche sémantique en direct dans la mémoire de traduction complète :
+          113 095 segments officiels (lois fédérales Fedlex + regestes du Tribunal
+          fédéral ATF/BGE), en allemand, français et italien. Chaque résultat est
+          cité — article RS + lien ELI Fedlex, ou référence ATF.
         </p>
         <div class="search-bar">
-          <input id="q" type="search" placeholder="ex. « Schuldner Verzug », « erreur essentielle », « dol »…" autocomplete="off" />
-          <select id="dir" aria-label="Direction">
-            <option value="de">DE → FR</option>
-            <option value="fr">FR → DE</option>
+          <input id="q" type="search" placeholder="ex. « Schuldner Verzug », « bonne foi », « prescrizione »…" autocomplete="off" />
+          <select id="src" aria-label="Langue source">
+            <option value="de">DE</option>
+            <option value="fr" selected>FR</option>
+            <option value="it">IT</option>
+          </select>
+          <span class="arrow" aria-hidden="true">→</span>
+          <select id="tgt" aria-label="Langue cible">
+            <option value="de">DE</option>
+            <option value="fr">FR</option>
+            <option value="it" selected>IT</option>
           </select>
           <button id="go">Rechercher</button>
         </div>

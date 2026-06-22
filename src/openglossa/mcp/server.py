@@ -402,6 +402,42 @@ def build_server(
         """Extract known legal terms from a passage with their official translations."""
         return suggest_glossary(repo, text, src_lang, tgt_lang)
 
+    # Public REST endpoint for the website demo (semantic search over the full
+    # corpus). Plain GET + permissive CORS so the static site (another origin)
+    # can query it directly without going through the MCP JSON-RPC handshake.
+    from starlette.requests import Request
+    from starlette.responses import JSONResponse, Response
+
+    _CORS = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "*",
+    }
+
+    @mcp.custom_route("/search", methods=["GET", "OPTIONS"])
+    async def search_route(request: Request) -> Response:  # noqa: ANN001
+        if request.method == "OPTIONS":
+            return Response(status_code=204, headers=_CORS)
+        qp = request.query_params
+        text = (qp.get("q") or qp.get("text") or "").strip()
+        src = qp.get("src") or qp.get("src_lang") or "de"
+        tgt = qp.get("tgt") or qp.get("tgt_lang") or "fr"
+        try:
+            k = max(1, min(int(qp.get("k", 8)), 20))
+        except ValueError:
+            k = 8
+        if not text or src == tgt:
+            return JSONResponse({"results": [], "method": "none"}, headers=_CORS)
+        out = search_parallel(repo, text, src, tgt, k, index=index)
+        return JSONResponse(out, headers=_CORS)
+
+    @mcp.custom_route("/health", methods=["GET"])
+    async def health_route(request: Request) -> Response:  # noqa: ANN001
+        return JSONResponse(
+            {"status": "ok", "tus": len(repo.tus), "semantic": index is not None},
+            headers=_CORS,
+        )
+
     return mcp
 
 

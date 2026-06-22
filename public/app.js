@@ -1,20 +1,25 @@
-// Client-side demo of search_parallel over an official, cited TM slice.
-// No backend required: lexical retrieval runs entirely in the browser.
+// Live search over the full official translation memory (Fedlex + ATF/BGE),
+// served by the OpenGlossa MCP host's public /search endpoint. Falls back to a
+// small in-browser lexical demo if the backend is unreachable.
 
 "use strict";
 
-const state = { data: [], ready: false };
+const SEARCH_API = "https://openglossa-mcp.onrender.com/search";
+const LANGS = { de: "DE", fr: "FR", it: "IT" };
+
+const state = { demo: [], demoReady: false };
 
 const tokenize = (s) =>
   (s.toLowerCase().match(/[\p{L}]+/gu) || []).filter((t) => t.length > 1);
 
-async function load() {
+async function loadDemo() {
+  if (state.demoReady) return;
   const res = await fetch("data/tm_demo.json");
-  state.data = await res.json();
-  state.ready = true;
+  state.demo = await res.json();
+  state.demoReady = true;
 }
 
-function score(queryTokens, text) {
+function demoScore(queryTokens, text) {
   const docTokens = new Set(tokenize(text));
   if (queryTokens.size === 0 || docTokens.size === 0) return 0;
   let inter = 0;
@@ -22,21 +27,30 @@ function score(queryTokens, text) {
   return inter / queryTokens.size;
 }
 
-function search(query, dir, k = 8) {
+// Local fallback only covers DE<->FR (the bundled demo slice).
+function demoSearch(query, src, tgt, k = 8) {
   const qTokens = new Set(tokenize(query));
-  const srcKey = dir; // "de" or "fr"
-  const tgtKey = dir === "de" ? "fr" : "de";
   const scored = [];
-  for (const row of state.data) {
-    const s = score(qTokens, row[srcKey]);
-    if (s > 0) scored.push({ s, src: row[srcKey], tgt: row[tgtKey], ref: row.ref, uri: row.uri });
+  for (const row of state.demo) {
+    if (!(src in row) || !(tgt in row)) continue;
+    const s = demoScore(qTokens, row[src]);
+    if (s > 0)
+      scored.push({ src: row[src], tgt: row[tgt], source: { ref: row.ref, uri: row.uri }, score: s });
   }
-  scored.sort((a, b) => b.s - a.s || a.src.localeCompare(b.src));
+  scored.sort((a, b) => b.score - a.score || a.src.localeCompare(b.src));
   return scored.slice(0, k);
 }
 
+async function backendSearch(query, src, tgt, k = 8) {
+  const url = `${SEARCH_API}?q=${encodeURIComponent(query)}&src=${src}&tgt=${tgt}&k=${k}`;
+  const res = await fetch(url, { headers: { Accept: "application/json" } });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  return { results: data.results || [], method: data.method || "vector" };
+}
+
 function escapeHtml(s) {
-  return s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 }
 
 function highlight(text, qTokens) {
@@ -45,61 +59,87 @@ function highlight(text, qTokens) {
   );
 }
 
-function render(hits, query, dir) {
+function render(hits, query, src, tgt, method) {
   const box = document.getElementById("results");
   if (!query.trim()) {
     box.innerHTML = `<p class="hint">Saisissez un terme ou une phrase pour interroger la mémoire de traduction.</p>`;
     return;
   }
+  if (src === tgt) {
+    box.innerHTML = `<p class="hint">Choisissez deux langues différentes.</p>`;
+    return;
+  }
   if (hits.length === 0) {
-    box.innerHTML = `<p class="hint">Aucun résultat dans l'extrait de démonstration. Essayez « contrat », « erreur », « délai », « Schuldner »…</p>`;
+    box.innerHTML = `<p class="hint">Aucun résultat. Essayez « bonne foi », « Verjährung », « prescrizione », « erreur essentielle »…</p>`;
     return;
   }
   const qTokens = new Set(tokenize(query));
-  const srcLang = dir.toUpperCase();
-  const tgtLang = (dir === "de" ? "fr" : "de").toUpperCase();
-  box.innerHTML = hits
-    .map(
-      (h) => `
+  const srcLang = LANGS[src] || src.toUpperCase();
+  const tgtLang = LANGS[tgt] || tgt.toUpperCase();
+  const methodLabel = method === "lexical" ? "lexical" : "sémantique";
+  box.innerHTML =
+    `<p class="hint method">Recherche ${methodLabel} · ${hits.length} résultat(s)</p>` +
+    hits
+      .map((h) => {
+        const ref = (h.source && h.source.ref) || h.ref || "";
+        const uri = (h.source && h.source.uri) || h.uri || "";
+        const cite = uri
+          ? `<a href="${escapeHtml(uri)}" target="_blank" rel="noopener">${escapeHtml(ref)} ↗</a>`
+          : `<span>${escapeHtml(ref)}</span>`;
+        const score = typeof h.score === "number" ? `<span class="score">score ${h.score.toFixed(2)}</span>` : "";
+        return `
       <div class="result">
         <div class="pair">
           <div><div class="lang">${srcLang}</div>${highlight(h.src, qTokens)}</div>
           <div><div class="lang">${tgtLang}</div>${escapeHtml(h.tgt)}</div>
         </div>
-        <div class="cite">
-          <a href="${escapeHtml(h.uri)}" target="_blank" rel="noopener">${escapeHtml(h.ref)} ↗</a>
-          <span class="score">score ${h.s.toFixed(2)}</span>
-        </div>
-      </div>`
-    )
-    .join("");
+        <div class="cite">${cite}${score}</div>
+      </div>`;
+      })
+      .join("");
 }
 
 async function run() {
   const input = document.getElementById("q");
-  const dirSel = document.getElementById("dir");
+  const src = document.getElementById("src").value;
+  const tgt = document.getElementById("tgt").value;
   const box = document.getElementById("results");
-  if (!state.ready) {
-    box.innerHTML = `<p class="hint">Chargement de la mémoire de traduction…</p>`;
+  const q = input.value;
+  if (!q.trim()) {
+    render([], q, src, tgt, "");
+    return;
+  }
+  if (src === tgt) {
+    render([], q, src, tgt, "");
+    return;
+  }
+  box.innerHTML = `<p class="hint">Recherche…</p>`;
+  try {
+    const { results, method } = await backendSearch(q, src, tgt);
+    render(results, q, src, tgt, method);
+  } catch {
+    // Backend unreachable: fall back to the bundled DE<->FR demo slice.
     try {
-      await load();
+      await loadDemo();
+      const hits = demoSearch(q, src, tgt);
+      if (hits.length === 0 && (src === "it" || tgt === "it")) {
+        box.innerHTML = `<p class="hint">Service de recherche momentanément indisponible (l'italien n'est pas couvert par la démo hors-ligne).</p>`;
+        return;
+      }
+      render(hits, q, src, tgt, "lexical");
     } catch {
-      box.innerHTML = `<p class="hint">Impossible de charger les données de démo (servez le site via HTTP).</p>`;
-      return;
+      box.innerHTML = `<p class="hint">Service de recherche momentanément indisponible. Réessayez dans un instant.</p>`;
     }
   }
-  const q = input.value;
-  render(search(q, dirSel.value), q, dirSel.value);
 }
 
 document.getElementById("go").addEventListener("click", run);
 document.getElementById("q").addEventListener("keydown", (e) => {
   if (e.key === "Enter") run();
 });
-document.getElementById("dir").addEventListener("change", run);
+document.getElementById("src").addEventListener("change", run);
+document.getElementById("tgt").addEventListener("change", run);
 
-// Preload data and show an example so the demo is alive on first paint.
-load().then(() => {
-  document.getElementById("q").value = "Schuldner Verzug";
-  run();
-});
+// Show a live example on first paint.
+document.getElementById("q").value = "bonne foi";
+run();
