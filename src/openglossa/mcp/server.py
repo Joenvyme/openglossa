@@ -154,15 +154,86 @@ def search_parallel(
     """
     if index is not None:
         try:
-            return _search_parallel_hybrid(repo, text, src_lang, tgt_lang, k, index=index)
+            out = _search_parallel_hybrid(repo, text, src_lang, tgt_lang, k, index=index)
         except Exception as exc:  # noqa: BLE001 - degrade gracefully to lexical
-            return _search_parallel_lexical(repo, text, src_lang, tgt_lang, k, error=str(exc))
-    return _search_parallel_lexical(repo, text, src_lang, tgt_lang, k)
+            out = _search_parallel_lexical(repo, text, src_lang, tgt_lang, k, error=str(exc))
+    else:
+        out = _search_parallel_lexical(repo, text, src_lang, tgt_lang, k)
+    out["query_translation"] = _phrase_translation(repo, text, src_lang, tgt_lang)
+    return out
 
 
 def _norm(s: str) -> str:
     """Lowercase + collapse whitespace, for phrase/substring matching."""
     return " ".join(s.casefold().split())
+
+
+# Function words / boilerplate to ignore when inferring a phrase translation.
+_STOPWORDS = {
+    # de
+    "der", "die", "das", "den", "dem", "des", "ein", "eine", "einer", "und", "oder",
+    "von", "im", "in", "zu", "zur", "zum", "auf", "mit", "ist", "sind", "wird", "werden",
+    "nach", "bei", "für", "auch", "wenn", "als", "aus", "dass", "nicht", "kann", "sich",
+    # fr
+    "le", "la", "les", "des", "un", "une", "de", "du", "et", "ou", "en", "au", "aux",
+    "dans", "par", "pour", "sur", "est", "sont", "qui", "que", "ne", "pas", "se", "à",
+    "ce", "cette", "son", "sa", "ses", "leur", "lorsque", "selon",
+    # it
+    "il", "lo", "gli", "i", "e", "o", "di", "da", "del", "della", "dei", "delle",
+    "che", "non", "per", "con", "su", "al", "alla", "una", "uno", "se", "sono",
+    # generic legal boilerplate
+    "art", "al", "cpv", "abs", "ch", "lit", "let", "ss", "ff", "cst", "co", "cc",
+}
+
+
+def _content_tokens(text_norm: str) -> list[str]:
+    return [t for t in text_norm.split() if len(t) > 2 and t not in _STOPWORDS and t.isalpha()]
+
+
+def _phrase_translation(
+    repo: Repository, query: str, src_lang: str, tgt_lang: str, *, max_segments: int = 40
+) -> str:
+    """Infer the target-language term for ``query`` from the parallel TM.
+
+    Collects target segments whose source contains the query phrase, then picks
+    the content n-gram (3→2→1 words) shared by a majority of them. Offline and
+    grounded in the official corpus — works even when TERMDAT has no entry (e.g.
+    "häusliche Gewalt" → "violence domestique"). Returns "" when inconclusive.
+    """
+    qn = _norm(query)
+    if not qn:
+        return ""
+    targets: list[str] = []
+    for tu in repo.tus:
+        oriented = _oriented(tu, src_lang, tgt_lang)
+        if oriented is None:
+            continue
+        src_text, tgt_text = oriented
+        if qn in _norm(src_text):
+            targets.append(_norm(tgt_text))
+            if len(targets) >= max_segments:
+                break
+    if len(targets) < 2:
+        return ""
+
+    total = len(targets)
+    for n in (3, 2, 1):
+        counts: dict[str, int] = {}
+        for tgt in targets:
+            toks = _content_tokens(tgt)
+            seen: set[str] = set()
+            for i in range(len(toks) - n + 1):
+                gram = " ".join(toks[i : i + n])
+                if gram in seen:
+                    continue
+                seen.add(gram)
+                counts[gram] = counts.get(gram, 0) + 1
+        if not counts:
+            continue
+        gram, freq = max(counts.items(), key=lambda kv: kv[1])
+        if freq >= max(2, total // 2):
+            return gram
+    return ""
 
 
 def _lexical_signal(query_tokens: set[str], query_norm: str, src_text: str) -> tuple[float, float]:

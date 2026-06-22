@@ -89,14 +89,17 @@
       <section id="eval" class="block">
         <div class="block-head"><span class="num">(02)</span><h2>Évaluation</h2></div>
         <p class="lead">
-          Term hit-rate@3 sur 15 requêtes tenues à l'écart : le terme officiel
-          attendu apparaît-il dans les segments récupérés ?
+          Term hit-rate@3 sur 15 requêtes tenues à l'écart, mesuré sur le corpus
+          complet de production (113 095 segments) : le terme officiel attendu
+          apparaît-il dans les 3 premiers segments récupérés ? Benchmark
+          reproductible (<code>python eval/run_eval.py</code>), figé — ce n'est
+          pas une métrique live.
         </p>
         <div class="metrics">
           <div class="metric"><div class="v">0.00</div><div class="k">sans ancrage</div></div>
-          <div class="metric"><div class="v">0.60</div><div class="k">lexical</div></div>
-          <div class="metric"><div class="v">0.73</div><div class="k">vectoriel · hashing</div></div>
-          <div class="metric best"><div class="v">0.93</div><div class="k">vectoriel · LaBSE</div></div>
+          <div class="metric"><div class="v">0.33</div><div class="k">lexical</div></div>
+          <div class="metric"><div class="v">0.73</div><div class="k">vectoriel · MiniLM</div></div>
+          <div class="metric best"><div class="v">0.73</div><div class="k">hybride · MiniLM</div></div>
         </div>
       </section>
 

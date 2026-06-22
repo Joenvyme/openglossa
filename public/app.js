@@ -46,7 +46,11 @@ async function backendSearch(query, src, tgt, k = 8) {
   const res = await fetch(url, { headers: { Accept: "application/json" } });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
-  return { results: data.results || [], method: data.method || "vector" };
+  return {
+    results: data.results || [],
+    method: data.method || "vector",
+    queryTranslation: data.query_translation || "",
+  };
 }
 
 function escapeHtml(s) {
@@ -59,7 +63,7 @@ function highlight(text, qTokens) {
   );
 }
 
-function render(hits, query, src, tgt, method) {
+function render(hits, query, src, tgt, method, queryTranslation = "") {
   const box = document.getElementById("results");
   if (!query.trim()) {
     box.innerHTML = `<p class="hint">Saisissez un terme ou une phrase pour interroger la mémoire de traduction.</p>`;
@@ -74,11 +78,15 @@ function render(hits, query, src, tgt, method) {
     return;
   }
   const qTokens = new Set(tokenize(query));
+  const tTokens = new Set(tokenize(queryTranslation));
   const srcLang = LANGS[src] || src.toUpperCase();
   const tgtLang = LANGS[tgt] || tgt.toUpperCase();
   const methodLabel = method === "lexical" ? "lexical" : "sémantique";
+  const transNote = queryTranslation
+    ? ` · terme cible probable : <strong>${escapeHtml(queryTranslation)}</strong>`
+    : "";
   box.innerHTML =
-    `<p class="hint method">Recherche ${methodLabel} · ${hits.length} résultat(s)</p>` +
+    `<p class="hint method">Recherche ${methodLabel} · ${hits.length} résultat(s)${transNote}</p>` +
     hits
       .map((h) => {
         const ref = (h.source && h.source.ref) || h.ref || "";
@@ -87,11 +95,12 @@ function render(hits, query, src, tgt, method) {
           ? `<a href="${escapeHtml(uri)}" target="_blank" rel="noopener">${escapeHtml(ref)} ↗</a>`
           : `<span>${escapeHtml(ref)}</span>`;
         const score = typeof h.score === "number" ? `<span class="score">score ${h.score.toFixed(2)}</span>` : "";
+        const tgtHtml = tTokens.size ? highlight(h.tgt, tTokens) : escapeHtml(h.tgt);
         return `
       <div class="result">
         <div class="pair">
           <div><div class="lang">${srcLang}</div>${highlight(h.src, qTokens)}</div>
-          <div><div class="lang">${tgtLang}</div>${escapeHtml(h.tgt)}</div>
+          <div><div class="lang">${tgtLang}</div>${tgtHtml}</div>
         </div>
         <div class="cite">${cite}${score}</div>
       </div>`;
@@ -115,8 +124,8 @@ async function run() {
   }
   box.innerHTML = `<p class="hint">Recherche…</p>`;
   try {
-    const { results, method } = await backendSearch(q, src, tgt);
-    render(results, q, src, tgt, method);
+    const { results, method, queryTranslation } = await backendSearch(q, src, tgt);
+    render(results, q, src, tgt, method, queryTranslation);
   } catch {
     // Backend unreachable: fall back to the bundled DE<->FR demo slice.
     try {
