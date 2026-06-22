@@ -145,16 +145,89 @@ def search_parallel(
     """RAG over the TM (few-shot examples), with citations.
 
     Direction-agnostic: TUs stored in either orientation are matched. When a
-    sqlite-vec ``index`` (LaBSE/embeddings) is provided it is used for semantic
-    retrieval, with a transparent fallback to the deterministic lexical baseline.
+    sqlite-vec ``index`` (embeddings) is provided, retrieval is **hybrid**:
+    semantic similarity is fused with a lexical signal (query-token overlap +
+    exact-phrase bonus) so that a multi-word query like "häusliche Gewalt" ranks
+    segments containing that phrase above merely related ones (e.g. "elterliche
+    Gewalt"), which pure cosine similarity tends to confuse. Falls back to the
+    deterministic lexical baseline when no index is available or on error.
     """
     if index is not None:
         try:
-            hits = index.search(text, src_lang, tgt_lang, k)
-            return {"results": hits, "method": "vector", "disclaimer": DISCLAIMER}
+            return _search_parallel_hybrid(repo, text, src_lang, tgt_lang, k, index=index)
         except Exception as exc:  # noqa: BLE001 - degrade gracefully to lexical
             return _search_parallel_lexical(repo, text, src_lang, tgt_lang, k, error=str(exc))
     return _search_parallel_lexical(repo, text, src_lang, tgt_lang, k)
+
+
+def _norm(s: str) -> str:
+    """Lowercase + collapse whitespace, for phrase/substring matching."""
+    return " ".join(s.casefold().split())
+
+
+def _lexical_signal(query_tokens: set[str], query_norm: str, src_text: str) -> tuple[float, float]:
+    """Return ``(overlap, phrase)`` lexical signals for a candidate segment.
+
+    ``overlap`` is the share of query tokens present in the segment (0..1);
+    ``phrase`` is 1.0 when the whole query appears as a substring, else 0.0.
+    """
+    text_norm = _norm(src_text)
+    doc_tokens = set(text_norm.split())
+    overlap = (
+        len(query_tokens & doc_tokens) / len(query_tokens) if query_tokens else 0.0
+    )
+    phrase = 1.0 if query_norm and query_norm in text_norm else 0.0
+    return overlap, phrase
+
+
+# Hybrid fusion weights. Semantic stays dominant; lexical overlap and exact
+# phrase act as boosters/tie-breakers so phrase queries surface the right sense.
+_W_SEM, _W_OVERLAP, _W_PHRASE = 0.6, 0.4, 0.5
+
+
+def _search_parallel_hybrid(
+    repo: Repository,
+    text: str,
+    src_lang: str,
+    tgt_lang: str,
+    k: int = 5,
+    *,
+    index: Any,
+) -> dict[str, Any]:
+    """Fuse semantic (vector) and lexical candidates, then re-rank."""
+    query_tokens = {t for t in _norm(text).split() if len(t) > 1}
+    query_norm = _norm(text)
+    cand = max(k * 6, 60)
+
+    merged: dict[tuple[str, str], dict[str, Any]] = {}
+    for hit in index.search(text, src_lang, tgt_lang, cand):
+        key = (hit["src"], hit["tgt"])
+        merged[key] = {**hit, "sem": float(hit.get("score", 0.0)), "lex": 0.0}
+
+    # Lexical candidates (in-memory TM) catch exact-phrase matches the vector
+    # nearest-neighbour set may have missed entirely.
+    for hit in _search_parallel_lexical(repo, text, src_lang, tgt_lang, cand)["results"]:
+        key = (hit["src"], hit["tgt"])
+        if key in merged:
+            merged[key]["lex"] = float(hit.get("score", 0.0))
+        else:
+            merged[key] = {**hit, "sem": 0.0, "lex": float(hit.get("score", 0.0))}
+
+    ranked: list[dict[str, Any]] = []
+    for item in merged.values():
+        overlap, phrase = _lexical_signal(query_tokens, query_norm, item["src"])
+        combined = _W_SEM * item["sem"] + _W_OVERLAP * overlap + _W_PHRASE * phrase
+        ranked.append(
+            {
+                "src": item["src"],
+                "tgt": item["tgt"],
+                "source": item["source"],
+                "score": round(combined, 4),
+                "semantic": round(item["sem"], 4),
+            }
+        )
+    ranked.sort(key=lambda h: h["score"], reverse=True)
+    return {"results": ranked[:k], "method": "hybrid", "disclaimer": DISCLAIMER}
 
 
 def _search_parallel_lexical(
