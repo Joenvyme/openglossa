@@ -400,6 +400,10 @@ def build_server(
 
 def main() -> None:
     server = build_server()
+    # Bind to the platform-provided address when hosted (Render/Fly set $PORT).
+    # FastMCP does not read these from the environment itself, so set them here.
+    server.settings.host = os.environ.get("HOST", "127.0.0.1")
+    server.settings.port = int(os.environ.get("PORT", server.settings.port))
     server.run(transport="streamable-http")
 
 
