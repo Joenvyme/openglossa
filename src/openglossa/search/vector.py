@@ -165,8 +165,14 @@ class VectorIndex:
         tus: Sequence[TranslationUnit],
         encoder: Encoder,
         path: str | Path,
+        *,
+        batch_size: int = 1000,
     ) -> VectorIndex:
-        """Build (overwrite) a vector index file from ``tus``."""
+        """Build (overwrite) a vector index file from ``tus``.
+
+        Texts are encoded and inserted in batches of ``batch_size`` rows so peak
+        memory stays bounded on large corpora and small hosts.
+        """
         p = Path(path)
         p.parent.mkdir(parents=True, exist_ok=True)
         if p.exists():
@@ -195,14 +201,20 @@ class VectorIndex:
             rows.append((str(tu.src_lang), tu.src, str(tu.tgt_lang), tu.tgt, src_meta))
             rows.append((str(tu.tgt_lang), tu.tgt, str(tu.src_lang), tu.src, src_meta))
 
-        embeddings = encoder.encode([r[1] for r in rows])
-        for i, (row, emb) in enumerate(zip(rows, embeddings, strict=True), start=1):
-            db.execute(
-                "INSERT INTO vec_items(rowid, embedding) VALUES (?, ?)",
-                (i, _serialize(emb)),
-            )
-            db.execute("INSERT INTO meta VALUES (?, ?, ?, ?, ?, ?)", (i, *row))
-        db.commit()
+        # Encode and insert in batches so peak memory stays bounded (large
+        # corpora would otherwise hold hundreds of MB of vectors at once).
+        rowid = 0
+        for start in range(0, len(rows), batch_size):
+            chunk = rows[start : start + batch_size]
+            embeddings = encoder.encode([r[1] for r in chunk])
+            for row, emb in zip(chunk, embeddings, strict=True):
+                rowid += 1
+                db.execute(
+                    "INSERT INTO vec_items(rowid, embedding) VALUES (?, ?)",
+                    (rowid, _serialize(emb)),
+                )
+                db.execute("INSERT INTO meta VALUES (?, ?, ?, ?, ?, ?)", (rowid, *row))
+            db.commit()
         return cls(db, encoder)
 
     @classmethod
