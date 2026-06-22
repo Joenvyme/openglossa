@@ -328,6 +328,7 @@ def build_server(
     index: Any = None,
     index_path: Path | None = DEFAULT_INDEX_PATH,
     stateless: bool = False,
+    disable_host_check: bool = False,
 ):
     """Build a FastMCP server bound to ``repo`` (loaded from disk if None).
 
@@ -337,6 +338,8 @@ def build_server(
     ``stateless`` runs the Streamable HTTP transport without persistent sessions
     and with JSON responses — required for serverless hosts (e.g. Vercel) where
     each request is a fresh, isolated function invocation.
+    ``disable_host_check`` turns off DNS-rebinding/Host-header validation, needed
+    behind a platform proxy that sets a public Host header (e.g. Render).
     """
     try:
         from mcp.server.fastmcp import FastMCP
@@ -354,7 +357,7 @@ def build_server(
     # DNS-rebinding protection would reject ("Invalid Host header"). Disable it
     # for the hosted, stateless transport — the tools are public and read-only.
     transport_security = None
-    if stateless:
+    if stateless or disable_host_check:
         from mcp.server.transport_security import TransportSecuritySettings
 
         transport_security = TransportSecuritySettings(enable_dns_rebinding_protection=False)
@@ -403,9 +406,10 @@ def build_server(
 
 
 def main() -> None:
-    server = build_server()
-    # Bind to the platform-provided address when hosted (Render/Fly set $PORT).
-    # FastMCP does not read these from the environment itself, so set them here.
+    # Hosted entrypoint: behind a platform proxy (Render/Fly), so disable
+    # Host-header validation and bind to the platform-provided address/$PORT.
+    server = build_server(disable_host_check=True)
+    # FastMCP does not read host/port from the environment itself, so set them.
     server.settings.host = os.environ.get("HOST", "127.0.0.1")
     server.settings.port = int(os.environ.get("PORT", server.settings.port))
     server.run(transport="streamable-http")
