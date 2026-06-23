@@ -53,6 +53,11 @@ async function backendSearch(query, src, tgt, k = 8) {
   };
 }
 
+// Translated dynamic string, with a French fallback if i18n.js hasn't loaded.
+function t(key) {
+  return typeof window.ogT === "function" ? window.ogT(key) : key;
+}
+
 function escapeHtml(s) {
   return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 }
@@ -66,27 +71,30 @@ function highlight(text, qTokens) {
 function render(hits, query, src, tgt, method, queryTranslation = "") {
   const box = document.getElementById("results");
   if (!query.trim()) {
-    box.innerHTML = `<p class="hint">Saisissez un terme ou une phrase pour interroger la mémoire de traduction.</p>`;
+    box.innerHTML = `<p class="hint">${escapeHtml(t("js.prompt"))}</p>`;
     return;
   }
   if (src === tgt) {
-    box.innerHTML = `<p class="hint">Choisissez deux langues différentes.</p>`;
+    box.innerHTML = `<p class="hint">${escapeHtml(t("js.sameLang"))}</p>`;
     return;
   }
   if (hits.length === 0) {
-    box.innerHTML = `<p class="hint">Aucun résultat. Essayez « bonne foi », « Verjährung », « prescrizione », « erreur essentielle »…</p>`;
+    box.innerHTML = `<p class="hint">${escapeHtml(t("js.noResult"))}</p>`;
     return;
   }
   const qTokens = new Set(tokenize(query));
   const tTokens = new Set(tokenize(queryTranslation));
   const srcLang = LANGS[src] || src.toUpperCase();
   const tgtLang = LANGS[tgt] || tgt.toUpperCase();
-  const methodLabel = method === "lexical" ? "lexical" : "sémantique";
+  const methodLabel = method === "lexical" ? t("js.methodLexical") : t("js.methodSemantic");
+  const summary = t("js.summary")
+    .replace("{method}", escapeHtml(methodLabel))
+    .replace("{n}", String(hits.length));
   const transNote = queryTranslation
-    ? ` · terme cible probable : <strong>${escapeHtml(queryTranslation)}</strong>`
+    ? ` · ${escapeHtml(t("js.targetTerm"))} : <strong>${escapeHtml(queryTranslation)}</strong>`
     : "";
   box.innerHTML =
-    `<p class="hint method">Recherche ${methodLabel} · ${hits.length} résultat(s)${transNote}</p>` +
+    `<p class="hint method">${summary}${transNote}</p>` +
     hits
       .map((h) => {
         const ref = (h.source && h.source.ref) || h.ref || "";
@@ -94,7 +102,7 @@ function render(hits, query, src, tgt, method, queryTranslation = "") {
         const cite = uri
           ? `<a href="${escapeHtml(uri)}" target="_blank" rel="noopener">${escapeHtml(ref)} ↗</a>`
           : `<span>${escapeHtml(ref)}</span>`;
-        const score = typeof h.score === "number" ? `<span class="score">score ${h.score.toFixed(2)}</span>` : "";
+        const score = typeof h.score === "number" ? `<span class="score">${escapeHtml(t("js.score"))} ${h.score.toFixed(2)}</span>` : "";
         const tgtHtml = tTokens.size ? highlight(h.tgt, tTokens) : escapeHtml(h.tgt);
         return `
       <div class="result">
@@ -122,7 +130,7 @@ async function run() {
     render([], q, src, tgt, "");
     return;
   }
-  box.innerHTML = `<p class="hint">Recherche…</p>`;
+  box.innerHTML = `<p class="hint">${escapeHtml(t("js.searching"))}</p>`;
   try {
     const { results, method, queryTranslation } = await backendSearch(q, src, tgt);
     render(results, q, src, tgt, method, queryTranslation);
@@ -132,12 +140,12 @@ async function run() {
       await loadDemo();
       const hits = demoSearch(q, src, tgt);
       if (hits.length === 0 && (src === "it" || tgt === "it")) {
-        box.innerHTML = `<p class="hint">Service de recherche momentanément indisponible (l'italien n'est pas couvert par la démo hors-ligne).</p>`;
+        box.innerHTML = `<p class="hint">${escapeHtml(t("js.unavailableIt"))}</p>`;
         return;
       }
       render(hits, q, src, tgt, "lexical");
     } catch {
-      box.innerHTML = `<p class="hint">Service de recherche momentanément indisponible. Réessayez dans un instant.</p>`;
+      box.innerHTML = `<p class="hint">${escapeHtml(t("js.unavailable"))}</p>`;
     }
   }
 }
@@ -148,6 +156,9 @@ document.getElementById("q").addEventListener("keydown", (e) => {
 });
 document.getElementById("src").addEventListener("change", run);
 document.getElementById("tgt").addEventListener("change", run);
+
+// Re-render results in the newly selected UI language.
+window.addEventListener("og:langchange", () => run());
 
 // Show a live example on first paint.
 document.getElementById("q").value = "bonne foi";

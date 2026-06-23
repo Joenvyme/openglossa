@@ -50,9 +50,17 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 }
 .topbar .brand { color: var(--ink); font-weight: 600; letter-spacing: 0.04em; }
 .topbar .brand span { color: var(--accent); }
-.topnav { display: flex; gap: 1.6rem; }
+.topbar { gap: 1.2rem; flex-wrap: wrap; }
+.topnav { display: flex; gap: 1.6rem; margin-left: auto; }
 .topnav a, .topright { color: var(--muted); }
 .topnav a:hover, .topright:hover { color: var(--ink); text-decoration: none; }
+.langsw { display: flex; align-items: center; gap: 0.1rem; }
+.langsw button {
+  font: inherit; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  background: transparent; border: 0; color: var(--faint); cursor: pointer; padding: 0.15rem 0.3rem;
+}
+.langsw button:hover { color: var(--ink); }
+.langsw button.active { color: var(--ink); border-bottom: 1px solid var(--accent); }
 
 /* ---------- hero ---------- */
 .hero { padding: 5.5rem 0 2.5rem; }
