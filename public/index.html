@@ -14,6 +14,7 @@
     <header class="topbar">
       <a class="brand" href="#top">openglossa <span>/</span></a>
       <nav class="topnav">
+        <a href="#corpus" data-i18n="nav.corpus">Corpus</a>
         <a href="#demo" data-i18n="nav.search">Recherche</a>
         <a href="#data" data-i18n="nav.data">Données</a>
         <a href="#api" data-i18n="nav.mcp">MCP</a>
@@ -50,7 +51,18 @@
         </p>
       </section>
 
+      <section id="corpus" class="block corpus-block">
+        <div class="block-head"><span class="num">(00)</span><h2 data-i18n="s00.h2">Corpus</h2></div>
+        <p class="lead" data-i18n="s00.lead">
+          Mémoire de traduction indexée en production : 113 095 segments parallèles
+          officiels suisses (Fedlex + regestes TF), complétés à la demande par
+          TERMDAT, IATE et EUR-Lex lorsque l'anglais est impliqué.
+        </p>
+        <div id="corpus-chart" class="corpus-chart" aria-live="polite"></div>
+      </section>
+
       <nav class="index">
+        <a href="#corpus"><span class="arrow">↘</span><span class="t" data-i18n="index.corpus">Corpus<br />113k</span></a>
         <a href="#demo"><span class="arrow">↘</span><span class="t" data-i18n="index.search">Recherche<br />citée</span></a>
         <a href="#data"><span class="arrow">↘</span><span class="t" data-i18n="index.data">Données<br />&amp; exports</span></a>
         <a href="#api"><span class="arrow">↘</span><span class="t" data-i18n="index.api">API MCP<br />(5)</span></a>
@@ -257,6 +269,7 @@ python -m openglossa.mcp.server                # serveur MCP</code></pre>
     </main>
 
     <script src="i18n.js"></script>
+    <script src="corpus.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -1,0 +1,28 @@
+{
+  "total": 113095,
+  "updated": "2026-06-22",
+  "bundled": [
+    {
+      "id": "fedlex",
+      "count": 53274,
+      "langs": ["de", "fr", "it"],
+      "license": "ok"
+    },
+    {
+      "id": "slds",
+      "count": 59821,
+      "langs": ["de", "fr", "it"],
+      "license": "ok"
+    }
+  ],
+  "pairs": [
+    { "src": "de", "tgt": "fr", "count": 37699 },
+    { "src": "de", "tgt": "it", "count": 37698 },
+    { "src": "fr", "tgt": "it", "count": 37698 }
+  ],
+  "live": [
+    { "id": "termdat", "scale": "~107k", "license": "warn" },
+    { "id": "iate", "license": "ok" },
+    { "id": "eurlex", "license": "ok" }
+  ]
+}
