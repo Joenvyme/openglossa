@@ -29,8 +29,8 @@ const OG_I18N = {
       "Les sorties d'OpenGlossa ne constituent <b>pas</b> le texte légal officiel faisant foi. Toujours vérifier contre la source officielle (n° RS + article Fedlex, ou référence ATF/BGE).",
     "s01.h2": "Recherche",
     "s01.lead":
-      "Recherche sémantique en direct dans la mémoire de traduction complète : 113 095 segments officiels (lois fédérales Fedlex + regestes du Tribunal fédéral ATF/BGE), en allemand, français et italien. Chaque résultat est cité — article RS + lien ELI Fedlex, ou référence ATF.",
-    "s01.ph": "ex. DE→FR : « Schuldner Verzug », « häusliche Gewalt », « bonne foi contractuelle »…",
+      "Recherche sémantique en direct : 113 095 segments suisses (Fedlex + ATF/BGE, DE/FR/IT) et, dès que l'anglais est impliqué, législation parallèle EUR-Lex (UE). Chaque résultat est cité — article RS, référence ATF ou acte CELEX.",
+    "s01.ph": "ex. DE→FR « Schuldner Verzug », DE→EN « Schuldner », EN→FR « personal data »…",
     "s01.srcAria": "Langue source",
     "s01.tgtAria": "Langue cible",
     "s01.go": "Rechercher",
@@ -86,10 +86,16 @@ const OG_I18N = {
     "footer.copyright":
       "© 2026 OpenGlossa · sortie non officielle — vérifiez toujours la source faisant foi.",
     "js.demoQuery": "Schuldner Verzug",
+    "js.demoQueryEn": "Schuldner",
     "js.prompt": "Saisissez un terme ou une phrase pour interroger la mémoire de traduction.",
     "js.sameLang": "Choisissez deux langues différentes.",
     "js.noResult":
-      "Aucun résultat. Essayez « bonne foi », « Verjährung », « prescrizione », « erreur essentielle »…",
+      "Aucun résultat. Essayez « Schuldner », « bonne foi », « personal data », « prescrizione »…",
+    "js.enScope":
+      "Anglais : pas de loi fédérale suisse consolidée en EN sur Fedlex. Les résultats EN proviennent surtout d'EUR-Lex (UE) et, via le MCP, de TERMDAT/IATE.",
+    "js.unavailableEn":
+      "Service indisponible ou anglais non couvert hors ligne (nécessite le serveur live + EUR-Lex).",
+    "js.methodEurlex": "hybride + EUR-Lex",
     "js.searching": "Recherche…",
     "js.unavailable": "Service de recherche momentanément indisponible. Réessayez dans un instant.",
     "js.unavailableIt":
@@ -124,8 +130,8 @@ const OG_I18N = {
       "Die Ausgaben von OpenGlossa sind <b>nicht</b> der amtliche, massgebende Gesetzestext. Stets gegen die amtliche Quelle prüfen (SR-Nummer + Fedlex-Artikel oder BGE-Fundstelle).",
     "s01.h2": "Suche",
     "s01.lead":
-      "Semantische Live-Suche im vollständigen Translation Memory: 113 095 amtliche Segmente (Bundesgesetze aus Fedlex + Regesten des Bundesgerichts, BGE), auf Deutsch, Französisch und Italienisch. Jedes Ergebnis ist zitiert — SR-Artikel + Fedlex-ELI-Link oder BGE-Fundstelle.",
-    "s01.ph": "z. B. DE→FR : « Schuldner Verzug », « häusliche Gewalt », « bonne foi contractuelle »…",
+      "Semantische Live-Suche: 113 095 Schweizer Segmente (Fedlex + BGE, DE/FR/IT) und bei Englisch zusätzlich parallele EU-Gesetzgebung über EUR-Lex. Jedes Ergebnis ist zitiert — SR-Artikel, BGE-Fundstelle oder CELEX-Akt.",
+    "s01.ph": "z. B. DE→FR « Schuldner Verzug », DE→EN « Schuldner », EN→FR « personal data »…",
     "s01.srcAria": "Ausgangssprache",
     "s01.tgtAria": "Zielsprache",
     "s01.go": "Suchen",
@@ -181,10 +187,16 @@ const OG_I18N = {
     "footer.copyright":
       "© 2026 OpenGlossa · inoffizielle Ausgabe — prüfen Sie stets die massgebende Quelle.",
     "js.demoQuery": "Schuldner Verzug",
+    "js.demoQueryEn": "Schuldner",
     "js.prompt": "Geben Sie einen Begriff oder Satz ein, um das Translation Memory abzufragen.",
     "js.sameLang": "Wählen Sie zwei verschiedene Sprachen.",
     "js.noResult":
-      "Keine Ergebnisse. Versuchen Sie « Treu und Glauben », « Verjährung », « prescrizione », « erreur essentielle »…",
+      "Keine Ergebnisse. Versuchen Sie « Schuldner », « bonne foi », « personal data », « prescrizione »…",
+    "js.enScope":
+      "Englisch: kein konsolidiertes Schweizer Bundesrecht auf Fedlex. EN-Ergebnisse stammen vor allem aus EUR-Lex (EU) und, über MCP, TERMDAT/IATE.",
+    "js.unavailableEn":
+      "Dienst nicht erreichbar oder Englisch offline nicht abgedeckt (Live-Server + EUR-Lex nötig).",
+    "js.methodEurlex": "Hybrid + EUR-Lex",
     "js.searching": "Suche…",
     "js.unavailable": "Suchdienst vorübergehend nicht verfügbar. Bitte versuchen Sie es gleich erneut.",
     "js.unavailableIt":
@@ -219,8 +231,8 @@ const OG_I18N = {
       "OpenGlossa's output is <b>not</b> the authoritative official legal text. Always verify against the official source (SR no. + Fedlex article, or ATF/BGE reference).",
     "s01.h2": "Search",
     "s01.lead":
-      "Live semantic search across the full translation memory: 113,095 official segments (Fedlex federal acts + Federal Supreme Court regestes, ATF/BGE), in German, French and Italian. Every result is cited — SR article + Fedlex ELI link, or ATF/BGE reference.",
-    "s01.ph": "e.g. DE→FR : « Schuldner Verzug », « häusliche Gewalt », « bonne foi contractuelle »…",
+      "Live semantic search: 113,095 Swiss segments (Fedlex + ATF/BGE, DE/FR/IT) and, whenever English is involved, parallel EU legislation via EUR-Lex. Every result is cited — SR article, ATF/BGE reference, or CELEX act.",
+    "s01.ph": "e.g. DE→FR « Schuldner Verzug », DE→EN « Schuldner », EN→FR « personal data »…",
     "s01.srcAria": "Source language",
     "s01.tgtAria": "Target language",
     "s01.go": "Search",
@@ -276,10 +288,16 @@ const OG_I18N = {
     "footer.copyright":
       "© 2026 OpenGlossa · unofficial output — always verify the authoritative source.",
     "js.demoQuery": "Schuldner Verzug",
+    "js.demoQueryEn": "Schuldner",
     "js.prompt": "Enter a term or phrase to query the translation memory.",
     "js.sameLang": "Choose two different languages.",
     "js.noResult":
-      "No results. Try « good faith », « Verjährung », « prescrizione », « erreur essentielle »…",
+      "No results. Try « Schuldner », « bonne foi », « personal data », « prescrizione »…",
+    "js.enScope":
+      "English: no consolidated Swiss federal law in EN on Fedlex. EN results come mainly from EUR-Lex (EU) and, via MCP, TERMDAT/IATE.",
+    "js.unavailableEn":
+      "Service unavailable or English not covered offline (requires live server + EUR-Lex).",
+    "js.methodEurlex": "hybrid + EUR-Lex",
     "js.searching": "Searching…",
     "js.unavailable": "Search service temporarily unavailable. Please try again shortly.",
     "js.unavailableIt":

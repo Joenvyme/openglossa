@@ -70,7 +70,8 @@
         <p class="lead" data-i18n="s01.lead">
           Recherche sémantique en direct dans la mémoire de traduction complète :
           113 095 segments officiels (lois fédérales Fedlex + regestes du Tribunal
-          fédéral ATF/BGE), en allemand, français et italien. Chaque résultat est
+          fédéral ATF/BGE), en allemand, français, italien et anglais (via EUR-Lex
+          lorsque EN est impliqué). Chaque résultat est
           cité — article RS + lien ELI Fedlex, ou référence ATF.
         </p>
         <div class="search-bar">
@@ -79,12 +80,14 @@
             <option value="de" selected>DE</option>
             <option value="fr">FR</option>
             <option value="it">IT</option>
+            <option value="en">EN</option>
           </select>
           <span class="arrow" aria-hidden="true">→</span>
           <select id="tgt" aria-label="Langue cible" data-i18n-aria="s01.tgtAria">
             <option value="de">DE</option>
             <option value="fr" selected>FR</option>
             <option value="it">IT</option>
+            <option value="en">EN</option>
           </select>
           <button id="go" data-i18n="s01.go">Rechercher</button>
         </div>

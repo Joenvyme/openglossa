@@ -138,6 +138,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .result .cite .score { color: var(--faint); font-variant-numeric: tabular-nums; }
 .result mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: inherit; padding: 0 0.1em; }
 .hint { color: var(--muted); font-size: 0.86rem; }
+.hint.scope { margin-bottom: 0.75rem; font-size: 0.8rem; line-height: 1.45; }
 
 /* ---------- metrics ---------- */
 .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }

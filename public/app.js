@@ -5,12 +5,16 @@
 "use strict";
 
 const SEARCH_API = "https://openglossa-mcp.onrender.com/search";
-const LANGS = { de: "DE", fr: "FR", it: "IT" };
+const LANGS = { de: "DE", fr: "FR", it: "IT", en: "EN" };
 
 const state = { demo: [], demoReady: false };
 
 const tokenize = (s) =>
   (s.toLowerCase().match(/[\p{L}]+/gu) || []).filter((t) => t.length > 1);
+
+function usesEnglish(src, tgt) {
+  return src === "en" || tgt === "en";
+}
 
 async function loadDemo() {
   if (state.demoReady) return;
@@ -50,6 +54,8 @@ async function backendSearch(query, src, tgt, k = 8) {
     results: data.results || [],
     method: data.method || "vector",
     queryTranslation: data.query_translation || "",
+    enScope: Boolean(data.en_scope),
+    eurlexScope: Boolean(data.eurlex_scope),
   };
 }
 
@@ -68,7 +74,14 @@ function highlight(text, qTokens) {
   );
 }
 
-function render(hits, query, src, tgt, method, queryTranslation = "") {
+function methodLabel(method) {
+  if (!method || method === "none") return "";
+  if (method.includes("eurlex")) return t("js.methodEurlex");
+  if (method === "lexical") return t("js.methodLexical");
+  return t("js.methodSemantic");
+}
+
+function render(hits, query, src, tgt, method, queryTranslation = "", meta = {}) {
   const box = document.getElementById("results");
   if (!query.trim()) {
     box.innerHTML = `<p class="hint">${escapeHtml(t("js.prompt"))}</p>`;
@@ -86,14 +99,19 @@ function render(hits, query, src, tgt, method, queryTranslation = "") {
   const tTokens = new Set(tokenize(queryTranslation));
   const srcLang = LANGS[src] || src.toUpperCase();
   const tgtLang = LANGS[tgt] || tgt.toUpperCase();
-  const methodLabel = method === "lexical" ? t("js.methodLexical") : t("js.methodSemantic");
+  const mLabel = methodLabel(method);
   const summary = t("js.summary")
-    .replace("{method}", escapeHtml(methodLabel))
+    .replace("{method}", escapeHtml(mLabel))
     .replace("{n}", String(hits.length));
   const transNote = queryTranslation
     ? ` · ${escapeHtml(t("js.targetTerm"))} : <strong>${escapeHtml(queryTranslation)}</strong>`
     : "";
+  const scopeNote =
+    usesEnglish(src, tgt) && (meta.enScope || meta.eurlexScope)
+      ? `<p class="hint scope">${escapeHtml(t("js.enScope"))}</p>`
+      : "";
   box.innerHTML =
+    scopeNote +
     `<p class="hint method">${summary}${transNote}</p>` +
     hits
       .map((h) => {
@@ -132,12 +150,16 @@ async function run() {
   }
   box.innerHTML = `<p class="hint">${escapeHtml(t("js.searching"))}</p>`;
   try {
-    const { results, method, queryTranslation } = await backendSearch(q, src, tgt);
-    render(results, q, src, tgt, method, queryTranslation);
+    const { results, method, queryTranslation, enScope, eurlexScope } = await backendSearch(q, src, tgt);
+    render(results, q, src, tgt, method, queryTranslation, { enScope, eurlexScope });
   } catch {
     // Backend unreachable: fall back to the bundled DE<->FR demo slice.
     try {
       await loadDemo();
+      if (usesEnglish(src, tgt)) {
+        box.innerHTML = `<p class="hint">${escapeHtml(t("js.unavailableEn"))}</p>`;
+        return;
+      }
       const hits = demoSearch(q, src, tgt);
       if (hits.length === 0 && (src === "it" || tgt === "it")) {
         box.innerHTML = `<p class="hint">${escapeHtml(t("js.unavailableIt"))}</p>`;
@@ -160,12 +182,18 @@ document.getElementById("tgt").addEventListener("change", run);
 // Re-render results in the newly selected UI language.
 window.addEventListener("og:langchange", () => run());
 
-// Show a live DE→FR example on first paint (French in the target column).
 function applyDemoExample() {
-  const q = t("js.demoQuery");
-  document.getElementById("q").value = q;
-  document.getElementById("src").value = "de";
-  document.getElementById("tgt").value = "fr";
+  const uiLang = window.OG_LANG || "fr";
+  if (uiLang === "en") {
+    document.getElementById("q").value = t("js.demoQueryEn");
+    document.getElementById("src").value = "de";
+    document.getElementById("tgt").value = "en";
+  } else {
+    document.getElementById("q").value = t("js.demoQuery");
+    document.getElementById("src").value = "de";
+    document.getElementById("tgt").value = "fr";
+  }
 }
+
 applyDemoExample();
 run();
