@@ -84,9 +84,10 @@ openglossa build-index --encoder labse   # -> data/processed/tm_index.db
 
 Le serveur MCP interroge **TERMDAT en live** pour `lookup_term` et
 `verify_translation` (équivalents officiels DE/FR/IT/RM/EN + définition + base
-légale, cités). **Anglais et romanche** : terminologie administrative TERMDAT
-uniquement — pas de loi consolidée faisant foi (Fedlex = DE/FR/IT). Le MCP
-renvoie un champ `en_scope` quand la direction implique EN/RM ;
+légale, cités). Quand l'anglais est impliqué, **IATE** (terminologie UE, API
+live) est aussi consulté — licence UE 2011/833 avec attribution. **Anglais et
+romanche** : terminologie administrative TERMDAT/IATE — pas de loi consolidée
+faisant foi (Fedlex = DE/FR/IT). Le MCP renvoie `en_scope` / `iate_scope` ;
 `get_official_text(lang="en")` est refusé explicitement. TERMDAT étant en
 statut 🟠 (redistribution non confirmée), aucun texte brut n'est écrit sur disque :
 seul un index dérivé (`concept_id` + URI + identifiant + langues + base légale).

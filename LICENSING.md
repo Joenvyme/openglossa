@@ -24,6 +24,7 @@
 | 5 | **JURIVOC** (thésaurus TF) | Vocabulaire de matières | DE/FR/IT | À localiser (souvent SKOS/RDF) | **À vérifier** | 🟠 ORANGE | Synonymes / matières |
 | 6 | **OpenCaseLaw** | 950k+ décisions, dump Parquet HF, MCP | DE/FR/IT | API / HF Parquet | **À vérifier** | 🟠 ORANGE | TM étendue (optionnel) |
 | 7 | **MultiLegalPile** (`joelniklaus/Multi_Legal_Pile`) | Corpus multilingue 689GB | multi | HF | **Licences mixtes** — sous-ensembles permissifs seulement | 🟠 RÉFÉRENCE | Probablement inutile en v1 |
+| 8 | **IATE** (Commission européenne) | Termbase institutionnelle UE (~8M+ termes) | 24 langues UE (dont **EN**, DE, FR, IT) | API live `https://iate.europa.eu/em-api/entries/_search` ; export TBX/CSV sur demande | **Décision 2011/833/UE** — réutilisation libre avec attribution « © European Union — IATE » | ✅ VERT | Terminologie EN/UE — **live** (`lookup_term` / `verify_translation` quand EN impliqué) |
 
 ## Questions ouvertes (à trancher — humain)
 

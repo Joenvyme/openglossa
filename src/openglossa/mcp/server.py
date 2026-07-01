@@ -34,7 +34,12 @@ TERMDAT_EN_NOTE = (
 
 FEDLEX_NO_EN_NOTE = (
     "Swiss federal consolidated law is not published in English on Fedlex. "
-    "Use lookup_term (TERMDAT live) for English terminology, or query DE/FR/IT."
+    "Use lookup_term (TERMDAT + IATE live) for English terminology, or query DE/FR/IT."
+)
+
+IATE_SCOPE_NOTE = (
+    "IATE entries are EU institutional terminology (European Commission). "
+    "They complement Swiss TERMDAT/Fedlex sources but are not Swiss federal law."
 )
 
 DEFAULT_DATA_DIR = Path(os.environ.get("OPENGLOSSA_DATA", "data/processed"))
@@ -84,11 +89,19 @@ def _uses_termdat_extended_lang(*langs: str) -> bool:
     return any(lang in ("en", "rm") for lang in langs)
 
 
+def _should_query_iate(src_lang: str, tgt_lang: str) -> bool:
+    """IATE is queried when English is involved (primary value-add for OpenGlossa)."""
+    return "en" in (src_lang, tgt_lang)
+
+
 def _response_notes(*, src_lang: str, tgt_lang: str) -> dict[str, str]:
     """Optional response notes keyed by field name (empty when not applicable)."""
+    notes: dict[str, str] = {}
     if _uses_termdat_extended_lang(src_lang, tgt_lang):
-        return {"en_scope": TERMDAT_EN_NOTE}
-    return {}
+        notes["en_scope"] = TERMDAT_EN_NOTE
+    if _should_query_iate(src_lang, tgt_lang):
+        notes["iate_scope"] = IATE_SCOPE_NOTE
+    return notes
 
 
 def _term_record_to_result(
@@ -123,10 +136,14 @@ def lookup_term(
     domain: str | None = None,
     *,
     termdat_live: bool = False,
+    iate_live: bool = False,
 ) -> dict[str, Any]:
     q = query.strip().casefold()
     results: list[dict[str, Any]] = []
     seen: set[str] = set()
+    termdat_error: str | None = None
+    iate_error: str | None = None
+
     for rec in repo.terms:
         if domain and domain not in rec.domain:
             continue
@@ -148,15 +165,26 @@ def lookup_term(
                     seen.add(rec.concept_id)
                     results.append(res)
         except Exception as exc:  # noqa: BLE001 - live backbone is best-effort
-            out: dict[str, Any] = {
-                "results": results,
-                "disclaimer": DISCLAIMER,
-                "termdat_error": str(exc),
-            }
-            out.update(_response_notes(src_lang=src_lang, tgt_lang=tgt_lang))
-            return out
+            termdat_error = str(exc)
 
-    out = {"results": results, "disclaimer": DISCLAIMER}
+    if iate_live and _should_query_iate(src_lang, tgt_lang):
+        try:
+            from openglossa.sources import iate
+
+            langs = tuple(dict.fromkeys([src_lang, tgt_lang, "de", "fr", "it", "en"]))
+            for rec in iate.lookup_live(query, src_lang, langs=langs):
+                res = _term_record_to_result(rec, src_lang, tgt_lang)
+                if res and rec.concept_id not in seen:
+                    seen.add(rec.concept_id)
+                    results.append(res)
+        except Exception as exc:  # noqa: BLE001 - live backbone is best-effort
+            iate_error = str(exc)
+
+    out: dict[str, Any] = {"results": results, "disclaimer": DISCLAIMER}
+    if termdat_error:
+        out["termdat_error"] = termdat_error
+    if iate_error:
+        out["iate_error"] = iate_error
     out.update(_response_notes(src_lang=src_lang, tgt_lang=tgt_lang))
     return out
 
@@ -381,6 +409,7 @@ def verify_translation(
     tgt_lang: str,
     *,
     termdat_live: bool = False,
+    iate_live: bool = False,
 ) -> dict[str, Any]:
     """Is this term pair supported by an official source? Never fabricate (#4)."""
     s = src_term.strip().casefold()
@@ -407,6 +436,19 @@ def verify_translation(
             from openglossa.sources import termdat
 
             for rec in termdat.lookup_live(src_term, src_lang):
+                src_match = any(s == x.text.casefold() for x in (rec.terms.get(src_lang) or []))
+                tgt_match = any(t == x.text.casefold() for x in (rec.terms.get(tgt_lang) or []))
+                if src_match and tgt_match:
+                    _add_evidence(_sources_payload(rec))
+        except Exception:  # noqa: BLE001 - live backbone is best-effort
+            pass
+
+    if iate_live and _should_query_iate(src_lang, tgt_lang):
+        try:
+            from openglossa.sources import iate
+
+            langs = tuple(dict.fromkeys([src_lang, tgt_lang, "de", "fr", "it", "en"]))
+            for rec in iate.lookup_live(src_term, src_lang, langs=langs):
                 src_match = any(s == x.text.casefold() for x in (rec.terms.get(src_lang) or []))
                 tgt_match = any(t == x.text.casefold() for x in (rec.terms.get(tgt_lang) or []))
                 if src_match and tgt_match:
@@ -544,6 +586,7 @@ def build_server(
     repo: Repository | None = None,
     *,
     termdat_live: bool = True,
+    iate_live: bool = True,
     index: Any = None,
     index_path: Path | None = DEFAULT_INDEX_PATH,
     stateless: bool = False,
@@ -552,6 +595,7 @@ def build_server(
     """Build a FastMCP server bound to ``repo`` (loaded from disk if None).
 
     ``termdat_live`` enables the live TERMDAT backbone for ``lookup_term``.
+    ``iate_live`` enables the live IATE backbone when English is involved.
     ``index`` (or an ``index_path`` to open) enables semantic ``search_parallel``;
     without it, ``search_parallel`` uses the lexical baseline.
     ``stateless`` runs the Streamable HTTP transport without persistent sessions
@@ -596,9 +640,13 @@ def build_server(
 
         Supports DE, FR, IT, RM and EN via live TERMDAT (LINDAS). English and
         Romansh are administrative terminology from TERMDAT — not official
-        consolidated law texts (those are DE/FR/IT on Fedlex).
+        consolidated law texts (those are DE/FR/IT on Fedlex). When English is
+        involved, IATE (EU terminology) is also queried live.
         """
-        return lookup_term(repo, query, src_lang, tgt_lang, domain, termdat_live=termdat_live)
+        return lookup_term(
+            repo, query, src_lang, tgt_lang, domain,
+            termdat_live=termdat_live, iate_live=iate_live,
+        )
 
     @mcp.tool()
     def search_parallel_tool(
@@ -613,7 +661,8 @@ def build_server(
     ) -> dict[str, Any]:
         """Check whether a term pair is supported by an official source."""
         return verify_translation(
-            repo, src_term, tgt_term, src_lang, tgt_lang, termdat_live=termdat_live
+            repo, src_term, tgt_term, src_lang, tgt_lang,
+            termdat_live=termdat_live, iate_live=iate_live,
         )
 
     @mcp.tool()

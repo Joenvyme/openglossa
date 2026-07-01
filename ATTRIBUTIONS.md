@@ -28,6 +28,12 @@ détaillé de chaque source.
 - Accès : https://www.termdat.bk.admin.ch/ ; LINDAS RDF.
 - Statut : redistribution **à confirmer** — voir `LICENSING.md`.
 
+### IATE — InterActive Terminology for Europe (Commission européenne)
+- Termbase institutionnelle multilingue de l'UE (dont anglais).
+- Accès : https://iate.europa.eu/ ; API `https://iate.europa.eu/em-api/`.
+- Licence : Décision 2011/833/UE — réutilisation libre avec attribution
+  « © European Union — IATE (https://iate.europa.eu) ».
+
 ### JURIVOC — Thésaurus du Tribunal fédéral
 - Statut : licence **à vérifier** — voir `LICENSING.md`.
 

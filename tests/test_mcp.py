@@ -64,6 +64,49 @@ def test_lookup_term_de_en_includes_termdat_scope_note():
     assert out["results"][0]["translations"] == ["debtor"]
     assert out["results"][0]["available_languages"] == ["de", "en"]
     assert out["en_scope"] == TERMDAT_EN_NOTE
+    assert out["iate_scope"]  # informational whenever EN is involved
+
+
+def test_lookup_term_de_en_with_iate_live(monkeypatch):
+    repo = Repository()
+
+    def fake_termdat(q, src, **kwargs):
+        return []
+
+    def fake_iate(q, src, **kwargs):
+        from openglossa.schemas import Authority, ReviewStatus, SourceRef, Term, TermRecord, TermStatus
+
+        return [
+            TermRecord(
+                concept_id="og:term:iate-99",
+                terms={
+                    "de": [Term(text="Schuldner", status=TermStatus.preferred)],
+                    "en": [Term(text="obligor", status=TermStatus.preferred)],
+                },
+                authority=Authority.administrative,
+                sources=[
+                    SourceRef(
+                        name="IATE",
+                        uri="https://iate.europa.eu/entry/result/99",
+                        license="EU-2011/833-reuse",
+                        ref="IATE 99",
+                    )
+                ],
+                review_status=ReviewStatus.verified,
+            )
+        ]
+
+    import openglossa.sources.iate as iate_mod
+    import openglossa.sources.termdat as termdat_mod
+
+    monkeypatch.setattr(termdat_mod, "lookup_live", fake_termdat)
+    monkeypatch.setattr(iate_mod, "lookup_live", fake_iate)
+    out = lookup_term(repo, "Schuldner", "de", "en", termdat_live=True, iate_live=True)
+    assert len(out["results"]) == 1
+    assert out["results"][0]["translations"] == ["obligor"]
+    assert out["results"][0]["sources"][0]["name"] == "IATE"
+    assert out["en_scope"] == TERMDAT_EN_NOTE
+    assert "iate_scope" in out
 
 
 def test_verify_translation_en_via_termdat_live(monkeypatch):
