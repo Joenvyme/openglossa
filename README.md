@@ -82,8 +82,12 @@ openglossa mine-terms --src de --tgt fr --check-termdat --novel-only
 openglossa build-index --encoder labse   # -> data/processed/tm_index.db
 ```
 
-Le serveur MCP interroge **TERMDAT en live** pour `lookup_term` (équivalents
-officiels DE/FR/IT/RM/EN + définition + base légale, cités). TERMDAT étant en
+Le serveur MCP interroge **TERMDAT en live** pour `lookup_term` et
+`verify_translation` (équivalents officiels DE/FR/IT/RM/EN + définition + base
+légale, cités). **Anglais et romanche** : terminologie administrative TERMDAT
+uniquement — pas de loi consolidée faisant foi (Fedlex = DE/FR/IT). Le MCP
+renvoie un champ `en_scope` quand la direction implique EN/RM ;
+`get_official_text(lang="en")` est refusé explicitement. TERMDAT étant en
 statut 🟠 (redistribution non confirmée), aucun texte brut n'est écrit sur disque :
 seul un index dérivé (`concept_id` + URI + identifiant + langues + base légale).
 

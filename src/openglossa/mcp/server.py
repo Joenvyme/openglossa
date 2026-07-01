@@ -24,6 +24,19 @@ DISCLAIMER = (
     "official source (Fedlex RS + article, or the cited ATF/BGE reference)."
 )
 
+# English (and Romansh) Swiss legal surface forms come from TERMDAT terminology,
+# not from parallel consolidated statutes on Fedlex (official law: DE/FR/IT only).
+TERMDAT_EN_NOTE = (
+    "English equivalents are administrative terminology from TERMDAT "
+    "(Swiss federal administration). They are not official consolidated Swiss "
+    "law texts — those exist on Fedlex in DE, FR and IT only."
+)
+
+FEDLEX_NO_EN_NOTE = (
+    "Swiss federal consolidated law is not published in English on Fedlex. "
+    "Use lookup_term (TERMDAT live) for English terminology, or query DE/FR/IT."
+)
+
 DEFAULT_DATA_DIR = Path(os.environ.get("OPENGLOSSA_DATA", "data/processed"))
 
 
@@ -66,6 +79,18 @@ def _sources_payload(rec: TermRecord) -> list[dict[str, Any]]:
     ]
 
 
+def _uses_termdat_extended_lang(*langs: str) -> bool:
+    """True when a query direction involves TERMDAT-only languages (EN/RM)."""
+    return any(lang in ("en", "rm") for lang in langs)
+
+
+def _response_notes(*, src_lang: str, tgt_lang: str) -> dict[str, str]:
+    """Optional response notes keyed by field name (empty when not applicable)."""
+    if _uses_termdat_extended_lang(src_lang, tgt_lang):
+        return {"en_scope": TERMDAT_EN_NOTE}
+    return {}
+
+
 def _term_record_to_result(
     rec: TermRecord, src_lang: str, tgt_lang: str
 ) -> dict[str, Any] | None:
@@ -80,6 +105,7 @@ def _term_record_to_result(
         "domain": rec.domain,
         "authority": rec.authority,
         "definition": rec.definition.get(tgt_lang) or rec.definition.get(src_lang),
+        "available_languages": rec.languages(),
         "sources": _sources_payload(rec),
     }
 
@@ -100,6 +126,7 @@ def lookup_term(
 ) -> dict[str, Any]:
     q = query.strip().casefold()
     results: list[dict[str, Any]] = []
+    seen: set[str] = set()
     for rec in repo.terms:
         if domain and domain not in rec.domain:
             continue
@@ -107,7 +134,8 @@ def lookup_term(
         if not any(q == t.text.casefold() or q in t.text.casefold() for t in src_terms):
             continue
         res = _term_record_to_result(rec, src_lang, tgt_lang)
-        if res:
+        if res and rec.concept_id not in seen:
+            seen.add(rec.concept_id)
             results.append(res)
 
     if termdat_live:
@@ -116,12 +144,21 @@ def lookup_term(
 
             for rec in termdat.lookup_live(query, src_lang):
                 res = _term_record_to_result(rec, src_lang, tgt_lang)
-                if res:
+                if res and rec.concept_id not in seen:
+                    seen.add(rec.concept_id)
                     results.append(res)
         except Exception as exc:  # noqa: BLE001 - live backbone is best-effort
-            return {"results": results, "disclaimer": DISCLAIMER, "termdat_error": str(exc)}
+            out: dict[str, Any] = {
+                "results": results,
+                "disclaimer": DISCLAIMER,
+                "termdat_error": str(exc),
+            }
+            out.update(_response_notes(src_lang=src_lang, tgt_lang=tgt_lang))
+            return out
 
-    return {"results": results, "disclaimer": DISCLAIMER}
+    out = {"results": results, "disclaimer": DISCLAIMER}
+    out.update(_response_notes(src_lang=src_lang, tgt_lang=tgt_lang))
+    return out
 
 
 def _oriented(tu: TranslationUnit, src_lang: str, tgt_lang: str) -> tuple[str, str] | None:
@@ -342,37 +379,65 @@ def verify_translation(
     tgt_term: str,
     src_lang: str,
     tgt_lang: str,
+    *,
+    termdat_live: bool = False,
 ) -> dict[str, Any]:
     """Is this term pair supported by an official source? Never fabricate (#4)."""
     s = src_term.strip().casefold()
     t = tgt_term.strip().casefold()
     evidence: list[dict[str, Any]] = []
+    seen_refs: set[tuple[str, str]] = set()
+
+    def _add_evidence(items: list[dict[str, Any]]) -> None:
+        for item in items:
+            key = (item.get("name", ""), item.get("ref") or str(item.get("uri", "")))
+            if key in seen_refs:
+                continue
+            seen_refs.add(key)
+            evidence.append(item)
+
     for rec in repo.terms:
         src_match = any(s == x.text.casefold() for x in (rec.terms.get(src_lang) or []))
         tgt_match = any(t == x.text.casefold() for x in (rec.terms.get(tgt_lang) or []))
         if src_match and tgt_match:
-            evidence.extend(_sources_payload(rec))
+            _add_evidence(_sources_payload(rec))
+
+    if termdat_live:
+        try:
+            from openglossa.sources import termdat
+
+            for rec in termdat.lookup_live(src_term, src_lang):
+                src_match = any(s == x.text.casefold() for x in (rec.terms.get(src_lang) or []))
+                tgt_match = any(t == x.text.casefold() for x in (rec.terms.get(tgt_lang) or []))
+                if src_match and tgt_match:
+                    _add_evidence(_sources_payload(rec))
+        except Exception:  # noqa: BLE001 - live backbone is best-effort
+            pass
 
     # Also accept attestation in the official parallel TM (both terms co-occur
     # in the same aligned segment), which is genuine source evidence.
-    for tu in repo.tus:
-        oriented = _oriented(tu, src_lang, tgt_lang)
-        if oriented is None:
-            continue
-        src_text, tgt_text = oriented
-        if s in src_text.casefold() and t in tgt_text.casefold():
-            evidence.append(
-                {
-                    "name": tu.source.name,
-                    "uri": str(tu.source.uri),
-                    "license": tu.source.license,
-                    "ref": tu.source.ref,
-                }
-            )
-            if len(evidence) >= 5:
-                break
+    # English/Romansh have no Fedlex/SLDS parallel segments — skip for those langs.
+    if not _uses_termdat_extended_lang(src_lang, tgt_lang):
+        for tu in repo.tus:
+            oriented = _oriented(tu, src_lang, tgt_lang)
+            if oriented is None:
+                continue
+            src_text, tgt_text = oriented
+            if s in src_text.casefold() and t in tgt_text.casefold():
+                _add_evidence(
+                    [
+                        {
+                            "name": tu.source.name,
+                            "uri": str(tu.source.uri),
+                            "license": tu.source.license,
+                            "ref": tu.source.ref,
+                        }
+                    ]
+                )
+                if len(evidence) >= 5:
+                    break
     supported = bool(evidence)
-    return {
+    out: dict[str, Any] = {
         "supported": supported,
         "evidence": evidence,
         "note": (
@@ -382,10 +447,20 @@ def verify_translation(
         ),
         "disclaimer": DISCLAIMER,
     }
+    out.update(_response_notes(src_lang=src_lang, tgt_lang=tgt_lang))
+    return out
 
 
 def get_official_text(eli_or_citation: str, lang: str) -> dict[str, Any]:
     """Fetch the official Fedlex text for an ELI/citation (live, best-effort)."""
+    if lang == "en":
+        return {
+            "text": None,
+            "uri": None,
+            "lang": lang,
+            "note": FEDLEX_NO_EN_NOTE,
+            "disclaimer": DISCLAIMER,
+        }
     try:
         from openglossa.sources import fedlex
 
@@ -517,7 +592,12 @@ def build_server(
     def lookup_term_tool(
         query: str, src_lang: str, tgt_lang: str, domain: str | None = None
     ) -> dict[str, Any]:
-        """Look up official translations of a legal term, with source citations."""
+        """Look up official translations of a Swiss legal term, with source citations.
+
+        Supports DE, FR, IT, RM and EN via live TERMDAT (LINDAS). English and
+        Romansh are administrative terminology from TERMDAT — not official
+        consolidated law texts (those are DE/FR/IT on Fedlex).
+        """
         return lookup_term(repo, query, src_lang, tgt_lang, domain, termdat_live=termdat_live)
 
     @mcp.tool()
@@ -532,11 +612,13 @@ def build_server(
         src_term: str, tgt_term: str, src_lang: str, tgt_lang: str
     ) -> dict[str, Any]:
         """Check whether a term pair is supported by an official source."""
-        return verify_translation(repo, src_term, tgt_term, src_lang, tgt_lang)
+        return verify_translation(
+            repo, src_term, tgt_term, src_lang, tgt_lang, termdat_live=termdat_live
+        )
 
     @mcp.tool()
     def get_official_text_tool(eli_or_citation: str, lang: str) -> dict[str, Any]:
-        """Fetch the official Fedlex text for an ELI/citation in a given language."""
+        """Fetch the official Fedlex text for an ELI/citation (DE/FR/IT/RM only)."""
         return get_official_text(eli_or_citation, lang)
 
     @mcp.tool()

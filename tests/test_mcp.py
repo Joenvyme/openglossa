@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from openglossa.mcp.server import (
+    FEDLEX_NO_EN_NOTE,
     Repository,
+    TERMDAT_EN_NOTE,
     get_official_text,
     lookup_term,
     search_parallel,
@@ -11,7 +13,11 @@ from openglossa.mcp.server import (
 from openglossa.schemas import (
     Alignment,
     AlignmentMethod,
+    Authority,
     SourceRef,
+    Term,
+    TermRecord,
+    TermStatus,
     TranslationUnit,
 )
 
@@ -31,6 +37,76 @@ def test_lookup_term_returns_citations(term_records, translation_units):
     assert "demeure" in res["translations"]
     assert res["sources"][0]["name"] == "TERMDAT"
     assert "disclaimer" in out
+    assert "en_scope" not in out
+
+
+def test_lookup_term_de_en_includes_termdat_scope_note():
+    repo = Repository()
+    repo.terms = [
+        TermRecord(
+            concept_id="og:term:0002",
+            terms={
+                "de": [Term(text="Schuldner", status=TermStatus.preferred)],
+                "en": [Term(text="debtor", status=TermStatus.preferred)],
+            },
+            authority=Authority.statutory,
+            sources=[
+                SourceRef(
+                    name="TERMDAT",
+                    uri="https://www.termdat.bk.admin.ch/entry/106263",
+                    license="OGD-open-use",
+                    ref="TERMDAT 106263",
+                )
+            ],
+        )
+    ]
+    out = lookup_term(repo, "Schuldner", "de", "en")
+    assert out["results"][0]["translations"] == ["debtor"]
+    assert out["results"][0]["available_languages"] == ["de", "en"]
+    assert out["en_scope"] == TERMDAT_EN_NOTE
+
+
+def test_verify_translation_en_via_termdat_live(monkeypatch):
+    from openglossa.schemas import ReviewStatus
+
+    repo = Repository()
+
+    def fake_lookup(query, src_lang, **kwargs):
+        assert query == "Schuldner"
+        assert src_lang == "de"
+        return [
+            TermRecord(
+                concept_id="og:term:termdat-106263",
+                terms={
+                    "de": [Term(text="Schuldner", status=TermStatus.preferred)],
+                    "en": [Term(text="debtor", status=TermStatus.preferred)],
+                },
+                authority=Authority.administrative,
+                sources=[
+                    SourceRef(
+                        name="TERMDAT",
+                        uri="https://www.termdat.bk.admin.ch/entry/106263",
+                        license="OGD-open-use-UNCONFIRMED",
+                        ref="TERMDAT 106263",
+                    )
+                ],
+                review_status=ReviewStatus.verified,
+            )
+        ]
+
+    import openglossa.sources.termdat as termdat
+
+    monkeypatch.setattr(termdat, "lookup_live", fake_lookup)
+    out = verify_translation(repo, "Schuldner", "debtor", "de", "en", termdat_live=True)
+    assert out["supported"] is True
+    assert out["evidence"][0]["name"] == "TERMDAT"
+    assert out["en_scope"] == TERMDAT_EN_NOTE
+
+
+def test_get_official_text_rejects_english():
+    out = get_official_text("SR 220 Art. 1", "en")
+    assert out["text"] is None
+    assert out["note"] == FEDLEX_NO_EN_NOTE
 
 
 def test_verify_translation_supported(term_records, translation_units):
