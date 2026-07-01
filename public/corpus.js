@@ -24,6 +24,10 @@ function sourceLabel(id) {
   return t(`s00.src.${id}`);
 }
 
+function formatLangs(langs) {
+  return (langs || []).map((l) => l.toUpperCase()).join(" · ");
+}
+
 function renderStackedBar(stats) {
   const total = stats.total;
   const rows = stats.bundled.map((row) => ({
@@ -61,15 +65,13 @@ function renderStackedBar(stats) {
     </div>`;
 }
 
-function renderPairs(stats) {
+function renderIndexedPairs(stats) {
   const max = Math.max(...stats.pairs.map((p) => p.count), 1);
-  return `
-    <div class="corpus-pairs" aria-label="${escapeHtml(t("s00.chartPairs"))}">
-      ${stats.pairs
-        .map((p) => {
-          const w = Math.round((p.count / max) * 100);
-          const label = `${p.src.toUpperCase()} → ${p.tgt.toUpperCase()}`;
-          return `
+  return stats.pairs
+    .map((p) => {
+      const w = Math.round((p.count / max) * 100);
+      const label = `${p.src.toUpperCase()} → ${p.tgt.toUpperCase()}`;
+      return `
         <div class="corpus-pair">
           <div class="corpus-pair-head">
             <span>${label}</span>
@@ -77,8 +79,43 @@ function renderPairs(stats) {
           </div>
           <div class="corpus-pair-bar"><span style="width:${w}%"></span></div>
         </div>`;
-        })
-        .join("")}
+    })
+    .join("");
+}
+
+function renderEnPairs(stats) {
+  const rows = stats.en_pairs || [];
+  if (!rows.length) return "";
+  return `
+    <div class="corpus-pairs-en">
+      <p class="corpus-pairs-en-note">${escapeHtml(t("s00.enPairNote"))}</p>
+      <div class="corpus-pairs corpus-pairs--live" aria-label="${escapeHtml(t("s00.chartPairsEn"))}">
+        ${rows
+          .map((p) => {
+            const label = `${p.src.toUpperCase()} → ${p.tgt.toUpperCase()}`;
+            return `
+        <div class="corpus-pair corpus-pair--live">
+          <div class="corpus-pair-head">
+            <span>${label}</span>
+            <span class="corpus-pair-live-label">${escapeHtml(t("s00.liveTag"))}</span>
+          </div>
+          <div class="corpus-pair-bar corpus-pair-bar--live"><span></span></div>
+        </div>`;
+          })
+          .join("")}
+      </div>
+    </div>`;
+}
+
+function renderPairs(stats) {
+  return `
+    <div class="corpus-pairs-block">
+      <h4 class="corpus-pairs-heading">${escapeHtml(t("s00.pairsIndexed"))}</h4>
+      <div class="corpus-pairs" aria-label="${escapeHtml(t("s00.chartPairs"))}">
+        ${renderIndexedPairs(stats)}
+      </div>
+      <h4 class="corpus-pairs-heading">${escapeHtml(t("s00.pairsEn"))}</h4>
+      ${renderEnPairs(stats)}
     </div>`;
 }
 
@@ -92,10 +129,13 @@ function renderLive(stats) {
               ? `<span class="badge warn">${escapeHtml(t("s05.badge_warn"))}</span>`
               : `<span class="badge ok">${escapeHtml(t("s05.badge_ok"))}</span>`;
           const scale = row.scale ? `<span class="corpus-live-scale">${escapeHtml(row.scale)}</span>` : "";
+          const langs = row.langs ? `<span class="corpus-live-langs">${escapeHtml(formatLangs(row.langs))}</span>` : "";
+          const role = row.role ? `<span class="corpus-live-role">${escapeHtml(t(`s00.liveRole.${row.role}`))}</span>` : "";
           return `
         <div class="corpus-live-item">
           <span class="corpus-live-name">${escapeHtml(sourceLabel(row.id))}${scale}</span>
-          <span class="corpus-live-tag">${escapeHtml(t("s00.liveTag"))}</span>
+          ${langs}
+          <span class="corpus-live-tag">${escapeHtml(t("s00.liveTag"))} · ${escapeHtml(role || t("s00.liveRole.default"))}</span>
           ${badge}
         </div>`;
         })
@@ -110,7 +150,8 @@ function renderChart(stats) {
   host.innerHTML = `
     <div class="corpus-headline">
       <div class="corpus-total">${fmt(stats.total)}</div>
-      <div class="corpus-total-label">${escapeHtml(t("s00.totalLabel"))}</div>
+      <div class="corpus-total-label">${escapeHtml(t("s00.totalLabel"))} · ${escapeHtml(formatLangs(stats.indexed_langs || ["de", "fr", "it"]))}</div>
+      <p class="corpus-en-callout">${escapeHtml(t("s00.enCallout"))}</p>
     </div>
     <div class="corpus-grid">
       <div class="corpus-panel">

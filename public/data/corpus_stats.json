@@ -1,5 +1,6 @@
 {
   "total": 113095,
+  "indexed_langs": ["de", "fr", "it"],
   "updated": "2026-06-22",
   "bundled": [
     {
@@ -20,9 +21,33 @@
     { "src": "de", "tgt": "it", "count": 37698 },
     { "src": "fr", "tgt": "it", "count": 37698 }
   ],
+  "en_pairs": [
+    { "src": "de", "tgt": "en" },
+    { "src": "fr", "tgt": "en" },
+    { "src": "it", "tgt": "en" },
+    { "src": "en", "tgt": "de" },
+    { "src": "en", "tgt": "fr" },
+    { "src": "en", "tgt": "it" }
+  ],
   "live": [
-    { "id": "termdat", "scale": "~107k", "license": "warn" },
-    { "id": "iate", "license": "ok" },
-    { "id": "eurlex", "license": "ok" }
+    {
+      "id": "termdat",
+      "scale": "~107k",
+      "langs": ["de", "fr", "it", "en", "rm"],
+      "role": "terminology",
+      "license": "warn"
+    },
+    {
+      "id": "iate",
+      "langs": ["en", "de", "fr", "it"],
+      "role": "terminology",
+      "license": "ok"
+    },
+    {
+      "id": "eurlex",
+      "langs": ["en", "de", "fr", "it"],
+      "role": "parallel_tm",
+      "license": "ok"
+    }
   ]
 }

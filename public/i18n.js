@@ -38,6 +38,16 @@ const OG_I18N = {
     "s00.panelLive": "Backbones live (MCP)",
     "s00.chartBundled": "Répartition Fedlex / SLDS",
     "s00.chartPairs": "Volume par paire DE / FR / IT",
+    "s00.chartPairsEn": "Paires impliquant l'anglais (MCP live)",
+    "s00.pairsIndexed": "Indexées (113k)",
+    "s00.pairsEn": "Anglais (live)",
+    "s00.enCallout":
+      "L'anglais n'est pas dans l'index vectoriel suisse : TERMDAT, IATE et EUR-Lex sont interrogés à la demande dès qu'une paire implique EN.",
+    "s00.enPairNote":
+      "Pas de loi fédérale consolidée EN sur Fedlex — terminologie administrative (TERMDAT), UE (IATE) et législation parallèle (EUR-Lex).",
+    "s00.liveRole.terminology": "terminologie",
+    "s00.liveRole.parallel_tm": "TM parallèle",
+    "s00.liveRole.default": "source live",
     "s00.chartLive": "Sources consultées en live",
     "s00.liveNote":
       "Non incluses dans l'index vectoriel de 113k — interrogées à la volée pour la terminologie (TERMDAT, IATE) et la TM anglaise (EUR-Lex).",
@@ -161,6 +171,16 @@ const OG_I18N = {
     "s00.panelLive": "Live-Backbones (MCP)",
     "s00.chartBundled": "Aufteilung Fedlex / SLDS",
     "s00.chartPairs": "Volumen pro Paar DE / FR / IT",
+    "s00.chartPairsEn": "Paare mit Englisch (MCP live)",
+    "s00.pairsIndexed": "Indiziert (113k)",
+    "s00.pairsEn": "Englisch (live)",
+    "s00.enCallout":
+      "Englisch ist nicht im Schweizer Vektorindex: TERMDAT, IATE und EUR-Lex werden live abgefragt, sobald EN beteiligt ist.",
+    "s00.enPairNote":
+      "Kein konsolidiertes Bundesrecht EN auf Fedlex — Verwaltungsterminologie (TERMDAT), EU (IATE) und parallele Gesetzgebung (EUR-Lex).",
+    "s00.liveRole.terminology": "Terminologie",
+    "s00.liveRole.parallel_tm": "paralleles TM",
+    "s00.liveRole.default": "Live-Quelle",
     "s00.chartLive": "Live abgefragte Quellen",
     "s00.liveNote":
       "Nicht im 113k-Vektorindex enthalten — bei Bedarf live für Terminologie (TERMDAT, IATE) und englische TM (EUR-Lex).",
@@ -284,6 +304,16 @@ const OG_I18N = {
     "s00.panelLive": "Live backbones (MCP)",
     "s00.chartBundled": "Fedlex / SLDS split",
     "s00.chartPairs": "Volume per DE / FR / IT pair",
+    "s00.chartPairsEn": "Pairs involving English (live MCP)",
+    "s00.pairsIndexed": "Indexed (113k)",
+    "s00.pairsEn": "English (live)",
+    "s00.enCallout":
+      "English is not in the Swiss vector index: TERMDAT, IATE and EUR-Lex are queried on demand whenever a pair involves EN.",
+    "s00.enPairNote":
+      "No consolidated Swiss federal law in EN on Fedlex — administrative terminology (TERMDAT), EU terms (IATE) and parallel legislation (EUR-Lex).",
+    "s00.liveRole.terminology": "terminology",
+    "s00.liveRole.parallel_tm": "parallel TM",
+    "s00.liveRole.default": "live source",
     "s00.chartLive": "Live-queried sources",
     "s00.liveNote":
       "Not included in the 113k vector index — queried on demand for terminology (TERMDAT, IATE) and English TM (EUR-Lex).",
