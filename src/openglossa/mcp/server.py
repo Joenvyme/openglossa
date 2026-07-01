@@ -42,6 +42,11 @@ IATE_SCOPE_NOTE = (
     "They complement Swiss TERMDAT/Fedlex sources but are not Swiss federal law."
 )
 
+EURLEX_SCOPE_NOTE = (
+    "EUR-Lex results are official EU legislation and summaries (European Union). "
+    "They complement the Swiss corpus (Fedlex/SLDS) but are not Swiss federal law."
+)
+
 DEFAULT_DATA_DIR = Path(os.environ.get("OPENGLOSSA_DATA", "data/processed"))
 
 
@@ -94,6 +99,11 @@ def _should_query_iate(src_lang: str, tgt_lang: str) -> bool:
     return "en" in (src_lang, tgt_lang)
 
 
+def _should_query_eurlex(src_lang: str, tgt_lang: str) -> bool:
+    """EUR-Lex live TM is queried when English is involved (EN↔DE/FR/IT)."""
+    return "en" in (src_lang, tgt_lang)
+
+
 def _response_notes(*, src_lang: str, tgt_lang: str) -> dict[str, str]:
     """Optional response notes keyed by field name (empty when not applicable)."""
     notes: dict[str, str] = {}
@@ -101,6 +111,8 @@ def _response_notes(*, src_lang: str, tgt_lang: str) -> dict[str, str]:
         notes["en_scope"] = TERMDAT_EN_NOTE
     if _should_query_iate(src_lang, tgt_lang):
         notes["iate_scope"] = IATE_SCOPE_NOTE
+    if _should_query_eurlex(src_lang, tgt_lang):
+        notes["eurlex_scope"] = EURLEX_SCOPE_NOTE
     return notes
 
 
@@ -206,6 +218,7 @@ def search_parallel(
     k: int = 5,
     *,
     index: Any = None,
+    eurlex_live: bool = False,
 ) -> dict[str, Any]:
     """RAG over the TM (few-shot examples), with citations.
 
@@ -225,6 +238,29 @@ def search_parallel(
     else:
         out = _search_parallel_lexical(repo, text, src_lang, tgt_lang, k)
     out["query_translation"] = _phrase_translation(repo, text, src_lang, tgt_lang)
+
+    if eurlex_live and _should_query_eurlex(src_lang, tgt_lang):
+        try:
+            from openglossa.sources import eurlex
+
+            eurlex_hits = eurlex.search_parallel_live(text, src_lang, tgt_lang, k)
+            if eurlex_hits:
+                merged: dict[tuple[str, str], dict[str, Any]] = {}
+                for hit in out.get("results") or []:
+                    key = (hit["src"], hit["tgt"])
+                    merged[key] = hit
+                for hit in eurlex_hits:
+                    key = (hit["src"], hit["tgt"])
+                    if key not in merged or hit["score"] > merged[key].get("score", 0):
+                        merged[key] = hit
+                ranked = sorted(merged.values(), key=lambda h: h.get("score", 0), reverse=True)
+                out["results"] = ranked[:k]
+                if out.get("method") in ("hybrid", "lexical"):
+                    out["method"] = f"{out['method']}+eurlex"
+        except Exception as exc:  # noqa: BLE001 - live backbone is best-effort
+            out["eurlex_error"] = str(exc)
+
+    out.update(_response_notes(src_lang=src_lang, tgt_lang=tgt_lang))
     return out
 
 
@@ -410,6 +446,7 @@ def verify_translation(
     *,
     termdat_live: bool = False,
     iate_live: bool = False,
+    eurlex_live: bool = False,
 ) -> dict[str, Any]:
     """Is this term pair supported by an official source? Never fabricate (#4)."""
     s = src_term.strip().casefold()
@@ -453,6 +490,16 @@ def verify_translation(
                 tgt_match = any(t == x.text.casefold() for x in (rec.terms.get(tgt_lang) or []))
                 if src_match and tgt_match:
                     _add_evidence(_sources_payload(rec))
+        except Exception:  # noqa: BLE001 - live backbone is best-effort
+            pass
+
+    if eurlex_live and _should_query_eurlex(src_lang, tgt_lang):
+        try:
+            from openglossa.sources import eurlex
+
+            _add_evidence(
+                eurlex.verify_live(src_term, tgt_term, src_lang, tgt_lang)
+            )
         except Exception:  # noqa: BLE001 - live backbone is best-effort
             pass
 
@@ -587,6 +634,7 @@ def build_server(
     *,
     termdat_live: bool = True,
     iate_live: bool = True,
+    eurlex_live: bool = True,
     index: Any = None,
     index_path: Path | None = DEFAULT_INDEX_PATH,
     stateless: bool = False,
@@ -596,6 +644,7 @@ def build_server(
 
     ``termdat_live`` enables the live TERMDAT backbone for ``lookup_term``.
     ``iate_live`` enables the live IATE backbone when English is involved.
+    ``eurlex_live`` enables live EUR-Lex parallel segments when English is involved.
     ``index`` (or an ``index_path`` to open) enables semantic ``search_parallel``;
     without it, ``search_parallel`` uses the lexical baseline.
     ``stateless`` runs the Streamable HTTP transport without persistent sessions
@@ -652,8 +701,13 @@ def build_server(
     def search_parallel_tool(
         text: str, src_lang: str, tgt_lang: str, k: int = 5
     ) -> dict[str, Any]:
-        """Retrieve parallel example segments (few-shot RAG) with citations."""
-        return search_parallel(repo, text, src_lang, tgt_lang, k, index=index)
+        """Retrieve parallel example segments (few-shot RAG) with citations.
+
+        When English is involved, also queries EUR-Lex (EU legislation) live.
+        """
+        return search_parallel(
+            repo, text, src_lang, tgt_lang, k, index=index, eurlex_live=eurlex_live,
+        )
 
     @mcp.tool()
     def verify_translation_tool(
@@ -662,7 +716,7 @@ def build_server(
         """Check whether a term pair is supported by an official source."""
         return verify_translation(
             repo, src_term, tgt_term, src_lang, tgt_lang,
-            termdat_live=termdat_live, iate_live=iate_live,
+            termdat_live=termdat_live, iate_live=iate_live, eurlex_live=eurlex_live,
         )
 
     @mcp.tool()
@@ -703,7 +757,9 @@ def build_server(
             k = 8
         if not text or src == tgt:
             return JSONResponse({"results": [], "method": "none"}, headers=_CORS)
-        out = search_parallel(repo, text, src, tgt, k, index=index)
+        out = search_parallel(
+            repo, text, src, tgt, k, index=index, eurlex_live=eurlex_live,
+        )
         return JSONResponse(out, headers=_CORS)
 
     @mcp.custom_route("/health", methods=["GET"])

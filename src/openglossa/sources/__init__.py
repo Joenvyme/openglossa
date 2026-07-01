@@ -7,4 +7,4 @@ must not fail when those deps are absent; import the concrete connector lazily.
 
 from __future__ import annotations
 
-__all__ = ["fedlex", "slds", "termdat", "iate", "jurivoc"]
+__all__ = ["fedlex", "slds", "termdat", "iate", "eurlex", "jurivoc"]

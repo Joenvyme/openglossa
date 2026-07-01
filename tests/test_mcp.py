@@ -65,6 +65,7 @@ def test_lookup_term_de_en_includes_termdat_scope_note():
     assert out["results"][0]["available_languages"] == ["de", "en"]
     assert out["en_scope"] == TERMDAT_EN_NOTE
     assert out["iate_scope"]  # informational whenever EN is involved
+    assert out["eurlex_scope"]  # informational whenever EN is involved
 
 
 def test_lookup_term_de_en_with_iate_live(monkeypatch):
@@ -164,6 +165,33 @@ def test_verify_translation_unsupported_does_not_fabricate(term_records, transla
     out = verify_translation(repo, "Verzug", "inexistant", "de", "fr")
     assert out["supported"] is False
     assert out["evidence"] == []
+
+
+def test_search_parallel_de_en_with_eurlex_live(monkeypatch):
+    repo = Repository()
+
+    def fake_eurlex(text, src, tgt, k=5, **kwargs):
+        return [
+            {
+                "src": "Mehrwertsteuerschuldner",
+                "tgt": "person liable for payment of VAT",
+                "source": {
+                    "name": "EUR-Lex",
+                    "ref": "32000L0065",
+                    "uri": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32000L0065",
+                    "license": "CC-BY-4.0-EU",
+                },
+                "score": 1.0,
+            }
+        ]
+
+    import openglossa.sources.eurlex as eurlex_mod
+
+    monkeypatch.setattr(eurlex_mod, "search_parallel_live", fake_eurlex)
+    out = search_parallel(repo, "Schuldner", "de", "en", k=3, eurlex_live=True)
+    assert out["results"]
+    assert out["results"][0]["source"]["name"] == "EUR-Lex"
+    assert "eurlex_scope" in out
 
 
 def test_search_parallel(term_records, translation_units):

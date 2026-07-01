@@ -34,6 +34,13 @@ détaillé de chaque source.
 - Licence : Décision 2011/833/UE — réutilisation libre avec attribution
   « © European Union — IATE (https://iate.europa.eu) ».
 
+### EUR-Lex / CELLAR — Législation de l'Union européenne
+- Textes législatifs et résumés multilingues officiels (dont anglais).
+- Accès : https://eur-lex.europa.eu/ ; SPARQL CELLAR
+  `https://publications.europa.eu/webapi/rdf/sparql`.
+- Licence : CC-BY 4.0 (contenu éditorial) ; actes selon Décision 2011/833/UE —
+  attribution « © European Union — EUR-Lex (https://eur-lex.europa.eu) ».
+
 ### JURIVOC — Thésaurus du Tribunal fédéral
 - Statut : licence **à vérifier** — voir `LICENSING.md`.
 
