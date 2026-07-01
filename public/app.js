@@ -160,6 +160,12 @@ document.getElementById("tgt").addEventListener("change", run);
 // Re-render results in the newly selected UI language.
 window.addEventListener("og:langchange", () => run());
 
-// Show a live example on first paint.
-document.getElementById("q").value = "bonne foi";
+// Show a live DE→FR example on first paint (French in the target column).
+function applyDemoExample() {
+  const q = t("js.demoQuery");
+  document.getElementById("q").value = q;
+  document.getElementById("src").value = "de";
+  document.getElementById("tgt").value = "fr";
+}
+applyDemoExample();
 run();

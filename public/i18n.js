@@ -30,7 +30,7 @@ const OG_I18N = {
     "s01.h2": "Recherche",
     "s01.lead":
       "Recherche sémantique en direct dans la mémoire de traduction complète : 113 095 segments officiels (lois fédérales Fedlex + regestes du Tribunal fédéral ATF/BGE), en allemand, français et italien. Chaque résultat est cité — article RS + lien ELI Fedlex, ou référence ATF.",
-    "s01.ph": "ex. « Schuldner Verzug », « bonne foi », « prescrizione »…",
+    "s01.ph": "ex. DE→FR : « Schuldner Verzug », « häusliche Gewalt », « bonne foi contractuelle »…",
     "s01.srcAria": "Langue source",
     "s01.tgtAria": "Langue cible",
     "s01.go": "Rechercher",
@@ -85,6 +85,7 @@ const OG_I18N = {
     "footer.l_value": "Apache-2.0 (code) · CC-BY-4.0 (données)",
     "footer.copyright":
       "© 2026 OpenGlossa · sortie non officielle — vérifiez toujours la source faisant foi.",
+    "js.demoQuery": "Schuldner Verzug",
     "js.prompt": "Saisissez un terme ou une phrase pour interroger la mémoire de traduction.",
     "js.sameLang": "Choisissez deux langues différentes.",
     "js.noResult":
@@ -124,7 +125,7 @@ const OG_I18N = {
     "s01.h2": "Suche",
     "s01.lead":
       "Semantische Live-Suche im vollständigen Translation Memory: 113 095 amtliche Segmente (Bundesgesetze aus Fedlex + Regesten des Bundesgerichts, BGE), auf Deutsch, Französisch und Italienisch. Jedes Ergebnis ist zitiert — SR-Artikel + Fedlex-ELI-Link oder BGE-Fundstelle.",
-    "s01.ph": "z. B. « Schuldner Verzug », « bonne foi », « prescrizione »…",
+    "s01.ph": "z. B. DE→FR : « Schuldner Verzug », « häusliche Gewalt », « bonne foi contractuelle »…",
     "s01.srcAria": "Ausgangssprache",
     "s01.tgtAria": "Zielsprache",
     "s01.go": "Suchen",
@@ -179,6 +180,7 @@ const OG_I18N = {
     "footer.l_value": "Apache-2.0 (Code) · CC-BY-4.0 (Daten)",
     "footer.copyright":
       "© 2026 OpenGlossa · inoffizielle Ausgabe — prüfen Sie stets die massgebende Quelle.",
+    "js.demoQuery": "Schuldner Verzug",
     "js.prompt": "Geben Sie einen Begriff oder Satz ein, um das Translation Memory abzufragen.",
     "js.sameLang": "Wählen Sie zwei verschiedene Sprachen.",
     "js.noResult":
@@ -218,7 +220,7 @@ const OG_I18N = {
     "s01.h2": "Search",
     "s01.lead":
       "Live semantic search across the full translation memory: 113,095 official segments (Fedlex federal acts + Federal Supreme Court regestes, ATF/BGE), in German, French and Italian. Every result is cited — SR article + Fedlex ELI link, or ATF/BGE reference.",
-    "s01.ph": "e.g. « Schuldner Verzug », « bonne foi », « prescrizione »…",
+    "s01.ph": "e.g. DE→FR : « Schuldner Verzug », « häusliche Gewalt », « bonne foi contractuelle »…",
     "s01.srcAria": "Source language",
     "s01.tgtAria": "Target language",
     "s01.go": "Search",
@@ -273,6 +275,7 @@ const OG_I18N = {
     "footer.l_value": "Apache-2.0 (code) · CC-BY-4.0 (data)",
     "footer.copyright":
       "© 2026 OpenGlossa · unofficial output — always verify the authoritative source.",
+    "js.demoQuery": "Schuldner Verzug",
     "js.prompt": "Enter a term or phrase to query the translation memory.",
     "js.sameLang": "Choose two different languages.",
     "js.noResult":
